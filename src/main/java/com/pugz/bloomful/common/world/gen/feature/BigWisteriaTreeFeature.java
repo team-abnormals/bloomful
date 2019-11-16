@@ -58,39 +58,39 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 
     @Override
     protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundingBox) {
-        for (int i = 0; i < rand.nextInt(6) + 7; ++i) {
-            setLogState(changedBlocks, worldIn, position.add(0, i, 0), LOG, boundingBox);
-        }
         if (isDirtOrGrassBlock(worldIn, position.down())) {
+            for (int i = 0; i < rand.nextInt(6) + 7; ++i) {
+                setLogState(changedBlocks, worldIn, position.add(0, i, 0), LOG, boundingBox);
+            }
             for (int k = 0; k < 3; ++k) {
-            BlockPos pos = new BlockPos(position.add(0, rand.nextInt(3) + 4, 0));
-            boolean xNeg = rand.nextBoolean();
-            boolean zNeg = rand.nextBoolean();
-            int size = rand.nextInt(3) + 5;
-            for (int j = 1; j <= size; ++j) {
-                pos = pos.add(rand.nextInt(2) - (xNeg ? 1 : 0), rand.nextInt(2), rand.nextInt(2) - (zNeg ? 1 : 0));
-                setLogState(changedBlocks, worldIn, pos, LOG, boundingBox);
-                if (j == size) {
-                    for (int y = 4; y > -4; --y)
-                        for (int x = 4; x > -4; --x)
-                            for (int z = 4; z > -4; --z)
-                                if (Math.sqrt((x * x) + (y > 0 ? (y * y) : 0) + (z * z)) <= 4) {
-                                    BlockPos leafPos = pos.add(x, y, z);
-                                    boolean place = true;
-                                    if (y < 0) {
-                                        place = worldIn.hasBlockState(leafPos.add(0, 1, 0), (state) -> {
-                                            return state.isIn(BlockTags.LEAVES);
-                                        });
-                                        if (place && rand.nextInt(Math.abs(y) + 1) != 0) {
-                                            place = false;
-                                            if (rand.nextInt(2) == 0) {
-                                                placeVines(worldIn, rand, leafPos, LEAF, VINE_LOWER, VINE_UPPER);
+                BlockPos pos = new BlockPos(position.add(0, rand.nextInt(3) + 4, 0));
+                boolean xNeg = rand.nextBoolean();
+                boolean zNeg = rand.nextBoolean();
+                int size = rand.nextInt(3) + 5;
+                for (int j = 1; j <= size; ++j) {
+                    pos = pos.add(rand.nextInt(2) - (xNeg ? 1 : 0), rand.nextInt(2), rand.nextInt(2) - (zNeg ? 1 : 0));
+                    setLogState(changedBlocks, worldIn, pos, LOG, boundingBox);
+                    if (j == size) {
+                        for (int y = 4; y > -4; --y)
+                            for (int x = 4; x > -4; --x)
+                                for (int z = 4; z > -4; --z)
+                                    if (Math.sqrt((x * x) + (y > 0 ? (y * y) : 0) + (z * z)) <= 4) {
+                                        BlockPos leafPos = pos.add(x, y, z);
+                                        boolean place = true;
+                                        if (y < 0) {
+                                            place = worldIn.hasBlockState(leafPos.add(0, 1, 0), (state) -> {
+                                                return state.isIn(BlockTags.LEAVES);
+                                            });
+                                            if (place && rand.nextInt(Math.abs(y) + 1) != 0) {
+                                                place = false;
+                                                if (rand.nextInt(2) == 0) {
+                                                    placeVines(worldIn, rand, leafPos, LEAF, VINE_LOWER, VINE_UPPER);
+                                                }
                                             }
                                         }
+                                        if (place && isAirOrLeaves(worldIn, leafPos))
+                                            setLogState(changedBlocks, worldIn, leafPos, LEAF, boundingBox);
                                     }
-                                    if (place && isAirOrLeaves(worldIn, leafPos))
-                                        setLogState(changedBlocks, worldIn, leafPos, LEAF, boundingBox);
-                                }
                     }
                 }
             }

@@ -15,7 +15,6 @@ public class BlockProperties {
     public static Block.Properties WISTERIA_DOORS = Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).hardnessAndResistance(3.0F).sound(SoundType.WOOD);
     public static Block.Properties FLOWER_POT = Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.0F);
     public static Block.Properties SAPLING = Block.Properties.create(Material.PLANTS).doesNotBlockMovement().tickRandomly().hardnessAndResistance(0.0F).sound(SoundType.PLANT);
-
     public static Block.Properties WISTERIA_LOG(boolean stripped) {
         MaterialColor color = stripped ? MaterialColor.WHITE_TERRACOTTA : MaterialColor.GRAY;
         return Block.Properties.create(Material.WOOD, color).hardnessAndResistance(2.0F).sound(SoundType.WOOD);
