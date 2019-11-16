@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wisteria_planks",
+  "ingredients": [
+    {
+      "item": "bloomful:stripped_wisteria_log"
+    }
+  ],
+  "result": {
+    "item": "bloomful:wisteria_planks",
+    "count": 4
+  }
+}

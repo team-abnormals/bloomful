@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "wooden_button",
+  "ingredients": [
+    {
+      "item": "bloomful:wisteria_planks"
+    }
+  ],
+  "result": {
+    "item": "bloomful:wisteria_button"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "bloomful:block/wisteria_vine_top",
+  "textures": {
+      "all": "bloomful:block/wisteria_vine_purple_top"
+  }
+}

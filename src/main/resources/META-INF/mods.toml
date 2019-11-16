@@ -1,0 +1,13 @@
+modLoader="javafml"
+loaderVersion="[28,]"
+logoFile="logo.png"
+authors="Pugz"
+credits="Endergized and Josh"
+
+[[mods]]
+    modId="bloomful"
+    version="1.0.0"
+    displayName="Bloomful"
+    description='''
+    See Flower Forests in full bloom!
+    '''

@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "bloomful:block/wisteria_planks",
+    "top": "bloomful:block/wisteria_planks",
+    "side": "bloomful:block/wisteria_planks"
+  }
+}

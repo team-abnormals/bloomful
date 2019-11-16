@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "bloomful:block/blue_wisteria_leaves"
+  },
+  "uvlock": true
+}

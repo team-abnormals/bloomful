@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "bottom": "bloomful:block/wisteria_planks",
+      "top": "bloomful:block/wisteria_planks",
+      "side": "bloomful:block/wisteria_planks"
+    }
+  },
+  "variants": {
+    "type=bottom": { "model": "block/slab" },
+    "type=top": { "model": "block/slab_top" },
+    "type=double": {
+      "model": "block/cube_all",
+      "textures": {
+        "all": "bambooblocks:block/bamboo_planks"
+      }
+    }
+  }
+}

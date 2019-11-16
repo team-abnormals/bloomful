@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "cross": "bloomful:block/blue_wisteria_sapling"
+        },
+        "model": "block/cross"
+    },
+    "variants": {
+        "": [{}]
+    }
+}

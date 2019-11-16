@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_post",
+    "textures": {
+        "texture": "bloomful:block/wisteria_planks"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "model": "block/cross"
+    },
+    "variants": {
+        "half=lower": [{ "textures": { "cross": "bloomful:block/blue_delphinium_bottom" }}],
+        "half=upper": [{ "textures": { "cross": "bloomful:block/blue_delphinium_top" }}]
+    }
+}

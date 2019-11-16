@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_pressure_plate",
+  "pattern": [
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "bloomful:wisteria_planks"
+    }
+  },
+  "result": {
+    "item": "bloomful:wisteria_pressure_plate"
+  }
+}
