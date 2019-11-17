@@ -3,13 +3,19 @@ package com.pugz.bloomful.core.util;
 import com.pugz.bloomful.core.registry.BiomeRegistry;
 import com.pugz.bloomful.core.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.DoublePlantBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.passive.horse.AbstractChestedHorseEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -47,5 +53,30 @@ public class EventHandler {
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.PINK_DELPHINIUM), 2, 1, 6, 1, 0.05F));
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.PURPLE_DELPHINIUM), 2, 1, 6, 1, 0.05F));
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.WHITE_DELPHINIUM), 2, 1, 6, 1, 0.05F));
+    }
+
+    @SubscribeEvent
+    public void onClickEntity(PlayerInteractEvent.EntityInteractSpecific event) {
+        Entity target = event.getTarget();
+        PlayerEntity player = event.getPlayer();
+        ItemStack held = player.getHeldItem(event.getHand());
+        if (!held.isEmpty() && target instanceof AbstractChestedHorseEntity) {
+            AbstractChestedHorseEntity horse = (AbstractChestedHorseEntity) target;
+            if (!horse.hasChest() && held.getItem() != Items.CHEST) {
+                if (held.getItem().isIn(Tags.Items.CHESTS_WOODEN)) {
+                    event.setCanceled(true);
+                    event.setCancellationResult(ActionResultType.SUCCESS);
+                    if (!target.world.isRemote) {
+                        ItemStack copy = held.copy();
+                        copy.setCount(1);
+                        held.shrink(1);
+                        horse.getPersistentData().put("Bloomful:WisteriaChest", copy.serializeNBT());
+                        horse.setChested(true);
+                        //horse.initHorseChest();
+                        //horse.playChestEquipSound();
+                    }
+                }
+            }
+        }
     }
 }

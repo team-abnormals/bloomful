@@ -1,0 +1,14 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "texture": "bloomful:block/wisteria_ladder"
+        }
+    },
+    "variants": {
+        "facing=north": { "model": "block/ladder" },
+        "facing=east":  { "model": "block/ladder", "y": 90 },
+        "facing=south": { "model": "block/ladder", "y": 180 },
+        "facing=west":  { "model": "block/ladder", "y": 270 }
+    }
+}

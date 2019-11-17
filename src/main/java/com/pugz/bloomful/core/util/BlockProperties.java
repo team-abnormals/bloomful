@@ -19,4 +19,7 @@ public class BlockProperties {
         MaterialColor color = stripped ? MaterialColor.WHITE_TERRACOTTA : MaterialColor.GRAY;
         return Block.Properties.create(Material.WOOD, color).hardnessAndResistance(2.0F).sound(SoundType.WOOD);
     }
+    public static Block.Properties BOOKSHELF = Block.Properties.create(Material.WOOD).hardnessAndResistance(1.5F).sound(SoundType.WOOD);
+    public static Block.Properties CHEST = Block.Properties.create(Material.WOOD).hardnessAndResistance(2.5F).sound(SoundType.WOOD);
+    public static Block.Properties LADDER = Block.Properties.create(Material.MISCELLANEOUS).hardnessAndResistance(0.4F).sound(SoundType.LADDER);
 }

@@ -1,21 +1,15 @@
 package com.pugz.bloomful.core.util;
 
-import com.pugz.bloomful.core.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.DoublePlantBlock;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 
 import java.util.Random;
 
 public class WisteriaTreeUtils {
-    public static BlockPos[] WISTERIA_TREE_POSITIONS;
-
     public static void placeVines(IWorldGenerationReader world, Random random, BlockPos pos, BlockState leaf, BlockState vineLower, BlockState vineUpper) {
         int length = getLengthByNeighbors(world, random, pos);
         if (random.nextInt(6) != 5 && isAir(world, pos)) {
@@ -50,14 +44,6 @@ public class WisteriaTreeUtils {
             }
         }
     }
-
-    /*
-    public static void generateDelphiniums(Biome biome) {
-        for (BlockPos pos : WISTERIA_TREE_POSITIONS) {
-            BiomeFeatures.addDelphiniums(biome, 4);
-        }
-    }
-    */
 
     public static int getLengthByNeighbors(IWorldGenerationReader world, Random random, BlockPos pos) {
         int length = random.nextInt(6); // max 4

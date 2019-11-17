@@ -23,10 +23,10 @@ public class FeatureRegistry {
     public static Feature BIG_WISTERIA_TREE_PINK = new BigWisteriaTreeFeature(NoFeatureConfig::deserialize, false, WisteriaColor.PINK).setSapling((IPlantable) BlockRegistry.PINK_WISTERIA_SAPLING).setRegistryName("big_pink_wisteria_tree");
     public static Feature BIG_WISTERIA_TREE_PURPLE = new BigWisteriaTreeFeature(NoFeatureConfig::deserialize, false, WisteriaColor.PURPLE).setSapling((IPlantable) BlockRegistry.PURPLE_WISTERIA_SAPLING).setRegistryName("big_purple_wisteria_tree");
     public static Feature BIG_WISTERIA_TREE_WHITE = new BigWisteriaTreeFeature(NoFeatureConfig::deserialize, false, WisteriaColor.WHITE).setSapling((IPlantable) BlockRegistry.WHITE_WISTERIA_SAPLING).setRegistryName("big_white_wisteria_tree");
-    public static Feature DELPHINIUMS_BLUE = new DoublePlantFeature(DoublePlantConfig::deserialize).setRegistryName("blue_delphinium");
-    public static Feature DELPHINIUMS_PINK = new DoublePlantFeature(DoublePlantConfig::deserialize).setRegistryName("pink_delphinium");
-    public static Feature DELPHINIUMS_PURPLE = new DoublePlantFeature(DoublePlantConfig::deserialize).setRegistryName("purple_delphinium");
-    public static Feature DELPHINIUMS_WHITE = new DoublePlantFeature(DoublePlantConfig::deserialize).setRegistryName("white_delphinium");
+    public static Feature DELPHINIUMS_BLUE = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("blue_delphinium");
+    public static Feature DELPHINIUMS_PINK = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("pink_delphinium");
+    public static Feature DELPHINIUMS_PURPLE = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("purple_delphinium");
+    public static Feature DELPHINIUMS_WHITE = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("white_delphinium");
 
     @SubscribeEvent
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
