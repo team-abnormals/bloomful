@@ -2,7 +2,7 @@
     "forge_marker": 1,
     "defaults": {
         "textures": {
-            "plant": "block/blue_wisteria_sapling"
+            "plant": "bloomful:block/blue_wisteria_sapling"
         },
         "model": "block/flower_pot_cross"
     },

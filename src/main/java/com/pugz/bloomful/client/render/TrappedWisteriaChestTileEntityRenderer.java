@@ -1,19 +1,20 @@
 package com.pugz.bloomful.client.render;
 
 import com.pugz.bloomful.common.block.ChestBlock;
+import com.pugz.bloomful.common.tileentity.TrappedWisteriaChestTileEntity;
 import com.pugz.bloomful.common.tileentity.WisteriaChestTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.ChestTileEntityRenderer;
 import net.minecraft.util.ResourceLocation;
 
-public class WisteriaChestTileEntityRenderer extends ChestTileEntityRenderer<WisteriaChestTileEntity> {
+public class TrappedWisteriaChestTileEntityRenderer extends ChestTileEntityRenderer<TrappedWisteriaChestTileEntity> {
 
-    private WisteriaChestTileEntity tile;
+    private TrappedWisteriaChestTileEntity tile;
     public static ResourceLocation forceNormal = new ResourceLocation("bloomful", "textures/model/chest/wisteria_chest_double.png");
     public static ResourceLocation forceDouble = new ResourceLocation("bloomful", "textures/model/chest/wisteria_chest_normal.png");
 
     @Override
-    public void render(WisteriaChestTileEntity tileEntityIn, double x, double y, double z, float partialTicks, int destroyStage) {
+    public void render(TrappedWisteriaChestTileEntity tileEntityIn, double x, double y, double z, float partialTicks, int destroyStage) {
         tile = tileEntityIn;
         super.render(tileEntityIn, x, y, z, partialTicks, destroyStage);
     }

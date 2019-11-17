@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "wisteria_planks",
+  "group": "bloomful",
   "ingredients": [
     {
-      "item": "bloomful:wisteria_log"
+      "tag": "bloomful:wisteria_logs"
     }
   ],
   "result": {

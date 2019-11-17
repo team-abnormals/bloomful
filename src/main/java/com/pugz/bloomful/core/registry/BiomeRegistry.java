@@ -1,10 +1,7 @@
 package com.pugz.bloomful.core.registry;
 
 import com.pugz.bloomful.common.world.biome.WisteriaForestBiome;
-import com.pugz.bloomful.core.util.BiomeFeatures;
-import com.pugz.bloomful.core.util.WisteriaColor;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeManager;

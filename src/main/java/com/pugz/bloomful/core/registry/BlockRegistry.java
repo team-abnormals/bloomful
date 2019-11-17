@@ -11,15 +11,19 @@ import com.pugz.bloomful.core.util.WisteriaColor;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.data.BlockTagsProvider;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.tileentity.AbstractFurnaceTileEntity;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.Map;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BlockRegistry {
@@ -54,10 +58,10 @@ public class BlockRegistry {
     public static Block WISTERIA_DOOR = new DoorBlock(BlockProperties.WISTERIA_DOORS).setRegistryName("wisteria_door");
     public static Block WISTERIA_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)).setRegistryName("wisteria_pressure_plate");
     public static Block WISTERIA_BUTTON = new WoodButtonBlock(BlockProperties.WOOD_BUTTON).setRegistryName("wisteria_button");
-    public static Block PINK_DELPHINIUM = new DoublePlantBlock(BlockProperties.DELPHINIUMS).setRegistryName("pink_delphinium");
-    public static Block BLUE_DELPHINIUM = new DoublePlantBlock(BlockProperties.DELPHINIUMS).setRegistryName("blue_delphinium");
-    public static Block PURPLE_DELPHINIUM = new DoublePlantBlock(BlockProperties.DELPHINIUMS).setRegistryName("purple_delphinium");
-    public static Block WHITE_DELPHINIUM = new DoublePlantBlock(BlockProperties.DELPHINIUMS).setRegistryName("white_delphinium");
+    public static Block PINK_DELPHINIUM = new DelphiniumBlock(BlockProperties.DELPHINIUMS).setRegistryName("pink_delphinium");
+    public static Block BLUE_DELPHINIUM = new DelphiniumBlock(BlockProperties.DELPHINIUMS).setRegistryName("blue_delphinium");
+    public static Block PURPLE_DELPHINIUM = new DelphiniumBlock(BlockProperties.DELPHINIUMS).setRegistryName("purple_delphinium");
+    public static Block WHITE_DELPHINIUM = new DelphiniumBlock(BlockProperties.DELPHINIUMS).setRegistryName("white_delphinium");
 
     //quark
     public static Block WISTERIA_BOOKSHELF = new BookshelfBlock(BlockProperties.BOOKSHELF).setRegistryName("wisteria_bookshelf");
@@ -83,7 +87,7 @@ public class BlockRegistry {
         );
         //if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
-                    WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER
+                    WISTERIA_BOOKSHELF, /*WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST,*/ WISTERIA_LADDER
             );
         //}
     }
@@ -128,8 +132,8 @@ public class BlockRegistry {
         //if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new BlockItem(WISTERIA_BOOKSHELF, buildingBlocks).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
-                new BlockItem(WISTERIA_CHEST, decorations).setRegistryName(WISTERIA_CHEST.getRegistryName()),
-                new BlockItem(TRAPPED_WISTERIA_CHEST, decorations).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
+                //new BlockItem(WISTERIA_CHEST, decorations).setRegistryName(WISTERIA_CHEST.getRegistryName()),
+                //new BlockItem(TRAPPED_WISTERIA_CHEST, decorations).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
                 new BlockItem(WISTERIA_LADDER, decorations).setRegistryName(WISTERIA_LADDER.getRegistryName())
             );
         //}

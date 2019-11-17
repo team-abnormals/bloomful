@@ -140,7 +140,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
 
     public static void generate(Biome biome) {
         if (biome.getCategory() == Biome.Category.JUNGLE) {
-            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.05F);
+            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.25F);
         }
         else if (biome.getCategory() == Biome.Category.SWAMP) {
             BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.025F);

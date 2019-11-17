@@ -1,7 +1,10 @@
 package com.pugz.bloomful.core.proxy;
 
+import com.pugz.bloomful.client.render.TrappedWisteriaChestTileEntityRenderer;
 import com.pugz.bloomful.client.render.WisteriaChestTileEntityRenderer;
-import net.minecraft.tileentity.ChestTileEntity;
+import com.pugz.bloomful.common.tileentity.TrappedWisteriaChestTileEntity;
+import com.pugz.bloomful.common.tileentity.WisteriaChestTileEntity;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends ServerProxy {
@@ -11,6 +14,9 @@ public class ClientProxy extends ServerProxy {
     }
 
     public static void registerSpecialRenderers() {
-        ClientRegistry.bindTileEntitySpecialRenderer(ChestTileEntity.class, new WisteriaChestTileEntityRenderer());
+        if (ModList.get().isLoaded("quark")) {
+            //ClientRegistry.bindTileEntitySpecialRenderer(WisteriaChestTileEntity.class, new WisteriaChestTileEntityRenderer());
+            //ClientRegistry.bindTileEntitySpecialRenderer(TrappedWisteriaChestTileEntity.class, new TrappedWisteriaChestTileEntityRenderer());
+        }
     }
 }

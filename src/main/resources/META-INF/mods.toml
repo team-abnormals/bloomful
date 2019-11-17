@@ -5,9 +5,16 @@ authors="Pugz"
 credits="Endergized, Josh, Bratiswolf, Rohan, Arobazz, and jöllipölli"
 
 [[mods]]
-    modId="bloomful"
-    version="1.0.0"
-    displayName="Bloomful"
-    description='''
-    See Flower Forests in full bloom!
-    '''
+modId="bloomful"
+version="1.0.1"
+displayName="Bloomful"
+description='''
+See Flower Forests in full bloom!
+'''
+
+[[dependencies.bloomful]]
+    modId="forge"
+    mandatory=true
+    versionRange="[24,)"
+    ordering="NONE"
+    side="BOTH"
