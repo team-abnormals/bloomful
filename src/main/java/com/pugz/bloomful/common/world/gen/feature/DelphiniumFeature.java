@@ -22,7 +22,7 @@ public class DelphiniumFeature extends DoublePlantFeature {
 
     public static void generate(Biome biome) {
         if (biome == Biomes.FLOWER_FOREST) {
-            BiomeFeatures.addDelphiniums(biome, 2);
+            BiomeFeatures.addDelphiniums(biome, 4);
         }
     }
 }

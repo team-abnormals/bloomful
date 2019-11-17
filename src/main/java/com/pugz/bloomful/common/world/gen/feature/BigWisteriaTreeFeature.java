@@ -3,6 +3,7 @@ package com.pugz.bloomful.common.world.gen.feature;
 import com.mojang.datafixers.Dynamic;
 import com.pugz.bloomful.core.registry.BlockRegistry;
 import com.pugz.bloomful.core.util.WisteriaColor;
+import com.pugz.bloomful.core.util.WisteriaTreeUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.BlockTags;

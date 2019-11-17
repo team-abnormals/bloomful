@@ -24,11 +24,10 @@ import java.util.Random;
 
 public class WisteriaLeavesBlock extends LeavesBlock {
     public static final IntegerProperty DISTANCE = IntegerProperty.create("distance", 1, 8);
-    public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
 
     public WisteriaLeavesBlock(Block.Properties properties) {
         super(properties);
-        setDefaultState(stateContainer.getBaseState().with(DISTANCE, 8).with(PERSISTENT, false));
+        setDefaultState(stateContainer.getBaseState().with(DISTANCE, 8));
     }
 
     public boolean ticksRandomly(BlockState state) {
@@ -36,7 +35,7 @@ public class WisteriaLeavesBlock extends LeavesBlock {
     }
 
     public void randomTick(BlockState state, World worldIn, BlockPos pos, Random random) {
-        if (!state.get(PERSISTENT) && state.get(DISTANCE) == 8) {
+        if (state.get(DISTANCE) == 8) {
             spawnDrops(state, worldIn, pos);
             worldIn.removeBlock(pos, false);
         }
@@ -114,10 +113,10 @@ public class WisteriaLeavesBlock extends LeavesBlock {
     }
 
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(DISTANCE, PERSISTENT);
+        builder.add(DISTANCE);
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return updateDistance(getDefaultState().with(PERSISTENT, true), context.getWorld(), context.getPos());
+        return updateDistance(getDefaultState(), context.getWorld(), context.getPos());
     }
 }

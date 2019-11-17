@@ -4,6 +4,7 @@ import com.mojang.datafixers.Dynamic;
 import com.pugz.bloomful.core.registry.BlockRegistry;
 import com.pugz.bloomful.core.util.BiomeFeatures;
 import com.pugz.bloomful.core.util.WisteriaColor;
+import com.pugz.bloomful.core.util.WisteriaTreeUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.properties.DoubleBlockHalf;
@@ -148,7 +149,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
             BiomeFeatures.addWisteriaTrees(biome,0, 0.01F);
         }
         else if (biome.getCategory() == Biome.Category.FOREST) {
-            if (biome == Biomes.FLOWER_FOREST) BiomeFeatures.addWisteriaTrees(biome,0, 0.05F);
+            if (biome == Biomes.FLOWER_FOREST) BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
             else BiomeFeatures.addWisteriaTrees(biome,0, 0.025F);
         }
     }
