@@ -85,7 +85,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                                             if (place && rand.nextInt(Math.abs(y) + 1) != 0) {
                                                 place = false;
                                                 if (rand.nextInt(2) == 0) {
-                                                    placeVines(worldIn, rand, leafPos, LEAF, VINE_LOWER, VINE_UPPER);
+                                                    placeVines(changedBlocks, worldIn, rand, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
                                                 }
                                             }
                                         }
@@ -97,5 +97,40 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
             }
         }
         return false;
+    }
+
+    public void placeVines(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos pos, BlockState leaf, BlockState vineLower, BlockState vineUpper, MutableBoundingBox boundingBox) {
+        int length = getLengthByNeighbors(world, random, pos);
+        if (random.nextInt(6) != 5 && isAir(world, pos)) {
+            switch (length) {
+                case 0:
+                    break;
+                case 1:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, vineLower, boundingBox);
+                    break;
+                case 2:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, vineUpper, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), vineLower, boundingBox);
+                    break;
+                case 3:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, leaf, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(2))) setLogState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
+                    break;
+                case 4:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, leaf, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), leaf, boundingBox);
+                    if (isAir(world, pos.down(2))) setLogState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(3))) setLogState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
+                    break;
+                case 5:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, leaf, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), leaf, boundingBox);
+                    if (isAir(world, pos.down(2))) setLogState(changedBlocks, world, pos.down(2), leaf, boundingBox);
+                    if (isAir(world, pos.down(3))) setLogState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(4))) setLogState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
+                    break;
+            }
+        }
     }
 }

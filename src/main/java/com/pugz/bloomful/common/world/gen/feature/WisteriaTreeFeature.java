@@ -70,8 +70,8 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
             for (int i = 0; i < height; ++i) {
                 setLogState(changedBlocks, world, pos.add(0, i, 0), LOG, boundingBox);
             }
-            placeBranch(world, random, pos.down(), pos.up(height).getY());
-            if (random.nextInt(4) == 3) placeBranch(world, random, pos.down(), pos.up(height).getY());
+            placeBranch(changedBlocks, world, random, pos.down(), pos.up(height).getY(), boundingBox);
+            if (random.nextInt(4) == 3) placeBranch(changedBlocks, world, random, pos.down(), pos.up(height).getY(), boundingBox);
             ArrayList<BlockPos> trunkBlacklist = new ArrayList<BlockPos>() {};
             for (int y = pos.getY(); y <= height + pos.getY() - 1; ++y) {
                 trunkBlacklist.add(new BlockPos(pos.getX(), y, pos.getZ()));
@@ -89,7 +89,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
                                 if (place && random.nextInt(Math.abs(y) + 1) != 0) {
                                     place = false;
                                     if (random.nextInt(2) == 0) {
-                                        placeVines(world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER);
+                                        placeVines(changedBlocks, world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
                                     }
                                 }
                             }
@@ -107,7 +107,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
         return false;
     }
 
-    private void placeBranch(IWorldGenerationReader world, Random random, BlockPos pos, int treeHeight) {
+    private void placeBranch(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos pos, int treeHeight, MutableBoundingBox boundingBox) {
         int heightOffset = random.nextInt(3);
         BlockPos[] startPositions = new BlockPos[] {
                 new BlockPos(pos.getX() - 1, treeHeight - heightOffset, pos.getZ()),
@@ -125,11 +125,46 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
             BlockPos placePos = startPos;
             for (int y = (treeHeight - heightOffset); y <= treeHeight; ++y) {
                 placePos = new BlockPos(startPos.getX(), y, startPos.getZ());
-                world.setBlockState(placePos, LOG, 18);
+                setLogState(changedBlocks, world, placePos, LOG, boundingBox);
             }
             world.setBlockState(placePos.up(), LEAF, 18);
             if (vines) {
-                placeVines(world, random, startPos.down(), LEAF, VINE_LOWER, VINE_UPPER);
+                placeVines(changedBlocks, world, random, startPos.down(), LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
+            }
+        }
+    }
+
+    public void placeVines(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos pos, BlockState leaf, BlockState vineLower, BlockState vineUpper, MutableBoundingBox boundingBox) {
+        int length = getLengthByNeighbors(world, random, pos);
+        if (random.nextInt(6) != 5 && isAir(world, pos)) {
+            switch (length) {
+                case 0:
+                    break;
+                case 1:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, vineLower, boundingBox);
+                    break;
+                case 2:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, vineUpper, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), vineLower, boundingBox);
+                    break;
+                case 3:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, leaf, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(2))) setLogState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
+                    break;
+                case 4:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, leaf, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), leaf, boundingBox);
+                    if (isAir(world, pos.down(2))) setLogState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(3))) setLogState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
+                    break;
+                case 5:
+                    if (isAir(world, pos)) setLogState(changedBlocks, world, pos, leaf, boundingBox);
+                    if (isAir(world, pos.down())) setLogState(changedBlocks, world, pos.down(), leaf, boundingBox);
+                    if (isAir(world, pos.down(2))) setLogState(changedBlocks, world, pos.down(2), leaf, boundingBox);
+                    if (isAir(world, pos.down(3))) setLogState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(4))) setLogState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
+                    break;
             }
         }
     }
@@ -149,7 +184,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
             BiomeFeatures.addWisteriaTrees(biome,0, 0.01F);
         }
         else if (biome.getCategory() == Biome.Category.FOREST) {
-            if (biome == Biomes.FLOWER_FOREST) BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
+            if (biome == Biomes.FLOWER_FOREST || biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
             else BiomeFeatures.addWisteriaTrees(biome,0, 0.025F);
         }
     }

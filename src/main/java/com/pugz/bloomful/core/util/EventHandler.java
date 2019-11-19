@@ -16,7 +16,6 @@ import net.minecraft.world.biome.Biomes;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -79,10 +78,5 @@ public class EventHandler {
                 }
             }
         }
-    }
-
-    @SubscribeEvent
-    public static void onFurnaceFuelBurnTime(FurnaceFuelBurnTimeEvent event) {
-
     }
 }
