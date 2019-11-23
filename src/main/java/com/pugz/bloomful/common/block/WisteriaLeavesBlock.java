@@ -2,14 +2,11 @@ package com.pugz.bloomful.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.LeavesBlock;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.particles.ParticleTypes;
-import net.minecraft.state.BooleanProperty;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
@@ -24,19 +21,19 @@ import java.util.Random;
 
 public class WisteriaLeavesBlock extends Block implements net.minecraftforge.common.IShearable {
 
-    public static final IntegerProperty DISTANCE = IntegerProperty.create("distance", 1, 8);
+    public static final IntegerProperty DISTANCE = IntegerProperty.create("distance", 1, 9);
 
     public WisteriaLeavesBlock(Block.Properties properties) {
         super(properties);
-        setDefaultState(stateContainer.getBaseState().with(DISTANCE, 8));
+        setDefaultState(stateContainer.getBaseState().with(DISTANCE, 9));
     }
 
     public boolean ticksRandomly(BlockState state) {
-        return state.get(DISTANCE) == 8;
+        return state.get(DISTANCE) == 9;
     }
 
     public void randomTick(BlockState state, World worldIn, BlockPos pos, Random random) {
-        if (state.get(DISTANCE) == 8) {
+        if (state.get(DISTANCE) == 9) {
             spawnDrops(state, worldIn, pos);
             worldIn.removeBlock(pos, false);
         }
@@ -76,7 +73,7 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
         if (BlockTags.LOGS.contains(neighbor.getBlock())) {
             return 0;
         } else {
-            return neighbor.getBlock() instanceof WisteriaLeavesBlock ? neighbor.get(DISTANCE) : 8;
+            return neighbor.getBlock() instanceof WisteriaLeavesBlock ? neighbor.get(DISTANCE) : 9;
         }
     }
 
@@ -117,6 +114,6 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return updateDistance(this.getDefaultState(), context.getWorld(), context.getPos());
+        return updateDistance(getDefaultState(), context.getWorld(), context.getPos());
     }
 }

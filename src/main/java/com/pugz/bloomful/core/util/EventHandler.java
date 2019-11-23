@@ -25,25 +25,6 @@ import java.util.Random;
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EventHandler {
     @SubscribeEvent
-    public static void onBonemeal(BonemealEvent event) {
-        World world = event.getWorld();
-        BlockPos pos = event.getPos();
-        Biome biome = world.getBiome(pos);
-        Random rand = new Random();
-        BlockState state = BlockRegistry.WHITE_DELPHINIUM.getDefaultState();
-        if (biome == Biomes.FLOWER_FOREST || biome == BiomeRegistry.WISTERIA_FOREST) {
-            for(int i = 0; i < 64; ++i) {
-                BlockPos blockpos = pos.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-                if (world.isAirBlock(blockpos) && blockpos.getY() < world.getWorld().getDimension().getHeight() - 2 && state.isValidPosition(world, blockpos)) {
-                    if (rand.nextInt(5) == 4) {
-                        world.setBlockState(blockpos, state, 3);
-                    }
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
     public static void onWandererTrades(WandererTradesEvent event) {
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.BLUE_WISTERIA_SAPLING), 5, 1, 8, 1, 0.05F));
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.PINK_WISTERIA_SAPLING), 5, 1, 8, 1, 0.05F));

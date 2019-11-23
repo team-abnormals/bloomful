@@ -36,10 +36,10 @@ public class BlockRegistry {
     public static Block POTTED_BLUE_WISTERIA_SAPLING = new FlowerPotBlock(BLUE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_blue_wisteria_sapling");
     public static Block POTTED_PURPLE_WISTERIA_SAPLING = new FlowerPotBlock(PURPLE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_purple_wisteria_sapling");
     public static Block POTTED_WHITE_WISTERIA_SAPLING = new FlowerPotBlock(WHITE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_white_wisteria_sapling");
-    public static Block PINK_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_leaves");
-    public static Block BLUE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_leaves");
-    public static Block PURPLE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_leaves");
-    public static Block WHITE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_leaves");
+    public static Block PINK_WISTERIA_LEAVES = new LeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_leaves");
+    public static Block BLUE_WISTERIA_LEAVES = new LeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_leaves");
+    public static Block PURPLE_WISTERIA_LEAVES = new LeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_leaves");
+    public static Block WHITE_WISTERIA_LEAVES = new LeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_leaves");
     public static Block PINK_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_vine");
     public static Block BLUE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_vine");
     public static Block PURPLE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_vine");
