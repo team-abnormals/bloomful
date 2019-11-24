@@ -56,39 +56,64 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
     }
 
     @Override
-    protected boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, Random rand, BlockPos position, MutableBoundingBox boundingBox) {
-        if (isDirtOrGrassBlock(worldIn, position.down())) {
-            for (int i = 0; i < rand.nextInt(6) + 7; ++i) {
-                setLogState(changedBlocks, worldIn, position.add(0, i, 0), LOG, boundingBox);
+    public boolean place(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos pos, MutableBoundingBox boundingBox) {
+        int i = random.nextInt(6) + 7;
+        boolean flag = true;
+        if (pos.getY() >= 1 && pos.getY() + i + 1 <= world.getMaxHeight()) {
+            for(int j = pos.getY(); j <= pos.getY() + 1 + i; ++j) {
+                int k = 1;
+                if (j == pos.getY()) {
+                    k = 0;
+                }
+                if (j >= pos.getY() + 1 + i - 2) {
+                    k = 2;
+                }
+                BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
+                for(int l = pos.getX() - k; l <= pos.getX() + k && flag; ++l) {
+                    for(int i1 = pos.getZ() - k; i1 <= pos.getZ() + k && flag; ++i1) {
+                        if (j >= 0 && j < world.getMaxHeight()) {
+                            if (!func_214587_a(world, blockpos$mutableblockpos.setPos(l, j, i1))) {
+                                flag = false;
+                            }
+                        } else {
+                            flag = false;
+                        }
+                    }
+                }
             }
-            for (int k = 0; k < 3; ++k) {
-                BlockPos pos = new BlockPos(position.add(0, rand.nextInt(3) + 4, 0));
-                boolean xNeg = rand.nextBoolean();
-                boolean zNeg = rand.nextBoolean();
-                int size = rand.nextInt(3) + 5;
-                for (int j = 1; j <= size; ++j) {
-                    pos = pos.add(rand.nextInt(2) - (xNeg ? 1 : 0), rand.nextInt(2), rand.nextInt(2) - (zNeg ? 1 : 0));
-                    setLogState(changedBlocks, worldIn, pos, LOG, boundingBox);
-                    if (j == size) {
-                        for (int y = 4; y > -4; --y) {
-                            for (int x = 4; x > -4; --x) {
-                                for (int z = 4; z > -4; --z) {
-                                    if (Math.sqrt((x * x) + (y > 0 ? (y * y) : 0) + (z * z)) <= 4) {
-                                        BlockPos leafPos = pos.add(x, y, z);
-                                        boolean place = true;
-                                        if (y < 0) {
-                                            place = worldIn.hasBlockState(leafPos.add(0, 1, 0), (state) -> {
-                                                return state.isIn(BlockTags.LEAVES);
-                                            });
-                                            if (place && rand.nextInt(Math.abs(y) + 1) != 0) {
-                                                place = false;
-                                                if (rand.nextInt(2) == 0) {
-                                                    placeVines(changedBlocks, worldIn, rand, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
+            if (!flag) {
+                return false;
+            } else if (isSoil(world, pos.down(), getSapling()) && pos.getY() < world.getMaxHeight() - i - 1) {
+                setDirtAt(world, pos.down(), pos);
+                for (int k = 0; k < 3; ++k) {
+                    BlockPos position = new BlockPos(pos.add(0, random.nextInt(3) + 4, 0));
+                    boolean xNeg = random.nextBoolean();
+                    boolean zNeg = random.nextBoolean();
+                    int size = random.nextInt(3) + 4;
+                    for (int j = 1; j <= size; ++j) {
+                        position = position.add(random.nextInt(2) - (xNeg ? 1 : 0), random.nextInt(2), random.nextInt(2) - (zNeg ? 1 : 0));
+                        setLogState(changedBlocks, world, position, LOG, boundingBox);
+                        if (j == size) {
+                            for (int y = 4; y > -4; --y) {
+                                for (int x = 4; x > -4; --x) {
+                                    for (int z = 4; z > -4; --z) {
+                                        if (Math.sqrt((x * x) + (y > 0 ? (y * y) : 0) + (z * z)) <= 4) {
+                                            BlockPos leafPos = position.add(x, y, z);
+                                            boolean place = true;
+                                            if (y < 0) {
+                                                place = world.hasBlockState(leafPos.add(0, 1, 0), (state) -> {
+                                                    return state.isIn(BlockTags.LEAVES);
+                                                });
+                                                if (place && random.nextInt(Math.abs(y) + 1) != 0) {
+                                                    place = false;
+                                                    if (random.nextInt(2) == 0) {
+                                                        placeVines(changedBlocks, world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
+                                                    }
                                                 }
                                             }
-                                        }
-                                        if (place && isAirOrLeaves(worldIn, leafPos)) {
-                                            setLogState(changedBlocks, worldIn, leafPos, LEAF, boundingBox);
+                                            if (place && isAirOrLeaves(world, leafPos)) {
+                                                setLogState(changedBlocks, world, leafPos, LEAF, boundingBox);
+                                            }
                                         }
                                     }
                                 }
@@ -96,9 +121,18 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                         }
                     }
                 }
+                for(int i2 = 0; i2 < i; ++i2) {
+                    if (isAirOrLeaves(world, pos.up(i2))) {
+                        setLogState(changedBlocks, world, pos.up(i2), LOG, boundingBox);
+                    }
+                }
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
-        return false;
     }
 
     public void placeVines(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos pos, BlockState leaf, BlockState vineLower, BlockState vineUpper, MutableBoundingBox boundingBox) {

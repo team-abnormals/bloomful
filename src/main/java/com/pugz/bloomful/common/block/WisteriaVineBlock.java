@@ -52,12 +52,12 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
     public void neighborChanged(BlockState state, World world, BlockPos pos, Block block, BlockPos fromPos, boolean moving) {
         if (state == getDefaultState().with(HALF, DoubleBlockHalf.UPPER)) {
             if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState()) {
-                world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                world.removeBlock(pos, false);
             }
         }
         else if (state == getDefaultState().with(HALF, DoubleBlockHalf.LOWER)) {
             if (world.getBlockState(pos.up()) == Blocks.AIR.getDefaultState()) {
-                world.setBlockState(pos, Blocks.AIR.getDefaultState());
+                world.removeBlock(pos, false);
             }
         }
     }
@@ -110,9 +110,9 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
     @Override
     public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid) {
         if (world.getBlockState(pos.down()) == getDefaultState().with(HALF, DoubleBlockHalf.LOWER)) {
-            world.setBlockState(pos.down(), Blocks.AIR.getDefaultState());
+            world.removeBlock(pos.down(), false);
         }
-        world.setBlockState(pos, Blocks.AIR.getDefaultState());
+        world.removeBlock(pos, false);
         return false;
     }
 
@@ -135,6 +135,6 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
 
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         //if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.WISTERENT)
-        entityIn.setMotionMultiplier(state, new Vec3d((double)0.75F, 0.65D, (double)0.75F));
+        entityIn.setMotionMultiplier(state, new Vec3d((double)0.6F, 0.5D, (double)0.6F));
     }
 }

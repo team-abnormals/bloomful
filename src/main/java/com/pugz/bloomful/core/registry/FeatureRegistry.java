@@ -5,7 +5,6 @@ import com.pugz.bloomful.common.world.gen.feature.DelphiniumFeature;
 import com.pugz.bloomful.common.world.gen.feature.WisteriaTreeFeature;
 import com.pugz.bloomful.core.util.WisteriaColor;
 import net.minecraft.world.gen.feature.DoublePlantConfig;
-import net.minecraft.world.gen.feature.DoublePlantFeature;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 import net.minecraftforge.common.IPlantable;
