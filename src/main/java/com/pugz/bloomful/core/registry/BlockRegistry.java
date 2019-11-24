@@ -19,6 +19,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -81,11 +82,11 @@ public class BlockRegistry {
                 WISTERIA_TRAPDOOR, WISTERIA_DOOR, WISTERIA_PRESSURE_PLATE, WISTERIA_BUTTON,
                 PINK_DELPHINIUM, BLUE_DELPHINIUM, PURPLE_DELPHINIUM, WHITE_DELPHINIUM
         );
-        //if (ModList.get().isLoaded("quark")) {
+        if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                     WISTERIA_BOOKSHELF, /*WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST,*/ WISTERIA_LADDER
             );
-        //}
+        }
     }
 
     @SubscribeEvent
@@ -125,14 +126,14 @@ public class BlockRegistry {
                 new BlockItem(PURPLE_DELPHINIUM, decorations).setRegistryName(PURPLE_DELPHINIUM.getRegistryName()),
                 new BlockItem(WHITE_DELPHINIUM, decorations).setRegistryName(WHITE_DELPHINIUM.getRegistryName())
         );
-        //if (ModList.get().isLoaded("quark")) {
+        if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new BlockItem(WISTERIA_BOOKSHELF, buildingBlocks).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
                 //new BlockItem(WISTERIA_CHEST, decorations).setRegistryName(WISTERIA_CHEST.getRegistryName()),
                 //new BlockItem(TRAPPED_WISTERIA_CHEST, decorations).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
                 new BlockItem(WISTERIA_LADDER, decorations).setRegistryName(WISTERIA_LADDER.getRegistryName())
             );
-        //}
+        }
     }
 
     public static void registerBlockData() {

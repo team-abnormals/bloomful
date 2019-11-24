@@ -3,13 +3,11 @@ package com.pugz.bloomful.common.world.gen.feature;
 import com.mojang.datafixers.Dynamic;
 import com.pugz.bloomful.core.registry.BlockRegistry;
 import com.pugz.bloomful.core.util.WisteriaColor;
-import com.pugz.bloomful.core.util.WisteriaTreeUtils;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
-import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
@@ -72,9 +70,9 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                     pos = pos.add(rand.nextInt(2) - (xNeg ? 1 : 0), rand.nextInt(2), rand.nextInt(2) - (zNeg ? 1 : 0));
                     setLogState(changedBlocks, worldIn, pos, LOG, boundingBox);
                     if (j == size) {
-                        for (int y = 4; y > -4; --y)
-                            for (int x = 4; x > -4; --x)
-                                for (int z = 4; z > -4; --z)
+                        for (int y = 4; y > -4; --y) {
+                            for (int x = 4; x > -4; --x) {
+                                for (int z = 4; z > -4; --z) {
                                     if (Math.sqrt((x * x) + (y > 0 ? (y * y) : 0) + (z * z)) <= 4) {
                                         BlockPos leafPos = pos.add(x, y, z);
                                         boolean place = true;
@@ -89,9 +87,13 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                                                 }
                                             }
                                         }
-                                        if (place && isAirOrLeaves(worldIn, leafPos))
+                                        if (place && isAirOrLeaves(worldIn, leafPos)) {
                                             setLogState(changedBlocks, worldIn, leafPos, LEAF, boundingBox);
+                                        }
                                     }
+                                }
+                            }
+                        }
                     }
                 }
             }

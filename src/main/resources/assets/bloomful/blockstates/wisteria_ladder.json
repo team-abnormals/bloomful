@@ -4,12 +4,13 @@
         "textures": {
             "particle": "bloomful:block/wisteria_ladder",
             "texture": "bloomful:block/wisteria_ladder"
-        }
+        },
+        "model": "quark:block/ladder_but_not_the_vanilla_one_so_resourcepacks_dont_override_it"
     },
     "variants": {
-        "facing=north": { "model": "block/ladder" },
-        "facing=east":  { "model": "block/ladder", "y": 90 },
-        "facing=south": { "model": "block/ladder", "y": 180 },
-        "facing=west":  { "model": "block/ladder", "y": 270 }
+        "facing=north": [{}],
+        "facing=east":  { "y": 90 },
+        "facing=south": { "y": 180 },
+        "facing=west":  { "y": 270 }
     }
 }
