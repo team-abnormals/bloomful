@@ -65,10 +65,7 @@ public class BlockRegistry {
     public static Block WISTERIA_CHEST = new ChestBlock(BlockProperties.CHEST).setRegistryName("wisteria_chest");
     public static Block TRAPPED_WISTERIA_CHEST = new TrappedChestBlock(BlockProperties.CHEST).setRegistryName("trapped_wisteria_chest");
     public static Block WISTERIA_LADDER = new LadderBlock(BlockProperties.LADDER).setRegistryName("wisteria_ladder");
-    //vertical slabs
-
-    //florist
-    //delphinium flower pots
+    public static Block VERTICAL_WISTERIA_PLANKS = new Block(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_planks");
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -84,7 +81,7 @@ public class BlockRegistry {
         );
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
-                    WISTERIA_BOOKSHELF, /*WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST,*/ WISTERIA_LADDER
+                    WISTERIA_BOOKSHELF, /*WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST,*/ WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS
             );
         }
     }
@@ -131,7 +128,8 @@ public class BlockRegistry {
                 new BlockItem(WISTERIA_BOOKSHELF, buildingBlocks).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
                 //new BlockItem(WISTERIA_CHEST, decorations).setRegistryName(WISTERIA_CHEST.getRegistryName()),
                 //new BlockItem(TRAPPED_WISTERIA_CHEST, decorations).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
-                new BlockItem(WISTERIA_LADDER, decorations).setRegistryName(WISTERIA_LADDER.getRegistryName())
+                new BlockItem(WISTERIA_LADDER, decorations).setRegistryName(WISTERIA_LADDER.getRegistryName()),
+                new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName())
             );
         }
     }
@@ -181,6 +179,7 @@ public class BlockRegistry {
         registerFlammable(WHITE_DELPHINIUM, 60, 100);
         registerFlammable(PINK_DELPHINIUM, 60, 100);
         registerFlammable(PURPLE_DELPHINIUM, 60, 100);
+        registerFlammable(VERTICAL_WISTERIA_PLANKS, 5, 20);
     }
 
     public static void registerFlammable(Block block, int encouragement, int flammability) {

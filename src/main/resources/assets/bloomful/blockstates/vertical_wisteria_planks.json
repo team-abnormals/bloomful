@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "bloomful:block/wisteria_planks"
+    },
+    "model": "quark:block/vertical_planks"
+  },
+  "variants": {
+    "": [{}]
+  }
+}

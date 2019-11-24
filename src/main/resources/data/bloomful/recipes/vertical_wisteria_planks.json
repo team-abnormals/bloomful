@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P",
+    "P",
+    "P"
+  ],
+  "key": {
+    "P": {
+      "item": "bloomful:wisteria_planks"
+    }
+  },
+  "result": {
+    "item": "bloomful:vertical_wisteria_planks",
+    "count": 3
+  },
+  "conditions": [
+    {
+      "type": "quark:flag",
+      "flag": "vertical_planks"
+    }
+  ]
+}
