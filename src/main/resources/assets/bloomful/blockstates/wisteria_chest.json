@@ -4,7 +4,7 @@
         "textures": {
             "particle": "bloomful:block/wisteria_planks"
         },
-        "model": "block/chest"
+        "model": "bloomful:block/wisteria_chest"
     },
     "variants": {
         "": [{}]

@@ -79,11 +79,11 @@ public class BlockRegistry {
                 WISTERIA_TRAPDOOR, WISTERIA_DOOR, WISTERIA_PRESSURE_PLATE, WISTERIA_BUTTON,
                 PINK_DELPHINIUM, BLUE_DELPHINIUM, PURPLE_DELPHINIUM, WHITE_DELPHINIUM
         );
-        if (ModList.get().isLoaded("quark")) {
+        //if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                     WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS
             );
-        }
+        //}
     }
 
     @SubscribeEvent
@@ -123,7 +123,7 @@ public class BlockRegistry {
                 new BlockItem(PURPLE_DELPHINIUM, decorations).setRegistryName(PURPLE_DELPHINIUM.getRegistryName()),
                 new BlockItem(WHITE_DELPHINIUM, decorations).setRegistryName(WHITE_DELPHINIUM.getRegistryName())
         );
-        if (ModList.get().isLoaded("quark")) {
+        //if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new BlockItem(WISTERIA_BOOKSHELF, buildingBlocks).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
                 new BlockItem(WISTERIA_CHEST, decorations).setRegistryName(WISTERIA_CHEST.getRegistryName()),
@@ -131,7 +131,7 @@ public class BlockRegistry {
                 new BlockItem(WISTERIA_LADDER, decorations).setRegistryName(WISTERIA_LADDER.getRegistryName()),
                 new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName())
             );
-        }
+        //}
     }
 
     public static void registerBlockData() {
