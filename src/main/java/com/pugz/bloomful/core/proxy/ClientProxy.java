@@ -15,9 +15,9 @@ public class ClientProxy extends ServerProxy {
     }
 
     public static void registerSpecialRenderers() {
-        //if (ModList.get().isLoaded("quark")) {
+        if (ModList.get().isLoaded("quark")) {
             ClientRegistry.bindTileEntitySpecialRenderer(WisteriaChestTileEntity.class, new WisteriaChestTileEntityRenderer());
-        //}
+        }
         RenderingRegistry.registerEntityRenderingHandler(WisteriaBoatEntity.class, WisteriaBoatRenderer::new);
     }
 }
