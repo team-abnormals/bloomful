@@ -7,10 +7,9 @@ import net.minecraft.client.renderer.tileentity.ChestTileEntityRenderer;
 import net.minecraft.util.ResourceLocation;
 
 public class WisteriaChestTileEntityRenderer extends ChestTileEntityRenderer<WisteriaChestTileEntity> {
-
     private WisteriaChestTileEntity tile;
-    public static ResourceLocation forceNormal = new ResourceLocation("bloomful", "textures/model/chest/wisteria_chest_double.png");
-    public static ResourceLocation forceDouble = new ResourceLocation("bloomful", "textures/model/chest/wisteria_chest_normal.png");
+    public static ResourceLocation forceNormal = new ResourceLocation("bloomful", "textures/model/chest/wisteria_chest_normal.png");
+    public static ResourceLocation forceDouble = new ResourceLocation("bloomful", "textures/model/chest/wisteria_chest_double.png");
 
     @Override
     public void render(WisteriaChestTileEntity tileEntityIn, double x, double y, double z, float partialTicks, int destroyStage) {

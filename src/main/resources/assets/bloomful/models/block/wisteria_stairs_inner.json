@@ -1,0 +1,8 @@
+{
+  "parent": "block/inner_stairs",
+  "textures": {
+    "bottom": "bloomful:block/wisteria_planks",
+    "top": "bloomful:block/wisteria_planks",
+    "side": "bloomful:block/wisteria_planks"
+  }
+}

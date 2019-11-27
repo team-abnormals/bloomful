@@ -80,7 +80,8 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
         if (BlockTags.LOGS.contains(neighbor.getBlock())) {
             return 0;
         } else {
-            if (neighbor.getBlock() instanceof WisteriaLeavesBlock || neighbor.getBlock() instanceof LeavesBlock) return neighbor.get(DISTANCE);
+            if (neighbor.getBlock() instanceof WisteriaLeavesBlock) return neighbor.get(DISTANCE);
+            if (neighbor.getBlock() instanceof LeavesBlock) return neighbor.get(LeavesBlock.DISTANCE);
             else return 8;
         }
     }

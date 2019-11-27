@@ -13,7 +13,7 @@
     "type=double": {
       "model": "block/cube_all",
       "textures": {
-        "all": "bambooblocks:block/bamboo_planks"
+        "all": "bloomful:block/wisteria_planks"
       }
     }
   }
