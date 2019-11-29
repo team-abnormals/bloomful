@@ -53,8 +53,8 @@ public class EventHandler {
                         held.shrink(1);
                         horse.getPersistentData().put("Bloomful:WisteriaChest", copy.serializeNBT());
                         horse.setChested(true);
-                        //horse.initHorseChest();
-                        //horse.playChestEquipSound();
+                        horse.initHorseChest();
+                        horse.playChestEquipSound();
                     }
                 }
             }

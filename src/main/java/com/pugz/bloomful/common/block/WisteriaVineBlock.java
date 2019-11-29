@@ -11,6 +11,7 @@ import net.minecraft.state.EnumProperty;
 import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
@@ -104,7 +105,7 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
 
     protected boolean isStateValid(World worldIn, BlockPos pos) {
         Block block = worldIn.getBlockState(pos.up()).getBlock();
-        return block == getDefaultState().with(HALF, DoubleBlockHalf.UPPER).getBlock() || block instanceof LeavesBlock || block instanceof LogBlock;
+        return block == getDefaultState().with(HALF, DoubleBlockHalf.UPPER).getBlock() || block.isIn(BlockTags.LEAVES) || block.isIn(BlockTags.LOGS);
     }
 
     @Override

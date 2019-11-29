@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "bloomful:wisteria_planks"
+    "bloomful:wisteria_planks",
+    "bloomful:vertical_wisteria_planks"
   ]
 }

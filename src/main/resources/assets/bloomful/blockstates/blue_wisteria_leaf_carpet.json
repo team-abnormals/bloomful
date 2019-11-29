@@ -1,0 +1,12 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+        "textures": {
+            "all": "bloomful:block/blue_wisteria_leaves"
+        },
+        "model": "quark:block/leaf_carpet"
+    },
+    "variants": {
+        "": [{}]
+    }
+}

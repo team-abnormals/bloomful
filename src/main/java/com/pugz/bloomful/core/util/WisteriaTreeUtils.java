@@ -1,5 +1,6 @@
 package com.pugz.bloomful.core.util;
 
+import com.pugz.bloomful.common.block.WisteriaVineBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Direction;
@@ -31,5 +32,13 @@ public class WisteriaTreeUtils {
         return worldIn.hasBlockState(pos, (p_214579_0_) -> {
             return p_214579_0_.isIn(BlockTags.LEAVES);
         });
+    }
+
+    public static boolean isAirOrLeavesOrVines(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        if (!(worldIn instanceof net.minecraft.world.IWorldReader)) // FORGE: Redirect to state method when possible
+            return worldIn.hasBlockState(pos, (state) -> {
+                return state.isAir() || state.isIn(BlockTags.LEAVES) || state.getBlock() instanceof WisteriaVineBlock;
+            });
+        else return worldIn.hasBlockState(pos, state -> state.canBeReplacedByLeaves((net.minecraft.world.IWorldReader)worldIn, pos));
     }
 }

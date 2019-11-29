@@ -107,7 +107,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                                                 });
                                                 if (place && random.nextInt(Math.abs(y) + 1) != 0) {
                                                     place = false;
-                                                    if (random.nextInt(5) == 0) {
+                                                    if (random.nextInt(4) == 0) {
                                                         placeVines(changedBlocks, world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
                                                     }
                                                 }
@@ -123,7 +123,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                     }
                 }
                 for(int i2 = 0; i2 < height; ++i2) {
-                    if (isAirOrLeaves(world, pos.up(i2))) {
+                    if (isAirOrLeavesOrVines(world, pos.up(i2))) {
                         setLogState(changedBlocks, world, pos.up(i2), LOG, boundingBox);
                     }
                 }

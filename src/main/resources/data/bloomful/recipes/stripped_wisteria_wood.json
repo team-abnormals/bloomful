@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "bark",
+  "pattern": [
+    "PP",
+    "PP"
+  ],
+  "key": {
+    "P": {
+      "item": "bloomful:stripped_wisteria_log"
+    }
+  },
+  "result": {
+    "item": "bloomful:stripped_wisteria_wood",
+    "count": 3
+  }
+}

@@ -25,6 +25,7 @@ import java.util.Random;
 public class WisteriaLeavesBlock extends Block implements net.minecraftforge.common.IShearable {
     public static final IntegerProperty DISTANCE = IntegerProperty.create("distance", 1, 8);
     public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;
+    protected static boolean renderTranslucent;
 
     public WisteriaLeavesBlock(Block.Properties properties) {
         super(properties);
@@ -106,7 +107,13 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
         return false;
     }
 
+    @OnlyIn(Dist.CLIENT)
+    public static void setRenderTranslucent(boolean fancy) {
+        renderTranslucent = fancy;
+    }
+
     public BlockRenderLayer getRenderLayer() {
+        //return renderTranslucent ? BlockRenderLayer.CUTOUT_MIPPED : BlockRenderLayer.SOLID;
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 

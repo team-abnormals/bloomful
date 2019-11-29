@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "bloomful:white_wisteria_leaves"
+    }
+  },
+  "result": {
+    "item": "bloomful:white_wisteria_leaf_carpet",
+    "count": 3
+  },
+  "conditions": [
+    {
+      "type": "quark:flag",
+      "flag": "leaf_carpet"
+    }
+  ]
+}
