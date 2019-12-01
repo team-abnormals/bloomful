@@ -84,12 +84,12 @@ public class BlockRegistry {
                 WISTERIA_TRAPDOOR, WISTERIA_DOOR, WISTERIA_PRESSURE_PLATE, WISTERIA_BUTTON,
                 PINK_DELPHINIUM, BLUE_DELPHINIUM, PURPLE_DELPHINIUM, WHITE_DELPHINIUM
         );
-        //if (ModList.get().isLoaded("quark")) {
+        if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                     WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
                     PINK_WISTERIA_LEAF_CARPET, BLUE_WISTERIA_LEAF_CARPET, PURPLE_WISTERIA_LEAF_CARPET, WHITE_WISTERIA_LEAF_CARPET
             );
-        //}
+        }
     }
 
     @SubscribeEvent
@@ -129,7 +129,7 @@ public class BlockRegistry {
                 new BlockItem(PURPLE_DELPHINIUM, decorations).setRegistryName(PURPLE_DELPHINIUM.getRegistryName()),
                 new BlockItem(WHITE_DELPHINIUM, decorations).setRegistryName(WHITE_DELPHINIUM.getRegistryName())
         );
-        //if (ModList.get().isLoaded("quark")) {
+        if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new FuelItem(WISTERIA_BOOKSHELF, buildingBlocks, 300).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
                 new FuelItem(WISTERIA_CHEST, decorations, 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
@@ -142,7 +142,8 @@ public class BlockRegistry {
                 new BlockItem(WHITE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(WHITE_WISTERIA_LEAF_CARPET.getRegistryName()),
                 new FuelItem(VERTICAL_WISTERIA_SLAB, buildingBlocks, 150).setRegistryName(VERTICAL_WISTERIA_SLAB.getRegistryName())
             );
-        //}
+            TrappedChestBlock.provideItemBlock(decorations);
+        }
     }
 
     public static void registerBlockData() {
