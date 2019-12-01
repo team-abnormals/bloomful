@@ -1,21 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "LL"
+    "S",
+    "S",
+    "S"
   ],
   "key": {
-    "L": {
-      "item": "bloomful:pink_wisteria_leaves"
+    "S": {
+      "item": "bloomful:wisteria_slab"
     }
   },
   "result": {
-    "item": "bloomful:pink_wisteria_leaf_carpet",
+    "item": "bloomful:vertical_wisteria_slab",
     "count": 3
   },
   "conditions": [
     {
       "type": "quark:flag",
-      "flag": "leaf_carpet"
+      "flag": "vertical_slabs"
     }
   ]
 }

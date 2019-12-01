@@ -3,6 +3,7 @@ package com.pugz.bloomful.common.block;
 import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
@@ -20,6 +21,7 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorldReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -28,7 +30,6 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class WisteriaVineBlock extends Block implements net.minecraftforge.common.IShearable {
-
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     protected static final VoxelShape WISTERIA_VINE_TOP = Block.makeCuboidShape(1, 0, 1, 15, 16, 15);
     protected static final VoxelShape WISTERIA_VINE_BOTTOM = Block.makeCuboidShape(4, 0, 4, 12, 16, 12);
@@ -87,6 +88,11 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
         }
     }
 
+    @Override
+    public boolean isLadder(BlockState state, IWorldReader world, BlockPos pos, LivingEntity entity) {
+        return true;
+    }
+
     public boolean isSolid(BlockState state) {
         return false;
     }
@@ -132,10 +138,5 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
             else return getDefaultState().with(HALF, DoubleBlockHalf.UPPER);
         }
         return null;
-    }
-
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        //if (entityIn instanceof LivingEntity && entityIn.getType() != EntityType.WISTERENT)
-        entityIn.setMotionMultiplier(state, new Vec3d((double)0.6F, 0.5D, (double)0.6F));
     }
 }

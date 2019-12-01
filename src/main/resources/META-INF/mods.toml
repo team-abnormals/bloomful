@@ -2,11 +2,11 @@ modLoader="javafml"
 loaderVersion="[28,]"
 logoFile="logo.png"
 authors="Pugz"
-credits="*Endergized*, Josh, Bratiswolf, Rohan, Arobazz, and jöllipölli"
+credits="*Endergized*, Josh, Bratiswolf, Rohan, Arobazz, jöllipölli, and qsefthuopq"
 
 [[mods]]
 modId="bloomful"
-version="1.1.0"
+version="1.1.1"
 displayName="Bloomful"
 description='''
 See Flower Forests in full bloom!

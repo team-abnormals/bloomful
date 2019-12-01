@@ -70,6 +70,7 @@ public class BlockRegistry {
     public static Block BLUE_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_leaf_carpet");
     public static Block PURPLE_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_leaf_carpet");
     public static Block WHITE_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_leaf_carpet");
+    public static Block VERTICAL_WISTERIA_SLAB = new VerticalSlabBlock(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_slab");
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -85,7 +86,7 @@ public class BlockRegistry {
         );
         //if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
-                    WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS,
+                    WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
                     PINK_WISTERIA_LEAF_CARPET, BLUE_WISTERIA_LEAF_CARPET, PURPLE_WISTERIA_LEAF_CARPET, WHITE_WISTERIA_LEAF_CARPET
             );
         //}
@@ -134,7 +135,12 @@ public class BlockRegistry {
                 new FuelItem(WISTERIA_CHEST, decorations, 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
                 new FuelItem(TRAPPED_WISTERIA_CHEST, decorations, 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
                 new FuelItem(WISTERIA_LADDER, decorations, 300).setRegistryName(WISTERIA_LADDER.getRegistryName()),
-                new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName())
+                new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName()),
+                new BlockItem(PINK_WISTERIA_LEAF_CARPET, decorations).setRegistryName(PINK_WISTERIA_LEAF_CARPET.getRegistryName()),
+                new BlockItem(BLUE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(BLUE_WISTERIA_LEAF_CARPET.getRegistryName()),
+                new BlockItem(PURPLE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(PURPLE_WISTERIA_LEAF_CARPET.getRegistryName()),
+                new BlockItem(WHITE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(WHITE_WISTERIA_LEAF_CARPET.getRegistryName()),
+                new FuelItem(VERTICAL_WISTERIA_SLAB, buildingBlocks, 150).setRegistryName(VERTICAL_WISTERIA_SLAB.getRegistryName())
             );
         //}
     }
@@ -157,6 +163,10 @@ public class BlockRegistry {
         registerCompostable(WHITE_WISTERIA_SAPLING,0.35F);
         registerCompostable(PINK_WISTERIA_SAPLING,0.35F);
         registerCompostable(PURPLE_WISTERIA_SAPLING,0.35F);
+        registerCompostable(BLUE_WISTERIA_LEAF_CARPET,0.35F);
+        registerCompostable(WHITE_WISTERIA_LEAF_CARPET,0.35F);
+        registerCompostable(PINK_WISTERIA_LEAF_CARPET,0.35F);
+        registerCompostable(PURPLE_WISTERIA_LEAF_CARPET,0.35F);
 
         //strippable blocks
         registerStrippable(WISTERIA_LOG, STRIPPED_WISTERIA_LOG);
@@ -185,6 +195,11 @@ public class BlockRegistry {
         registerFlammable(PINK_DELPHINIUM, 60, 100);
         registerFlammable(PURPLE_DELPHINIUM, 60, 100);
         registerFlammable(VERTICAL_WISTERIA_PLANKS, 5, 20);
+        registerFlammable(BLUE_WISTERIA_LEAF_CARPET, 30, 60);
+        registerFlammable(WHITE_WISTERIA_LEAF_CARPET, 30, 60);
+        registerFlammable(PINK_WISTERIA_LEAF_CARPET, 30, 60);
+        registerFlammable(PURPLE_WISTERIA_LEAF_CARPET, 30, 60);
+        registerFlammable(VERTICAL_WISTERIA_SLAB, 5, 20);
     }
 
     public static void registerFlammable(Block block, int encouragement, int flammability) {
