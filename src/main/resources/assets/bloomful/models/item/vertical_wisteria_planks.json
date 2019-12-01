@@ -1,7 +1,6 @@
 {
   "parent": "quark:block/vertical_planks",
   "textures": {
-    "end": "bloomful:block/wisteria_planks",
-    "side": "bloomful:block/wisteria_planks"
+    "all": "bloomful:block/wisteria_planks"
   }
 }

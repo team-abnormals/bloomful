@@ -10,6 +10,7 @@ import com.pugz.bloomful.common.tileentity.WisteriaChestTileEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
@@ -24,10 +25,10 @@ public class ClientProxy extends ServerProxy {
     }
 
     private static void registerSpecialRenderers() {
-        //if (ModList.get().isLoaded("quark")) {
+        if (ModList.get().isLoaded("quark")) {
             ClientRegistry.bindTileEntitySpecialRenderer(WisteriaChestTileEntity.class, new WisteriaChestTileEntityRenderer());
             ClientRegistry.bindTileEntitySpecialRenderer(TrappedWisteriaChestTileEntity.class, new TrappedWisteriaChestTileEntityRenderer());
-        //}
+        }
     }
 
     private static void registerRenderers() {
