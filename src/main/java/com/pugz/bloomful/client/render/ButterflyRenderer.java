@@ -28,7 +28,7 @@ public class ButterflyRenderer extends MobRenderer<ButterflyEntity, EntityModel<
     }
 
     protected void preRenderCallback(ButterflyEntity entity, float tickTime) {
-        //GlStateManager.scalef(0.5F, 0.5F, 0.5F);
+        GlStateManager.scalef(0.9F, 0.9F, 0.9F);
     }
 
     protected void applyRotations(ButterflyEntity entity, float f, float f1, float f2) {

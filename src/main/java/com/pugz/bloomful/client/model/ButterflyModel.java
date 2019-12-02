@@ -1,8 +1,10 @@
 package com.pugz.bloomful.client.model;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import com.pugz.bloomful.common.entity.ButterflyEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -34,6 +36,12 @@ public class ButterflyModel extends EntityModel<ButterflyEntity> {
         body.render(f5);
         wing2.render(f5);
         wing1.render(f5);
+        setRotationAngles(f2);
+    }
+
+    public void setRotationAngles(float f2) {
+        wing1.rotateAngleZ =-MathHelper.cos(f2 * 1.3F) * 3.1415927F * 0.25F;
+        wing2.rotateAngleZ = -wing1.rotateAngleZ;
     }
 
     public void setRotateAngle(RendererModel modelRenderer, float x, float y, float z) {

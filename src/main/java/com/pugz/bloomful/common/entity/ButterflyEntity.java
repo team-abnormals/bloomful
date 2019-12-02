@@ -3,7 +3,6 @@ package com.pugz.bloomful.common.entity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.Goal;
-import net.minecraft.entity.monster.PhantomEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
@@ -244,14 +243,13 @@ public class ButterflyEntity extends AbstractGroupButterflyEntity {
         private float field_203151_d;
         private float field_203152_e;
         private float field_203153_f;
-        private int execute;
 
         private OrbitPointGoal() {
             super();
         }
 
         public boolean shouldExecute() {
-            return ButterflyEntity.this.rand.nextInt(ButterflyEntity.this.rand.nextInt(execute)) > execute / 2;
+            return true;
         }
 
         public void startExecuting() {
@@ -262,7 +260,6 @@ public class ButterflyEntity extends AbstractGroupButterflyEntity {
         }
 
         public void tick() {
-            execute = ButterflyEntity.this.rand.nextInt(100);
             if (ButterflyEntity.this.rand.nextInt(350) == 0) {
                 field_203152_e = -4.0F + ButterflyEntity.this.rand.nextFloat() * 9.0F;
             }
