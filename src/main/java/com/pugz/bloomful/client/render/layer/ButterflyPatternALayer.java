@@ -1,7 +1,6 @@
 package com.pugz.bloomful.client.render.layer;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import com.pugz.bloomful.client.model.ButterflyModel;
 import com.pugz.bloomful.common.entity.ButterflyEntity;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
@@ -10,21 +9,19 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class ButterflyPatternALayer extends LayerRenderer<ButterflyEntity, EntityModel<ButterflyEntity>> {
-    private final EntityModel<ButterflyEntity> model = new ButterflyModel();
-
-    public ButterflyPatternALayer(IEntityRenderer<ButterflyEntity, EntityModel<ButterflyEntity>> renderer) {
+public class ButterflyPatternALayer<T extends ButterflyEntity, M extends EntityModel<T>> extends LayerRenderer<T, M> {
+    public ButterflyPatternALayer(IEntityRenderer<T, M> renderer) {
         super(renderer);
     }
 
-    public void render(ButterflyEntity entity, float p_212842_2_, float p_212842_3_, float p_212842_4_, float p_212842_5_, float p_212842_6_, float p_212842_7_, float p_212842_8_) {
+    public void render(T entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
         if (!entity.isInvisible()) {
-            bindTexture(entity.getPatternTextureA());
-            float[] lvt_10_1_ = entity.func_204222_dD();
-            GlStateManager.color3f(lvt_10_1_[0], lvt_10_1_[1], lvt_10_1_[2]);
-            getEntityModel().setModelAttributes(model);
-            (model).setLivingAnimations(entity, p_212842_2_, p_212842_3_, p_212842_4_);
-            (model).render(entity, p_212842_2_, p_212842_3_, p_212842_5_, p_212842_6_, p_212842_7_, p_212842_8_);
+            bindTexture(entity.getPatternTexture());
+            float[] colorA = entity.getPatternColorA();
+            GlStateManager.color3f(colorA[0], colorA[1], colorA[2]);
+            getEntityModel().setModelAttributes(getEntityModel());
+            (getEntityModel()).setLivingAnimations(entity, f, f1, f2);
+            (getEntityModel()).render(entity, f, f1, f3, f4, f5, f6);
         }
     }
 

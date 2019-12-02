@@ -24,7 +24,7 @@ public class EntityRegistry {
     public static Item BUTTERFLY_SPAWN_EGG;
 
     public static EntityType<WisteriaBoatEntity> WISTERIA_BOAT = createBasicEntity(WisteriaBoatEntity::new, WisteriaBoatEntity::new, EntityClassification.MISC, "wisteria_boat", 1.375F, 0.5625F);
-    public static EntityType<ButterflyEntity> BUTTERFLY = createEntity(ButterflyEntity::new, EntityClassification.AMBIENT, "butterfly", 0.9F, 0.3F, 0x070316, 0xE56F03);
+    public static EntityType<ButterflyEntity> BUTTERFLY = createEntity(ButterflyEntity::new, EntityClassification.AMBIENT, "butterfly", 0.75F, 0.25F, 0x070316, 0xE56F03);
 
     private static <T extends Entity> EntityType<T> createEntity(EntityType.IFactory<T> factory, EntityClassification entityClassification, String name, float width, float height, int eggPrimary, int eggSecondary) {
         ResourceLocation location = new ResourceLocation("bloomful", name);

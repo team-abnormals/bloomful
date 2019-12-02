@@ -15,20 +15,16 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class ButterflyRenderer extends MobRenderer<ButterflyEntity, EntityModel<ButterflyEntity>> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation("bloomful", "textures/entity/butterfly.png");
+    private static final ResourceLocation BODY = new ResourceLocation("bloomful", "textures/entity/butterfly/body.png");
 
     public ButterflyRenderer(EntityRendererManager rendererManager) {
         super(rendererManager, new ButterflyModel(), 0.25F);
-        addLayer(new ButterflyPatternALayer(this));
-        addLayer(new ButterflyPatternBLayer(this));
+        addLayer(new ButterflyPatternALayer<>(this));
+        addLayer(new ButterflyPatternBLayer<>(this));
     }
 
     protected ResourceLocation getEntityTexture(ButterflyEntity entity) {
-        return TEXTURE;
-    }
-
-    protected void preRenderCallback(ButterflyEntity entity, float tickTime) {
-        GlStateManager.scalef(0.9F, 0.9F, 0.9F);
+        return BODY;
     }
 
     protected void applyRotations(ButterflyEntity entity, float f, float f1, float f2) {
