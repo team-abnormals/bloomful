@@ -22,7 +22,6 @@ import net.minecraft.world.gen.placement.Placement;
 public class WisteriaForestHillsBiome extends Biome {
     public WisteriaForestHillsBiome(Builder builder) {
         super(builder);
-        addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.VILLAGE, new VillageConfig("bloomful:village/flower/town_centers", 6), Placement.NOPE, IPlacementConfig.NO_PLACEMENT_CONFIG));
         addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
         addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
         DefaultBiomeFeatures.addCarvers(this);

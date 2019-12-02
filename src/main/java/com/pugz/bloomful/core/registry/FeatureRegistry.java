@@ -3,10 +3,14 @@ package com.pugz.bloomful.core.registry;
 import com.pugz.bloomful.common.world.gen.feature.BigWisteriaTreeFeature;
 import com.pugz.bloomful.common.world.gen.feature.DelphiniumFeature;
 import com.pugz.bloomful.common.world.gen.feature.WisteriaTreeFeature;
+import com.pugz.bloomful.common.world.gen.feature.structure.FlowerVillagePools;
 import com.pugz.bloomful.core.util.WisteriaColor;
 import net.minecraft.world.gen.feature.DoublePlantConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
+import net.minecraft.world.gen.feature.structure.Structure;
+import net.minecraft.world.gen.feature.structure.VillageConfig;
+import net.minecraft.world.gen.feature.structure.VillageStructure;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,6 +33,7 @@ public class FeatureRegistry {
 
     @SubscribeEvent
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
+        FlowerVillagePools.init();
         event.getRegistry().registerAll(
                 WISTERIA_TREE_BLUE,
                 WISTERIA_TREE_PINK,

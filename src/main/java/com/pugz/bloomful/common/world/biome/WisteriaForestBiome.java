@@ -4,22 +4,27 @@ import com.pugz.bloomful.core.util.BiomeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.GrassColors;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.biome.DefaultBiomeFeatures;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.structure.MineshaftConfig;
 import net.minecraft.world.gen.feature.structure.MineshaftStructure;
+import net.minecraft.world.gen.feature.structure.PillagerOutpostConfig;
 import net.minecraft.world.gen.feature.structure.VillageConfig;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
-import net.minecraft.world.gen.placement.IPlacementConfig;
 import net.minecraft.world.gen.placement.Placement;
 
 public class WisteriaForestBiome extends Biome {
     public WisteriaForestBiome(Builder builder) {
         super(builder);
-        addFeature(GenerationStage.Decoration.SURFACE_STRUCTURES, Biome.createDecoratedFeature(Feature.VILLAGE, new VillageConfig("bloomful:village/flower/town_centers", 6), Placement.NOPE, IPlacementConfig.NO_PLACEMENT_CONFIG));
+        addStructure(Feature.VILLAGE, new VillageConfig("bloomful:village/flower/town_centers", 6));
+        addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
         addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
         addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
         DefaultBiomeFeatures.addCarvers(this);
@@ -54,5 +59,17 @@ public class WisteriaForestBiome extends Biome {
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         BiomeFeatures.addDelphiniums(this, 10);
         BiomeFeatures.addWisteriaTrees(this, 20, 0.05F);
+    }
+
+    @Override
+    public int getGrassColor(BlockPos pos) {
+        double d0 = (double) MathHelper.clamp(func_225486_c(pos), 0.0F, 1.0F);
+        double d1 = (double)MathHelper.clamp(getDownfall(), 0.0F, 1.0F);
+        return GrassColors.get(d0, d1);
+    }
+
+    @Override
+    public Biome getRiver() {
+        return Biomes.FLOWER_FOREST;
     }
 }

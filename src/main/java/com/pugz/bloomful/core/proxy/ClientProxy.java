@@ -1,9 +1,11 @@
 package com.pugz.bloomful.core.proxy;
 
+import com.pugz.bloomful.client.render.ButterflyRenderer;
 import com.pugz.bloomful.client.render.TrappedWisteriaChestTileEntityRenderer;
 import com.pugz.bloomful.client.render.WisteriaBoatRenderer;
 import com.pugz.bloomful.client.render.WisteriaChestTileEntityRenderer;
 import com.pugz.bloomful.common.block.WisteriaLeavesBlock;
+import com.pugz.bloomful.common.entity.ButterflyEntity;
 import com.pugz.bloomful.common.entity.WisteriaBoatEntity;
 import com.pugz.bloomful.common.tileentity.TrappedWisteriaChestTileEntity;
 import com.pugz.bloomful.common.tileentity.WisteriaChestTileEntity;
@@ -33,6 +35,7 @@ public class ClientProxy extends ServerProxy {
 
     private static void registerRenderers() {
         RenderingRegistry.registerEntityRenderingHandler(WisteriaBoatEntity.class, WisteriaBoatRenderer::new);
+        RenderingRegistry.registerEntityRenderingHandler(ButterflyEntity.class, ButterflyRenderer::new);
         WisteriaLeavesBlock.setRenderTranslucent(mc.gameSettings.fancyGraphics);
     }
 }
