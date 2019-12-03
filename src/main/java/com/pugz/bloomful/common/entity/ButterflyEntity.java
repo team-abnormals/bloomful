@@ -97,23 +97,18 @@ public class ButterflyEntity extends CreatureEntity {
     }
 
     @OnlyIn(Dist.CLIENT)
-    private static int getPattern(int p_204213_0_) {
-        return Math.min((p_204213_0_ & '\uff00') >> 8, 5);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public ResourceLocation getPatternTexture() {
-        return getTexture(getVariant()) == 0 ? PATTERN_TEXTURES_A[getPattern(getVariant())] : PATTERN_TEXTURES_B[getPattern(getVariant())];
+    private static int getPattern(int variant) {
+        return Math.min((variant & '\uff00') >> 8, 5);
     }
 
     @OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureA() {
-        return PATTERN_TEXTURES_A[getTexture(getVariant())];
+        return getTexture(getVariant()) == 0 ? PATTERN_TEXTURES_B[getPattern(getVariant())] : PATTERN_TEXTURES_B[getPattern(getVariant())];
     }
 
     @OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureB() {
-        return PATTERN_TEXTURES_B[getTexture(getVariant())];
+        return getTexture(getVariant()) == 0 ? PATTERN_TEXTURES_A[getPattern(getVariant())] : PATTERN_TEXTURES_A[getPattern(getVariant())];
     }
 
     public boolean canBePushed() {
