@@ -33,7 +33,7 @@ public class FeatureRegistry {
 
     @SubscribeEvent
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
-        FlowerVillagePools.init();
+        //FlowerVillagePools.init();
         event.getRegistry().registerAll(
                 WISTERIA_TREE_BLUE,
                 WISTERIA_TREE_PINK,

@@ -1,5 +1,6 @@
 package com.pugz.bloomful.common.world.biome;
 
+import com.pugz.bloomful.core.registry.EntityRegistry;
 import com.pugz.bloomful.core.util.BiomeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -23,7 +24,7 @@ import net.minecraft.world.gen.placement.Placement;
 public class WisteriaForestBiome extends Biome {
     public WisteriaForestBiome(Builder builder) {
         super(builder);
-        addStructure(Feature.VILLAGE, new VillageConfig("bloomful:village/flower/town_centers", 6));
+        //addStructure(Feature.VILLAGE, new VillageConfig("bloomful:village/flower/town_centers", 6));
         addStructure(Feature.PILLAGER_OUTPOST, new PillagerOutpostConfig(0.004D));
         addStructure(Feature.MINESHAFT, new MineshaftConfig(0.004D, MineshaftStructure.Type.NORMAL));
         addStructure(Feature.STRONGHOLD, IFeatureConfig.NO_FEATURE_CONFIG);
@@ -57,6 +58,7 @@ public class WisteriaForestBiome extends Biome {
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
+        addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityRegistry.BUTTERFLY, 12, 5, 11));
         BiomeFeatures.addDelphiniums(this, 10);
         BiomeFeatures.addWisteriaTrees(this, 20, 0.05F);
     }

@@ -5,12 +5,14 @@ import com.pugz.bloomful.common.entity.ButterflyEntity;
 import com.pugz.bloomful.common.entity.WisteriaBoatEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -18,6 +20,8 @@ import net.minecraftforge.fml.network.FMLPlayMessages;
 
 import java.util.List;
 import java.util.function.BiFunction;
+
+import static net.minecraft.particles.ParticleTypes.NAUTILUS;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {
@@ -54,5 +58,9 @@ public class EntityRegistry {
         event.getRegistry().registerAll(
                 BUTTERFLY_SPAWN_EGG
         );
+    }
+
+    public static void registerSpawns() {
+        EntitySpawnPlacementRegistry.register(BUTTERFLY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, ButterflyEntity::spawnCondition);
     }
 }

@@ -2,6 +2,7 @@ package com.pugz.bloomful.core.registry;
 
 import com.pugz.bloomful.common.world.biome.WisteriaForestBiome;
 import com.pugz.bloomful.common.world.biome.WisteriaForestHillsBiome;
+import net.minecraft.entity.EntityClassification;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.surfacebuilders.SurfaceBuilder;
 import net.minecraftforge.common.BiomeDictionary;
@@ -9,6 +10,7 @@ import net.minecraftforge.common.BiomeManager;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BiomeRegistry {
@@ -27,5 +29,11 @@ public class BiomeRegistry {
         BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST, 3));
         BiomeDictionary.addTypes(WISTERIA_FOREST_HILLS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.OVERWORLD);
         BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST_HILLS, 2));
+    }
+
+    public static void registerBiomeSpawns() {
+        for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
+            biome.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityRegistry.BUTTERFLY, 8, 4, 8));
+        }
     }
 }

@@ -18,10 +18,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class ButterflyEntity extends CreatureEntity {
     private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(TropicalFishEntity.class, DataSerializers.VARINT);
@@ -42,6 +44,13 @@ public class ButterflyEntity extends CreatureEntity {
     protected void registerGoals() {
         goalSelector.addGoal(8, new LandOnPlantGoal(this, 0.6D));
         goalSelector.addGoal(5, new WaterAvoidingRandomFlyingGoal(this, 0.6D));
+    }
+
+    public static boolean spawnCondition(EntityType<ButterflyEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
+        if (world.getDimension().getType() == DimensionType.OVERWORLD) {
+            return (world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos.down()).getBlock() instanceof BushBlock || world.getBlockState(pos.north()).getBlock() instanceof BushBlock || world.getBlockState(pos.south()).getBlock() instanceof BushBlock || world.getBlockState(pos.east()).getBlock() instanceof BushBlock || world.getBlockState(pos.west()).getBlock() instanceof BushBlock) && world.getLightSubtracted(pos, 0) > 8;
+        }
+        else return false;
     }
 
     protected void registerData() {
