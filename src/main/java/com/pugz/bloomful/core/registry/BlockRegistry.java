@@ -72,6 +72,9 @@ public class BlockRegistry {
     public static Block WHITE_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_leaf_carpet");
     public static Block VERTICAL_WISTERIA_SLAB = new VerticalSlabBlock(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_slab");
 
+    //builders basics
+    public static Block WISTERIA_BOARDS = new Block(BlockProperties.WISTERIA_PLANKS).setRegistryName("wisteria_boards");
+
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll(
@@ -88,6 +91,11 @@ public class BlockRegistry {
             event.getRegistry().registerAll(
                     WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
                     PINK_WISTERIA_LEAF_CARPET, BLUE_WISTERIA_LEAF_CARPET, PURPLE_WISTERIA_LEAF_CARPET, WHITE_WISTERIA_LEAF_CARPET
+            );
+        }
+        if (ModList.get().isLoaded("buildbasics")) {
+            event.getRegistry().registerAll(
+                    WISTERIA_BOARDS
             );
         }
     }

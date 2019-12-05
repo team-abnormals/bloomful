@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SS",
+    "SS"
+  ],
+  "key": {
+    "S": {
+      "item": "bloomful:wisteria_slab"
+    }
+  },
+  "result": {
+    "item": "bloomful:wisteria_boards",
+    "count": 2
+  }
+}

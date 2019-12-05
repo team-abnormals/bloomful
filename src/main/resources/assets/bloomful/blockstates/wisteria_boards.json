@@ -1,0 +1,12 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "bloomful:block/wisteria_boards"
+    },
+    "model": "block/cube_all"
+  },
+  "variants": {
+    "": [{}]
+  }
+}
