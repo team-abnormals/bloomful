@@ -152,6 +152,11 @@ public class BlockRegistry {
             );
             TrappedChestBlock.provideItemBlock(decorations);
         }
+        if (ModList.get().isLoaded("buildbasics")) {
+            event.getRegistry().registerAll(
+                    new FuelItem(WISTERIA_BOARDS, buildingBlocks, 300).setRegistryName(WISTERIA_BOARDS.getRegistryName())
+                    );
+        }
     }
 
     public static void registerBlockData() {
