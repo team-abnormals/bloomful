@@ -9,13 +9,13 @@
           "conditions": [
             {
               "condition": "minecraft:block_state_property",
-              "block": "bloomful:wisteria_glass_door",
+              "block": "bloomful:blue_delphinium",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "bloomful:wisteria_glass_door"
+          "name": "bloomful:blue_delphinium"
         }
       ],
       "conditions": [
