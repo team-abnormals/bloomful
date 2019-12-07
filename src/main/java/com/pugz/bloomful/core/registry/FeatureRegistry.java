@@ -2,6 +2,7 @@ package com.pugz.bloomful.core.registry;
 
 import com.pugz.bloomful.common.world.gen.feature.BigWisteriaTreeFeature;
 import com.pugz.bloomful.common.world.gen.feature.DelphiniumFeature;
+import com.pugz.bloomful.common.world.gen.feature.WisteriaFlowersFeature;
 import com.pugz.bloomful.common.world.gen.feature.WisteriaTreeFeature;
 import com.pugz.bloomful.common.world.gen.feature.structure.FlowerVillagePools;
 import com.pugz.bloomful.core.util.WisteriaColor;
@@ -30,6 +31,7 @@ public class FeatureRegistry {
     public static Feature DELPHINIUMS_PINK = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("pink_delphinium");
     public static Feature DELPHINIUMS_PURPLE = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("purple_delphinium");
     public static Feature DELPHINIUMS_WHITE = new DelphiniumFeature(DoublePlantConfig::deserialize).setRegistryName("white_delphinium");
+    public static Feature WISTERIA_FLOWERS = new WisteriaFlowersFeature(NoFeatureConfig::deserialize).setRegistryName("wisteria_flowers");
 
     @SubscribeEvent
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -46,7 +48,8 @@ public class FeatureRegistry {
                 DELPHINIUMS_BLUE,
                 DELPHINIUMS_PINK,
                 DELPHINIUMS_PURPLE,
-                DELPHINIUMS_WHITE
+                DELPHINIUMS_WHITE,
+                WISTERIA_FLOWERS
         );
     }
 

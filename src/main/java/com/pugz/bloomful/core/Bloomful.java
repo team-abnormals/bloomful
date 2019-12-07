@@ -22,7 +22,7 @@ public class Bloomful {
     private void setupCommon(final FMLCommonSetupEvent event) {
         proxy.init();
         BlockRegistry.registerBlockData();
-        BiomeRegistry.registerBiomeDictionaries();
+        BiomeRegistry.registerBiomesToDictionary();
         FeatureRegistry.generateFeatures();
         EntityRegistry.registerSpawns();
         BiomeRegistry.registerBiomeSpawns();

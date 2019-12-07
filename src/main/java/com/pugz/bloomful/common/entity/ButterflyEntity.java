@@ -151,7 +151,7 @@ public class ButterflyEntity extends CreatureEntity {
         double x = (double)spawnPosition.getX() + 0.5D - posX;
         double y = (double)spawnPosition.getY() + 0.1D - posY;
         double z = (double)spawnPosition.getZ() + 0.5D - posZ;
-        Vec3d lvt_9_1_ = this.getMotion();
+        Vec3d lvt_9_1_ = getMotion();
         Vec3d lvt_10_1_ = lvt_9_1_.add((Math.signum(x) * 0.5D - lvt_9_1_.x) * 0.10000000149011612D, (Math.signum(y) * 0.699999988079071D - lvt_9_1_.y) * 0.10000000149011612D, (Math.signum(z) * 0.5D - lvt_9_1_.z) * 0.10000000149011612D);
         setMotion(lvt_10_1_);
         float lvt_11_1_ = (float)(MathHelper.atan2(lvt_10_1_.z, lvt_10_1_.x) * 57.2957763671875D) - 90.0F;

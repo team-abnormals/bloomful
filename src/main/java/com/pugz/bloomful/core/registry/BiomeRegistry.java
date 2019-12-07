@@ -24,11 +24,11 @@ public class BiomeRegistry {
         );
     }
 
-    public static void registerBiomeDictionaries() {
+    public static void registerBiomesToDictionary() {
         BiomeDictionary.addTypes(WISTERIA_FOREST, BiomeDictionary.Type.RARE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.OVERWORLD);
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST, 3));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST, 2));
         BiomeDictionary.addTypes(WISTERIA_FOREST_HILLS, BiomeDictionary.Type.RARE, BiomeDictionary.Type.FOREST, BiomeDictionary.Type.HILLS, BiomeDictionary.Type.OVERWORLD);
-        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST_HILLS, 2));
+        BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST_HILLS, 1));
     }
 
     public static void registerBiomeSpawns() {

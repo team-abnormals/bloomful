@@ -74,6 +74,7 @@ public class BlockRegistry {
 
     //builders basics
     public static Block WISTERIA_BOARDS = new Block(BlockProperties.WISTERIA_PLANKS).setRegistryName("wisteria_boards");
+    public static Block WISTERIA_GLASS_DOOR = new DoorBlock(BlockProperties.WISTERIA_DOORS).setRegistryName("wisteria_glass_door");
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -95,7 +96,8 @@ public class BlockRegistry {
         }
         if (ModList.get().isLoaded("buildbasics")) {
             event.getRegistry().registerAll(
-                    WISTERIA_BOARDS
+                    WISTERIA_BOARDS,
+                    WISTERIA_GLASS_DOOR
             );
         }
     }
@@ -154,8 +156,9 @@ public class BlockRegistry {
         }
         if (ModList.get().isLoaded("buildbasics")) {
             event.getRegistry().registerAll(
-                    new FuelItem(WISTERIA_BOARDS, buildingBlocks, 300).setRegistryName(WISTERIA_BOARDS.getRegistryName())
-                    );
+                new FuelItem(WISTERIA_BOARDS, buildingBlocks, 300).setRegistryName(WISTERIA_BOARDS.getRegistryName()),
+                new BlockItem(WISTERIA_DOOR, redstone).setRegistryName(WISTERIA_DOOR.getRegistryName())
+            );
         }
     }
 

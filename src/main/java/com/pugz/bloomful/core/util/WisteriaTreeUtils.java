@@ -41,4 +41,12 @@ public class WisteriaTreeUtils {
             });
         else return worldIn.hasBlockState(pos, state -> state.canBeReplacedByLeaves((net.minecraft.world.IWorldReader)worldIn, pos));
     }
+
+    public static boolean isAirAndNotLog(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        if (!(worldIn instanceof net.minecraft.world.IWorldReader)) // FORGE: Redirect to state method when possible
+            return worldIn.hasBlockState(pos, (state) -> {
+                return state.isAir() && !state.isIn(BlockTags.LOGS);
+            });
+        else return worldIn.hasBlockState(pos, state -> state.canBeReplacedByLeaves((net.minecraft.world.IWorldReader)worldIn, pos));
+    }
 }
