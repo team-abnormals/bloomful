@@ -107,7 +107,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                                                 });
                                                 if (place && random.nextInt(Math.abs(y) + 1) != 0) {
                                                     place = false;
-                                                    if (random.nextInt(4) == 0) {
+                                                    if (random.nextInt(5) == 0) {
                                                         placeVines(changedBlocks, world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
                                                     }
                                                 }
@@ -143,29 +143,29 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                 case 0:
                     break;
                 case 1:
-                    if (isAirAndNotLog(world, pos)) setForcedState(changedBlocks, world, pos, vineLower, boundingBox);
+                    if (isAir(world, pos)) setForcedState(changedBlocks, world, pos, vineLower, boundingBox);
                     break;
                 case 2:
-                    if (isAirAndNotLog(world, pos)) setForcedState(changedBlocks, world, pos, vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineLower, boundingBox);
+                    if (isAir(world, pos)) setForcedState(changedBlocks, world, pos, vineUpper, boundingBox);
+                    if (isAir(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineLower, boundingBox);
                     break;
                 case 3:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox);
-                    if (isAirAndNotLog(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
+                    if (isAir(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
                     break;
                 case 4:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox);
                     if (isAir(world, pos.down())) placeLeafAt(changedBlocks, world, pos.down(), boundingBox);
-                    if (isAirAndNotLog(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
+                    if (isAir(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
                     break;
                 case 5:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox);
                     if (isAir(world, pos.down())) placeLeafAt(changedBlocks, world, pos.down(), boundingBox);
                     if (isAir(world, pos.down(2))) placeLeafAt(changedBlocks, world, pos.down(2), boundingBox);
-                    if (isAirAndNotLog(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down(4))) setForcedState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
+                    if (isAir(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(4))) setForcedState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
                     break;
             }
         }

@@ -150,8 +150,8 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
                 placePos = new BlockPos(startPos.getX(), y, startPos.getZ());
                 if (isAirOrLeavesOrVines(world, placePos)) setLogState(changedBlocks, world, placePos, LOG, boundingBox);
             }
-            if (isAir(world, pos)) placeLeafAt(changedBlocks, world, placePos.up(), boundingBox);
-            if (vines && isAirAndNotLog(world, placePos.up())) placeVines(changedBlocks, world, random, startPos.down(), LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
+            placeLeafAt(changedBlocks, world, placePos.up(), boundingBox);
+            if (vines) placeVines(changedBlocks, world, random, startPos.down(), LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
         }
     }
 
@@ -162,29 +162,29 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
                 case 0:
                     break;
                 case 1:
-                    if (isAirAndNotLog(world, pos)) setForcedState(changedBlocks, world, pos, vineLower, boundingBox);
+                    if (isAir(world, pos)) setForcedState(changedBlocks, world, pos, vineLower, boundingBox);
                     break;
                 case 2:
-                    if (isAirAndNotLog(world, pos)) setForcedState(changedBlocks, world, pos, vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineLower, boundingBox);
+                    if (isAir(world, pos)) setForcedState(changedBlocks, world, pos, vineUpper, boundingBox);
+                    if (isAir(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineLower, boundingBox);
                     break;
                 case 3:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox);
-                    if (isAirAndNotLog(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
+                    if (isAir(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
                     break;
                 case 4:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox);
-                    if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos.down(), boundingBox);
-                    if (isAirAndNotLog(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
+                    if (isAir(world, pos.down())) placeLeafAt(changedBlocks, world, pos.down(), boundingBox);
+                    if (isAir(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
                     break;
                 case 5:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox);
-                    if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos.down(), boundingBox);
-                    if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos.down(2), boundingBox);
-                    if (isAirAndNotLog(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
-                    if (isAirAndNotLog(world, pos.down(4))) setForcedState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
+                    if (isAir(world, pos.down())) placeLeafAt(changedBlocks, world, pos.down(), boundingBox);
+                    if (isAir(world, pos.down(2))) placeLeafAt(changedBlocks, world, pos.down(2), boundingBox);
+                    if (isAir(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
+                    if (isAir(world, pos.down(4))) setForcedState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
                     break;
             }
         }
