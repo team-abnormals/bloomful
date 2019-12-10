@@ -62,8 +62,10 @@ public class BlockRegistry {
 
     //quark
     public static Block WISTERIA_BOOKSHELF = new BookshelfBlock(BlockProperties.BOOKSHELF).setRegistryName("wisteria_bookshelf");
+/*
     public static Block WISTERIA_CHEST = new ChestBlock(BlockProperties.CHEST).setRegistryName("wisteria_chest");
     public static Block TRAPPED_WISTERIA_CHEST = new TrappedChestBlock(BlockProperties.CHEST).setRegistryName("trapped_wisteria_chest");
+*/
     public static Block WISTERIA_LADDER = new LadderBlock(BlockProperties.LADDER).setRegistryName("wisteria_ladder");
     public static Block VERTICAL_WISTERIA_PLANKS = new Block(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_planks");
     public static Block PINK_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_leaf_carpet");
@@ -86,7 +88,7 @@ public class BlockRegistry {
         );
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
-                    WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
+                    WISTERIA_BOOKSHELF, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
                     PINK_WISTERIA_LEAF_CARPET, BLUE_WISTERIA_LEAF_CARPET, PURPLE_WISTERIA_LEAF_CARPET, WHITE_WISTERIA_LEAF_CARPET
             );
         }
@@ -132,8 +134,10 @@ public class BlockRegistry {
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new FuelItem(WISTERIA_BOOKSHELF, buildingBlocks, 300).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
+/*
                 new FuelItem(WISTERIA_CHEST, decorations, 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
                 new FuelItem(TRAPPED_WISTERIA_CHEST, decorations, 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
+*/
                 new FuelItem(WISTERIA_LADDER, decorations, 300).setRegistryName(WISTERIA_LADDER.getRegistryName()),
                 new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName()),
                 new BlockItem(PINK_WISTERIA_LEAF_CARPET, decorations).setRegistryName(PINK_WISTERIA_LEAF_CARPET.getRegistryName()),
