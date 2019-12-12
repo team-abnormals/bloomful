@@ -81,14 +81,12 @@ public class ButterflyEntity extends CreatureEntity {
 
     @OnlyIn(Dist.CLIENT)
     public String getPatternColorA() {
-        return "#4287f5";
-        //return Data.colorA;
+        return Data.colorA;
     }
 
     @OnlyIn(Dist.CLIENT)
     public String getPatternColorB() {
-        return "#4287f5";
-        //return Data.colorB;
+        return Data.colorB;
     }
 
     @OnlyIn(Dist.CLIENT)

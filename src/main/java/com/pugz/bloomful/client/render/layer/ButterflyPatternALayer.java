@@ -19,7 +19,7 @@ public class ButterflyPatternALayer<T extends ButterflyEntity, M extends EntityM
     public void render(T entity, float f, float f1, float f2, float f3, float f4, float f5, float f6) {
         if (!entity.isInvisible()) {
             bindTexture(entity.getPatternTextureA());
-            Color colorA = Color.decode(entity.getPatternColorA());
+            Color colorA = Color.MAGENTA;
             GlStateManager.color3f(colorA.getRed(), colorA.getGreen(), colorA.getBlue());
             getEntityModel().setModelAttributes(getEntityModel());
             (getEntityModel()).setLivingAnimations(entity, f, f1, f2);

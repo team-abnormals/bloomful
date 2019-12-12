@@ -2,6 +2,7 @@ package com.pugz.bloomful.core.registry;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
+import com.pugz.bloomful.client.render.TileEntityItemRenderer;
 import com.pugz.bloomful.common.block.*;
 import com.pugz.bloomful.common.block.WisteriaChestBlock;
 import com.pugz.bloomful.common.block.LadderBlock;
@@ -143,8 +144,8 @@ public class BlockRegistry {
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new FuelItem(WISTERIA_BOOKSHELF, buildingBlocks, 300).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
-                new FuelItem(WISTERIA_CHEST, null, 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
-                new FuelItem(TRAPPED_WISTERIA_CHEST, null, 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
+                new FuelItem(WISTERIA_CHEST, (new Item.Properties()).group(ItemGroup.DECORATIONS).setTEISR(() -> TileEntityItemRenderer::new), 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
+                new FuelItem(TRAPPED_WISTERIA_CHEST, (new Item.Properties()).group(ItemGroup.DECORATIONS).setTEISR(() -> TileEntityItemRenderer::new), 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
                 new FuelItem(WISTERIA_LADDER, decorations, 300).setRegistryName(WISTERIA_LADDER.getRegistryName()),
                 new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName()),
                 new BlockItem(PINK_WISTERIA_LEAF_CARPET, decorations).setRegistryName(PINK_WISTERIA_LEAF_CARPET.getRegistryName()),
@@ -153,7 +154,6 @@ public class BlockRegistry {
                 new BlockItem(WHITE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(WHITE_WISTERIA_LEAF_CARPET.getRegistryName()),
                 new FuelItem(VERTICAL_WISTERIA_SLAB, buildingBlocks, 150).setRegistryName(VERTICAL_WISTERIA_SLAB.getRegistryName())
             );
-            WisteriaTrappedChestBlock.provideItemBlock(decorations);
         }
         if (ModList.get().isLoaded("charm")) {
             event.getRegistry().registerAll(

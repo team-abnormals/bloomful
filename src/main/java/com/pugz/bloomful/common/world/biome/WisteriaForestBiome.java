@@ -56,7 +56,7 @@ public class WisteriaForestBiome extends Biome {
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityRegistry.BUTTERFLY, 12, 5, 11));
         BiomeFeatures.addDelphiniums(this, 10);
-        BiomeFeatures.addWisteriaTrees(this, 22, 0.05F);
+        BiomeFeatures.addWisteriaTrees(this, 18, 0.05F);
         BiomeFeatures.addWisteriaFlowers(this, 65);
     }
 
