@@ -153,6 +153,7 @@ public class BlockRegistry {
                 new BlockItem(WHITE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(WHITE_WISTERIA_LEAF_CARPET.getRegistryName()),
                 new FuelItem(VERTICAL_WISTERIA_SLAB, buildingBlocks, 150).setRegistryName(VERTICAL_WISTERIA_SLAB.getRegistryName())
             );
+            WisteriaTrappedChestBlock.provideItemBlock(decorations);
         }
         if (ModList.get().isLoaded("charm")) {
             event.getRegistry().registerAll(

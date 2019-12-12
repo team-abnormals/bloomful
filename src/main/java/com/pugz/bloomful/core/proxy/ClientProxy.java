@@ -18,14 +18,14 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends ServerProxy {
     @Override
     public void init() {
-        //registerSpecialRenderers();
+        registerSpecialRenderers();
         registerRenderers();
     }
 
     private static void registerSpecialRenderers() {
         if (ModList.get().isLoaded("quark")) {
-            //ClientRegistry.bindTileEntitySpecialRenderer(WisteriaChestTileEntity.class, new WisteriaChestTileEntityRenderer());
-            //ClientRegistry.bindTileEntitySpecialRenderer(TrappedWisteriaChestTileEntity.class, new TrappedWisteriaChestTileEntityRenderer());
+            ClientRegistry.bindTileEntitySpecialRenderer(WisteriaChestTileEntity.class, new WisteriaChestTileEntityRenderer());
+            ClientRegistry.bindTileEntitySpecialRenderer(TrappedWisteriaChestTileEntity.class, new TrappedWisteriaChestTileEntityRenderer());
         }
     }
 
