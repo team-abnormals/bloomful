@@ -1,10 +1,10 @@
 package com.pugz.bloomful.common.entity;
 
 import com.pugz.bloomful.common.entity.ai.LandOnPlantGoal;
+import com.pugz.bloomful.core.util.ButterflyType;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.passive.fish.TropicalFishEntity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
@@ -26,19 +26,12 @@ import javax.annotation.Nullable;
 import java.util.Random;
 
 public class ButterflyEntity extends CreatureEntity {
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(TropicalFishEntity.class, DataSerializers.VARINT);
-    private static final ResourceLocation[] PATTERN_TEXTURES_A = new ResourceLocation[]{new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_1.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_2.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_3.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_4.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_5.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_6.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_7.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_8.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_9.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_10.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_11.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_12.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_13.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_14.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_15.png")};
-    private static final ResourceLocation[] PATTERN_TEXTURES_B = new ResourceLocation[]{new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_1.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_2.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_3.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_4.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_5.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_6.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_7.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_8.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_9.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_10.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_11.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_12.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_13.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_14.png"), new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_15.png")};
-    public static final int[] SPECIAL_VARIANTS = new int[]{pack(ButterflyEntity.Type.TIGER, DyeColor.ORANGE, DyeColor.GRAY), pack(ButterflyEntity.Type.MONARCH, DyeColor.GRAY, DyeColor.GRAY), pack(ButterflyEntity.Type.MONARCH, DyeColor.GRAY, DyeColor.BLUE), pack(ButterflyEntity.Type.CABBAGE, DyeColor.WHITE, DyeColor.GRAY), pack(ButterflyEntity.Type.SKIPPER, DyeColor.BLUE, DyeColor.GRAY), pack(ButterflyEntity.Type.COPPER, DyeColor.ORANGE, DyeColor.WHITE), pack(ButterflyEntity.Type.SPANGLED, DyeColor.PINK, DyeColor.LIGHT_BLUE), pack(ButterflyEntity.Type.SWALLOWTAIL, DyeColor.PURPLE, DyeColor.YELLOW), pack(ButterflyEntity.Type.CABBAGE, DyeColor.WHITE, DyeColor.RED), pack(ButterflyEntity.Type.SPANGLED, DyeColor.WHITE, DyeColor.YELLOW), pack(ButterflyEntity.Type.SULPHUR, DyeColor.WHITE, DyeColor.GRAY), pack(ButterflyEntity.Type.CABBAGE, DyeColor.WHITE, DyeColor.ORANGE), pack(ButterflyEntity.Type.SPOTTED, DyeColor.CYAN, DyeColor.PINK), pack(ButterflyEntity.Type.DOGFACE, DyeColor.LIME, DyeColor.LIGHT_BLUE), pack(ButterflyEntity.Type.LONGWING, DyeColor.RED, DyeColor.WHITE), pack(ButterflyEntity.Type.PEARLY_EYE, DyeColor.GRAY, DyeColor.RED), pack(ButterflyEntity.Type.SWALLOWTAIL, DyeColor.RED, DyeColor.WHITE), pack(ButterflyEntity.Type.MONARCH, DyeColor.WHITE, DyeColor.YELLOW), pack(ButterflyEntity.Type.COPPER, DyeColor.RED, DyeColor.WHITE), pack(ButterflyEntity.Type.SKIPPER, DyeColor.GRAY, DyeColor.WHITE), pack(ButterflyEntity.Type.SPOTTED, DyeColor.CYAN, DyeColor.YELLOW), pack(ButterflyEntity.Type.MONARCH, DyeColor.YELLOW, DyeColor.YELLOW), pack(Type.NYPMH, DyeColor.WHITE, DyeColor.BLUE), pack(Type.ADMIRAL, DyeColor.LIGHT_GRAY, DyeColor.RED), pack(Type.BUCKEYE, DyeColor.GREEN, DyeColor.BROWN)};
+    private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(ButterflyEntity.class, DataSerializers.VARINT);
     private BlockPos spawnPosition;
     private boolean field_204228_bA = true;
 
     public ButterflyEntity(EntityType<? extends ButterflyEntity> type, World world) {
         super(type, world);
-    }
-
-    private static int pack(ButterflyEntity.Type type, DyeColor body, DyeColor pattern) {
-        return type.getPatternA() & 255 | (type.getPatternB() & 255) << 8 | (body.getId() & 255) << 16 | (pattern.getId() & 255) << 24;
     }
 
     protected void registerGoals() {
@@ -47,7 +40,8 @@ public class ButterflyEntity extends CreatureEntity {
     }
 
     public static boolean spawnCondition(EntityType<ButterflyEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
-        if (world.getDimension().getType() == DimensionType.OVERWORLD) {
+        int light = world.getLight(pos);
+        if (world.getDimension().getType() == DimensionType.OVERWORLD && world.canBlockSeeSky(pos) && light >= 7) {
             return (world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos.down()).getBlock() instanceof BushBlock || world.getBlockState(pos.north()).getBlock() instanceof BushBlock || world.getBlockState(pos.south()).getBlock() instanceof BushBlock || world.getBlockState(pos.east()).getBlock() instanceof BushBlock || world.getBlockState(pos.west()).getBlock() instanceof BushBlock) && world.getLightSubtracted(pos, 0) > 8;
         }
         else return false;
@@ -56,6 +50,11 @@ public class ButterflyEntity extends CreatureEntity {
     protected void registerData() {
         super.registerData();
         dataManager.register(VARIANT, 0);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public static String getBottleName() {
+        return "entity.bloomful.butterfly." + Data.toRegistryName(Data.name);
     }
 
     public void writeAdditional(CompoundNBT p_213281_1_) {
@@ -68,8 +67,8 @@ public class ButterflyEntity extends CreatureEntity {
         setVariant(p_70037_1_.getInt("Variant"));
     }
 
-    public void setVariant(int p_204215_1_) {
-        dataManager.set(VARIANT, p_204215_1_);
+    public void setVariant(int variant) {
+        dataManager.set(VARIANT, variant);
     }
 
     public boolean func_204209_c(int p_204209_1_) {
@@ -81,43 +80,25 @@ public class ButterflyEntity extends CreatureEntity {
     }
 
     @OnlyIn(Dist.CLIENT)
-    private static int getPatternColorA(int color) {
-        return (color & -16777216) >> 24;
+    public String getPatternColorA() {
+        return "#4287f5";
+        //return Data.colorA;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public float[] getPatternColorA() {
-        return DyeColor.byId(getPatternColorA(getVariant())).getColorComponentValues();
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    private static int getPatternColorB(int color) {
-        return (color & 16711680) >> 16;
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public float[] getPatternColorB() {
-        return DyeColor.byId(getPatternColorB(getVariant())).getColorComponentValues();
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    public static int getTexture(int variant) {
-        return Math.min(variant & 255, 1);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    private static int getPattern(int variant) {
-        return Math.min((variant & '\uff00') >> 8, 5);
+    public String getPatternColorB() {
+        return "#4287f5";
+        //return Data.colorB;
     }
 
     @OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureA() {
-        return getTexture(getVariant()) == 0 ? PATTERN_TEXTURES_B[getPattern(getVariant())] : PATTERN_TEXTURES_B[getPattern(getVariant())];
+        return Data.patternA;
     }
 
     @OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureB() {
-        return getTexture(getVariant()) == 0 ? PATTERN_TEXTURES_A[getPattern(getVariant())] : PATTERN_TEXTURES_A[getPattern(getVariant())];
+        return Data.patternB;
     }
 
     public boolean canBePushed() {
@@ -195,7 +176,9 @@ public class ButterflyEntity extends CreatureEntity {
         int k;
         int l;
         if ((double)rand.nextFloat() < 0.9D) {
-            int i1 = SPECIAL_VARIANTS[rand.nextInt(SPECIAL_VARIANTS.length)];
+            ButterflyType type = ButterflyType.types[rand.nextInt(ButterflyType.values().length)];
+            ButterflyEntity.Data variant = type.getDataValues().get(rand.nextInt(type.getDataValues().size()));
+            int i1 = rand.nextInt(type.getDataValues().size());
             i = i1 & 255;
             j = (i1 & '\uff00') >> 8;
             k = (i1 & 16711680) >> 16;
@@ -211,37 +194,29 @@ public class ButterflyEntity extends CreatureEntity {
         return spawnData;
     }
 
-    public enum Type {
-        TIGER(1, 1),
-        MONARCH(2, 1),
-        CABBAGE(3, 1),
-        SKIPPER(1, 2),
-        COPPER(2, 2),
-        SPANGLED(3, 2),
-        SWALLOWTAIL(1, 3),
-        SULPHUR(2, 3),
-        SPOTTED(3, 3),
-        DOGFACE(1, 4),
-        LONGWING(2, 4),
-        PEARLY_EYE(3, 4),
-        NYPMH(1, 5),
-        ADMIRAL(2, 5),
-        BUCKEYE(3, 5);
+    public static class Data {
+        //display name
+        private static String name;
+        //primary color
+        private static String colorA;
+        //secondary color
+        private static String colorB;
+        //primary pattern texture
+        //bloomful:textures/entity/butterfly/brushfoot_a
+        private static ResourceLocation patternA = new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_1.png"); //new ResourceLocation("bloomful", "textures/entity/butterfly/" + toRegistryName(name) + "_a");
+        //secondary pattern texture
+        //bloomful:textures/entity/butterfly/brushfoot_b
+        private static ResourceLocation patternB = new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_1.png"); //new ResourceLocation("bloomful", "textures/entity/butterfly/" + toRegistryName(name) + "_b");
 
-        private final int patternA;
-        private final int patternB;
-
-        Type(int patternAIn, int patternBIn) {
-            patternA = patternAIn;
-            patternB = patternBIn;
+        public Data(String nameIn, String a, String b) {
+            name = nameIn;
+            colorA = a;
+            colorB = b;
         }
 
-        public int getPatternA() {
-            return patternA;
-        }
-
-        public int getPatternB() {
-            return patternB;
+        private static String toRegistryName(String string) {
+            string.toLowerCase().replace(" ", "_").replace("-", "_");
+            return string;
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.pugz.bloomful.core.registry;
 
-import com.google.common.collect.Lists;
 import com.pugz.bloomful.common.entity.ButterflyEntity;
 import com.pugz.bloomful.common.entity.WisteriaBoatEntity;
 import net.minecraft.entity.Entity;
@@ -18,10 +17,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.network.FMLPlayMessages;
 
-import java.util.List;
 import java.util.function.BiFunction;
-
-import static net.minecraft.particles.ParticleTypes.NAUTILUS;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EntityRegistry {

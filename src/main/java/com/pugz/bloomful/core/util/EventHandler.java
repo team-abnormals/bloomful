@@ -2,6 +2,8 @@ package com.pugz.bloomful.core.util;
 
 import com.pugz.bloomful.common.entity.ButterflyEntity;
 import com.pugz.bloomful.core.registry.BlockRegistry;
+import com.pugz.bloomful.core.registry.EntityRegistry;
+import com.pugz.bloomful.core.registry.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
@@ -11,6 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IWorld;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -31,20 +34,6 @@ public class EventHandler {
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.PINK_DELPHINIUM), 2, 1, 6, 1, 0.05F));
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.PURPLE_DELPHINIUM), 2, 1, 6, 1, 0.05F));
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.WHITE_DELPHINIUM), 2, 1, 6, 1, 0.05F));
-    }
-
-    private static final ThreadLocal<ItemStack> WAIT_TO_REPLACE_CHEST = new ThreadLocal<>();
-
-    @SubscribeEvent
-    public void onEntityJoinWorld(EntityJoinWorldEvent event) {
-        Entity target = event.getEntity();
-        if (target instanceof ItemEntity && ((ItemEntity) target).getItem().getItem() == Items.CHEST) {
-            ItemStack local = WAIT_TO_REPLACE_CHEST.get();
-            if (local != null && !local.isEmpty()) {
-                ((ItemEntity) target).setItem(local);
-            }
-            WAIT_TO_REPLACE_CHEST.remove();
-        }
     }
 
     @SubscribeEvent
@@ -69,6 +58,16 @@ public class EventHandler {
                     event.setResult(Event.Result.DENY);
                 }
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
+        Entity entity = event.getTarget();
+        ItemStack stack = event.getItemStack();
+        if (entity.getType() == EntityRegistry.BUTTERFLY && stack.getItem() == Items.GLASS_BOTTLE) {
+            event.getPlayer().setHeldItem(event.getHand(), new ItemStack(ItemRegistry.BOTTLED_BUTTERFLY));
+            entity.remove(true);
         }
     }
 }

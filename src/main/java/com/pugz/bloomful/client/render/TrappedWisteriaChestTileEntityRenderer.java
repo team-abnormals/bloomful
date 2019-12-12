@@ -1,6 +1,6 @@
 package com.pugz.bloomful.client.render;
 
-import com.pugz.bloomful.common.block.TrappedChestBlock;
+import com.pugz.bloomful.common.block.WisteriaTrappedChestBlock;
 import com.pugz.bloomful.common.tileentity.TrappedWisteriaChestTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.tileentity.ChestTileEntityRenderer;
@@ -23,7 +23,7 @@ public class TrappedWisteriaChestTileEntityRenderer extends ChestTileEntityRende
         if(tile != null && tile.hasWorld()) {
             if(location.getPath().contains("normal")) {
                 Block block = tile.getBlockState().getBlock();
-                if(block instanceof TrappedChestBlock) {
+                if(block instanceof WisteriaTrappedChestBlock) {
                     location = isDouble ? forceDouble : forceNormal;
                 }
             }

@@ -1,7 +1,6 @@
 package com.pugz.bloomful.client.model;
 
 import com.pugz.bloomful.common.entity.ButterflyEntity;
-import net.minecraft.client.renderer.entity.model.BatModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.util.math.MathHelper;

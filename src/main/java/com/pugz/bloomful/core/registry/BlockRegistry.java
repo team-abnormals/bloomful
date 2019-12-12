@@ -1,10 +1,11 @@
 package com.pugz.bloomful.core.registry;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
 import com.pugz.bloomful.common.block.*;
-import com.pugz.bloomful.common.block.ChestBlock;
+import com.pugz.bloomful.common.block.WisteriaChestBlock;
 import com.pugz.bloomful.common.block.LadderBlock;
-import com.pugz.bloomful.common.block.TrappedChestBlock;
+import com.pugz.bloomful.common.block.WisteriaTrappedChestBlock;
 import com.pugz.bloomful.common.item.FuelItem;
 import com.pugz.bloomful.common.world.gen.feature.trees.WisteriaTree;
 import com.pugz.bloomful.core.util.BlockProperties;
@@ -17,6 +18,8 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
+import net.minecraft.util.SoundEvents;
+import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
@@ -62,8 +65,8 @@ public class BlockRegistry {
 
     //quark
     public static Block WISTERIA_BOOKSHELF = new BookshelfBlock(BlockProperties.BOOKSHELF).setRegistryName("wisteria_bookshelf");
-    public static Block WISTERIA_CHEST = new ChestBlock(BlockProperties.CHEST).setRegistryName("wisteria_chest");
-    public static Block TRAPPED_WISTERIA_CHEST = new TrappedChestBlock(BlockProperties.CHEST).setRegistryName("trapped_wisteria_chest");
+    public static Block WISTERIA_CHEST = new WisteriaChestBlock(BlockProperties.CHEST).setRegistryName("wisteria_chest");
+    public static Block TRAPPED_WISTERIA_CHEST = new WisteriaTrappedChestBlock(BlockProperties.CHEST).setRegistryName("trapped_wisteria_chest");
     public static Block WISTERIA_LADDER = new LadderBlock(BlockProperties.LADDER).setRegistryName("wisteria_ladder");
     public static Block VERTICAL_WISTERIA_PLANKS = new Block(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_planks");
     public static Block PINK_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_leaf_carpet");
@@ -71,6 +74,9 @@ public class BlockRegistry {
     public static Block PURPLE_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_leaf_carpet");
     public static Block WHITE_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_leaf_carpet");
     public static Block VERTICAL_WISTERIA_SLAB = new VerticalSlabBlock(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_slab");
+
+    //charm
+    public static Block WISTERIA_BARREL = new BarrelBlock(BlockProperties.CHEST).setRegistryName("wisteria_barrel");
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -88,6 +94,11 @@ public class BlockRegistry {
             event.getRegistry().registerAll(
                     WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
                     PINK_WISTERIA_LEAF_CARPET, BLUE_WISTERIA_LEAF_CARPET, PURPLE_WISTERIA_LEAF_CARPET, WHITE_WISTERIA_LEAF_CARPET
+            );
+        }
+        if (ModList.get().isLoaded("charm")) {
+            event.getRegistry().registerAll(
+                    WISTERIA_BARREL
             );
         }
     }
@@ -132,8 +143,8 @@ public class BlockRegistry {
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new FuelItem(WISTERIA_BOOKSHELF, buildingBlocks, 300).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
-                new FuelItem(WISTERIA_CHEST, decorations, 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
-                new FuelItem(TRAPPED_WISTERIA_CHEST, decorations, 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
+                new FuelItem(WISTERIA_CHEST, null, 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
+                new FuelItem(TRAPPED_WISTERIA_CHEST, null, 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
                 new FuelItem(WISTERIA_LADDER, decorations, 300).setRegistryName(WISTERIA_LADDER.getRegistryName()),
                 new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName()),
                 new BlockItem(PINK_WISTERIA_LEAF_CARPET, decorations).setRegistryName(PINK_WISTERIA_LEAF_CARPET.getRegistryName()),
@@ -142,7 +153,11 @@ public class BlockRegistry {
                 new BlockItem(WHITE_WISTERIA_LEAF_CARPET, decorations).setRegistryName(WHITE_WISTERIA_LEAF_CARPET.getRegistryName()),
                 new FuelItem(VERTICAL_WISTERIA_SLAB, buildingBlocks, 150).setRegistryName(VERTICAL_WISTERIA_SLAB.getRegistryName())
             );
-            TrappedChestBlock.provideItemBlock(decorations);
+        }
+        if (ModList.get().isLoaded("charm")) {
+            event.getRegistry().registerAll(
+                new FuelItem(WISTERIA_BARREL, decorations, 300).setRegistryName(WISTERIA_BARREL.getRegistryName())
+            );
         }
     }
 
@@ -215,5 +230,14 @@ public class BlockRegistry {
     public static void registerStrippable(Block log, Block stripped) {
         AxeItem.BLOCK_STRIPPING_MAP = Maps.newHashMap(AxeItem.BLOCK_STRIPPING_MAP);
         AxeItem.BLOCK_STRIPPING_MAP.put(log, stripped);
+    }
+
+    @SubscribeEvent
+    public static void registerPointOfInterests(RegistryEvent.Register<PointOfInterestType> event) {
+        PointOfInterestType type = new PointOfInterestType("fisherman", ImmutableSet.copyOf(WISTERIA_BARREL.getStateContainer().getValidStates()), 1, SoundEvents.ENTITY_VILLAGER_WORK_FISHERMAN, 1).setRegistryName("fisherman");
+        if (ModList.get().isLoaded("charm")) {
+            event.getRegistry().register(type);
+            PointOfInterestType.func_221052_a(type);
+        }
     }
 }
