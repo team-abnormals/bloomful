@@ -5,7 +5,6 @@ import com.pugz.bloomful.core.util.ButterflyType;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.item.DyeColor;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -15,18 +14,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.dimension.DimensionType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-import javax.annotation.Nullable;
+import java.awt.*;
 import java.util.Random;
 
 public class ButterflyEntity extends CreatureEntity {
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.createKey(ButterflyEntity.class, DataSerializers.VARINT);
     private BlockPos spawnPosition;
     private boolean field_204228_bA = true;
 
@@ -41,62 +38,46 @@ public class ButterflyEntity extends CreatureEntity {
 
     public static boolean spawnCondition(EntityType<ButterflyEntity> entity, IWorld world, SpawnReason reason, BlockPos pos, Random random) {
         int light = world.getLight(pos);
-        if (world.getDimension().getType() == DimensionType.OVERWORLD && world.canBlockSeeSky(pos) && light >= 7) {
+        if (world.getDimension().getType() == DimensionType.OVERWORLD && world.canBlockSeeSky(pos) && light >= 7 && world.getWorld().isDaytime()) {
             return (world.getBlockState(pos).getBlock() instanceof BushBlock || world.getBlockState(pos.down()).getBlock() instanceof BushBlock || world.getBlockState(pos.north()).getBlock() instanceof BushBlock || world.getBlockState(pos.south()).getBlock() instanceof BushBlock || world.getBlockState(pos.east()).getBlock() instanceof BushBlock || world.getBlockState(pos.west()).getBlock() instanceof BushBlock) && world.getLightSubtracted(pos, 0) > 8;
         }
         else return false;
     }
 
-    protected void registerData() {
-        super.registerData();
-        dataManager.register(VARIANT, 0);
-    }
-
     @OnlyIn(Dist.CLIENT)
     public static String getBottleName() {
-        return "entity.bloomful.butterfly." + Data.toRegistryName(Data.name);
-    }
-
-    public void writeAdditional(CompoundNBT p_213281_1_) {
-        super.writeAdditional(p_213281_1_);
-        p_213281_1_.putInt("Variant", getVariant());
-    }
-
-    public void readAdditional(CompoundNBT p_70037_1_) {
-        super.readAdditional(p_70037_1_);
-        setVariant(p_70037_1_.getInt("Variant"));
-    }
-
-    public void setVariant(int variant) {
-        dataManager.set(VARIANT, variant);
+        return "entity.bloomful.butterfly." + Variant.toRegistryName(Variant.name);
     }
 
     public boolean func_204209_c(int p_204209_1_) {
         return !field_204228_bA;
     }
 
-    public int getVariant() {
-        return dataManager.get(VARIANT);
+    public Variant getButterflyVariant() {
+        ButterflyType type = ButterflyType.types[rand.nextInt(ButterflyType.values().length)];
+        Variant variant = type.getVariants().get(rand.nextInt(type.getVariants().size()));
+        System.out.println(variant + type.name());
+        return variant;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public String getPatternColorA() {
-        return Data.colorA;
+    public Color getPatternColorA() {
+        return getButterflyVariant().colorA;
     }
 
     @OnlyIn(Dist.CLIENT)
-    public String getPatternColorB() {
-        return Data.colorB;
+    public Color getPatternColorB() {
+        return getButterflyVariant().colorB;
     }
 
     @OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureA() {
-        return Data.patternA;
+        return getButterflyVariant().patternA;
     }
 
     @OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureB() {
-        return Data.patternB;
+        return getButterflyVariant().patternB;
     }
 
     public boolean canBePushed() {
@@ -165,40 +146,13 @@ public class ButterflyEntity extends CreatureEntity {
         return size.height / 2.0F;
     }
 
-    @Nullable
-    @Override
-    public ILivingEntityData onInitialSpawn(IWorld world, DifficultyInstance difficulty, SpawnReason reason, @Nullable ILivingEntityData spawnData, @Nullable CompoundNBT dataTag) {
-        spawnData = super.onInitialSpawn(world, difficulty, reason, spawnData, dataTag);
-        int i;
-        int j;
-        int k;
-        int l;
-        if ((double)rand.nextFloat() < 0.9D) {
-            ButterflyType type = ButterflyType.types[rand.nextInt(ButterflyType.values().length)];
-            ButterflyEntity.Data variant = type.getDataValues().get(rand.nextInt(type.getDataValues().size()));
-            int i1 = rand.nextInt(type.getDataValues().size());
-            i = i1 & 255;
-            j = (i1 & '\uff00') >> 8;
-            k = (i1 & 16711680) >> 16;
-            l = (i1 & -16777216) >> 24;
-        } else {
-            field_204228_bA = false;
-            i = rand.nextInt(2);
-            j = rand.nextInt(6);
-            k = rand.nextInt(15);
-            l = rand.nextInt(15);
-        }
-        setVariant(i | j << 8 | k << 16 | l << 24);
-        return spawnData;
-    }
-
-    public static class Data {
+    public static class Variant {
         //display name
         private static String name;
         //primary color
-        private static String colorA;
+        private static Color colorA;
         //secondary color
-        private static String colorB;
+        private static Color colorB;
         //primary pattern texture
         //bloomful:textures/entity/butterfly/brushfoot_a
         private static ResourceLocation patternA = new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_a_pattern_1.png"); //new ResourceLocation("bloomful", "textures/entity/butterfly/" + toRegistryName(name) + "_a");
@@ -206,7 +160,7 @@ public class ButterflyEntity extends CreatureEntity {
         //bloomful:textures/entity/butterfly/brushfoot_b
         private static ResourceLocation patternB = new ResourceLocation("bloomful", "textures/entity/butterfly/butterfly_b_pattern_1.png"); //new ResourceLocation("bloomful", "textures/entity/butterfly/" + toRegistryName(name) + "_b");
 
-        public Data(String nameIn, String a, String b) {
+        public Variant(String nameIn, Color a, Color b) {
             name = nameIn;
             colorA = a;
             colorB = b;

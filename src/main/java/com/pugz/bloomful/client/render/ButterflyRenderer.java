@@ -18,7 +18,7 @@ public class ButterflyRenderer extends MobRenderer<ButterflyEntity, EntityModel<
     private static final ResourceLocation BODY = new ResourceLocation("bloomful", "textures/entity/butterfly/body.png");
 
     public ButterflyRenderer(EntityRendererManager rendererManager) {
-        super(rendererManager, new ButterflyModel(), 0.25F);
+        super(rendererManager, new ButterflyModel(),0.25F);
         addLayer(new ButterflyPatternALayer<>(this));
         addLayer(new ButterflyPatternBLayer<>(this));
     }

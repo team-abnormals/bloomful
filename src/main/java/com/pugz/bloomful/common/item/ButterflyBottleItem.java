@@ -32,7 +32,7 @@ public class ButterflyBottleItem extends GlassBottleItem {
 
     private void releaseButterfly(World worldIn, ItemStack stack, BlockPos pos) {
         EntityType butterfly = EntityRegistry.BUTTERFLY;
-        butterfly.spawn(worldIn, stack, (PlayerEntity)null, pos, SpawnReason.SPAWN_EGG, true, false);
+        butterfly.spawn(worldIn, stack, (PlayerEntity)null, pos.up(), SpawnReason.SPAWN_EGG, true, false);
     }
 
     @Override
