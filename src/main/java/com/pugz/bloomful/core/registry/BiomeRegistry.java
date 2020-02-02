@@ -31,9 +31,9 @@ public class BiomeRegistry {
         BiomeManager.addBiome(BiomeManager.BiomeType.WARM, new BiomeManager.BiomeEntry(WISTERIA_FOREST_HILLS, 1));
     }
 
-    public static void registerBiomeSpawns() {
+    /*public static void registerBiomeSpawns() {
         for (Biome biome : ForgeRegistries.BIOMES.getValues()) {
             biome.addSpawn(EntityClassification.AMBIENT, new Biome.SpawnListEntry(EntityRegistry.BUTTERFLY, 8, 4, 8));
         }
-    }
+    }*/
 }
