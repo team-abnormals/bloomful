@@ -20,7 +20,8 @@ public class BiomeFeatures {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Biome.createDecoratedFeature(Feature.RANDOM_SELECTOR, new MultipleRandomFeatureConfig(new Feature[]{FeatureRegistry.BIG_WISTERIA_TREE_PURPLE, FeatureRegistry.BIG_WISTERIA_TREE_WHITE, FeatureRegistry.BIG_WISTERIA_TREE_BLUE, FeatureRegistry.BIG_WISTERIA_TREE_PINK}, new IFeatureConfig[]{IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG, IFeatureConfig.NO_FEATURE_CONFIG}, new float[]{0.1F, 0.1F, 0.1F, 0.1F}, Feature.SUPER_BIRCH_TREE, IFeatureConfig.NO_FEATURE_CONFIG), Placement.COUNT_EXTRA_HEIGHTMAP, new AtSurfaceWithExtraConfig(count / 2, extraChance, 1)));
     }
 
-    public static void addWisteriaFlowers(Biome biome, int count) {
+    @SuppressWarnings({ "unchecked", "static-access" })
+	public static void addWisteriaFlowers(Biome biome, int count) {
         biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, biome.createDecoratedFeature(FeatureRegistry.WISTERIA_FLOWERS, new NoFeatureConfig(), Placement.COUNT_HEIGHTMAP_32, new FrequencyConfig(count)));
     }
 

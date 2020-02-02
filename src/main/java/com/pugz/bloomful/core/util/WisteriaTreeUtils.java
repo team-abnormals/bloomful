@@ -9,6 +9,7 @@ import net.minecraft.world.gen.IWorldGenerationReader;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class WisteriaTreeUtils {
     public static int getLengthByNeighbors(IWorldGenerationReader world, Random random, BlockPos pos) {
         int length = random.nextInt(6); // max 4
@@ -21,7 +22,7 @@ public class WisteriaTreeUtils {
         return length;
     }
 
-    protected static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+	protected static boolean isAir(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         if (!(worldIn instanceof net.minecraft.world.IBlockReader)) // FORGE: Redirect to state method when possible
             return worldIn.hasBlockState(pos, BlockState::isAir);
         else return worldIn.hasBlockState(pos, state -> state.isAir((net.minecraft.world.IBlockReader)worldIn, pos));

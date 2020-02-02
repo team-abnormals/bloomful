@@ -4,14 +4,12 @@ import com.pugz.bloomful.common.entity.ButterflyEntity;
 import com.pugz.bloomful.common.entity.WisteriaBoatEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntitySpawnPlacementRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.Heightmap;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -44,19 +42,19 @@ public class EntityRegistry {
     @SubscribeEvent
     public static void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
         event.getRegistry().registerAll(
-                WISTERIA_BOAT,
-                BUTTERFLY
+                WISTERIA_BOAT//,
+                //BUTTERFLY
         );
     }
 
     @SubscribeEvent
     public static void registerSpawnEggs(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                BUTTERFLY_SPAWN_EGG
+                //BUTTERFLY_SPAWN_EGG
         );
     }
 
     public static void registerSpawns() {
-        EntitySpawnPlacementRegistry.register(BUTTERFLY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, ButterflyEntity::spawnCondition);
+        //EntitySpawnPlacementRegistry.register(BUTTERFLY, EntitySpawnPlacementRegistry.PlacementType.ON_GROUND, Heightmap.Type.MOTION_BLOCKING, ButterflyEntity::spawnCondition);
     }
 }

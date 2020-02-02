@@ -22,6 +22,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Random;
 
+@SuppressWarnings("deprecation")
 public class WisteriaLeavesBlock extends Block implements net.minecraftforge.common.IShearable {
     public static final IntegerProperty DISTANCE = IntegerProperty.create("distance", 1, 8);
     public static final BooleanProperty PERSISTENT = BlockStateProperties.PERSISTENT;

@@ -1,18 +1,14 @@
 package com.pugz.bloomful.core.util;
 
 import com.pugz.bloomful.core.registry.BlockRegistry;
-import com.pugz.bloomful.core.registry.EntityRegistry;
-import com.pugz.bloomful.core.registry.ItemRegistry;
-import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class EventHandler {
+	
     @SubscribeEvent
     public static void onWandererTrades(WandererTradesEvent event) {
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.BLUE_WISTERIA_SAPLING), 5, 1, 8, 1, 0.05F));
@@ -25,6 +21,7 @@ public class EventHandler {
         event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(new ItemStack(BlockRegistry.WHITE_DELPHINIUM), 2, 1, 6, 1, 0.05F));
     }
 
+    /*
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
         Entity entity = event.getTarget();
@@ -34,4 +31,5 @@ public class EventHandler {
             entity.remove(true);
         }
     }
+    */
 }

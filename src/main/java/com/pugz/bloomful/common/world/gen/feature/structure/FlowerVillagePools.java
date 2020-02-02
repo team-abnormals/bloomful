@@ -10,6 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.jigsaw.*;
 import net.minecraft.world.gen.feature.template.*;
 
+@SuppressWarnings({ "unused", "unchecked", "deprecation", "rawtypes" })
 public class FlowerVillagePools {
     public static void init() {
     }

@@ -1,12 +1,8 @@
 package com.pugz.bloomful.core.registry;
 
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
-import com.pugz.bloomful.client.render.TileEntityItemRenderer;
 import com.pugz.bloomful.common.block.*;
-import com.pugz.bloomful.common.block.WisteriaChestBlock;
 import com.pugz.bloomful.common.block.LadderBlock;
-import com.pugz.bloomful.common.block.WisteriaTrappedChestBlock;
 import com.pugz.bloomful.common.item.FuelItem;
 import com.pugz.bloomful.common.world.gen.feature.trees.WisteriaTree;
 import com.pugz.bloomful.core.util.BlockProperties;
@@ -19,13 +15,12 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.village.PointOfInterestType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+@SuppressWarnings("deprecation")
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BlockRegistry {
     public static Block WISTERIA_LOG = new LogBlock(MaterialColor.WHITE_TERRACOTTA, BlockProperties.WISTERIA_LOG(false)).setRegistryName("wisteria_log");
@@ -40,7 +35,7 @@ public class BlockRegistry {
     public static Block POTTED_PINK_WISTERIA_SAPLING = new FlowerPotBlock(PINK_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_pink_wisteria_sapling");
     public static Block POTTED_BLUE_WISTERIA_SAPLING = new FlowerPotBlock(BLUE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_blue_wisteria_sapling");
     public static Block POTTED_PURPLE_WISTERIA_SAPLING = new FlowerPotBlock(PURPLE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_purple_wisteria_sapling");
-    public static Block POTTED_WHITE_WISTERIA_SAPLING = new FlowerPotBlock(WHITE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_white_wisteria_sapling");
+	public static Block POTTED_WHITE_WISTERIA_SAPLING = new FlowerPotBlock(WHITE_WISTERIA_SAPLING, BlockProperties.FLOWER_POT).setRegistryName("potted_white_wisteria_sapling");
     public static Block PINK_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_leaves");
     public static Block BLUE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_leaves");
     public static Block PURPLE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_leaves");
@@ -66,8 +61,6 @@ public class BlockRegistry {
 
     //quark
     public static Block WISTERIA_BOOKSHELF = new BookshelfBlock(BlockProperties.BOOKSHELF).setRegistryName("wisteria_bookshelf");
-    public static Block WISTERIA_CHEST = new WisteriaChestBlock(BlockProperties.CHEST).setRegistryName("wisteria_chest");
-    public static Block TRAPPED_WISTERIA_CHEST = new WisteriaTrappedChestBlock(BlockProperties.CHEST).setRegistryName("trapped_wisteria_chest");
     public static Block WISTERIA_LADDER = new LadderBlock(BlockProperties.LADDER).setRegistryName("wisteria_ladder");
     public static Block VERTICAL_WISTERIA_PLANKS = new Block(BlockProperties.WISTERIA_PLANKS).setRegistryName("vertical_wisteria_planks");
     public static Block PINK_WISTERIA_LEAF_CARPET = new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_leaf_carpet");
@@ -93,15 +86,15 @@ public class BlockRegistry {
         );
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
-                    WISTERIA_BOOKSHELF, WISTERIA_CHEST, TRAPPED_WISTERIA_CHEST, WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
+                    WISTERIA_BOOKSHELF,  WISTERIA_LADDER, VERTICAL_WISTERIA_PLANKS, VERTICAL_WISTERIA_SLAB,
                     PINK_WISTERIA_LEAF_CARPET, BLUE_WISTERIA_LEAF_CARPET, PURPLE_WISTERIA_LEAF_CARPET, WHITE_WISTERIA_LEAF_CARPET
             );
         }
-        if (ModList.get().isLoaded("charm")) {
+        /*if (ModList.get().isLoaded("charm")) {
             event.getRegistry().registerAll(
                     WISTERIA_BARREL
             );
-        }
+        }*/
     }
 
     @SubscribeEvent
@@ -144,8 +137,6 @@ public class BlockRegistry {
         if (ModList.get().isLoaded("quark")) {
             event.getRegistry().registerAll(
                 new FuelItem(WISTERIA_BOOKSHELF, buildingBlocks, 300).setRegistryName(WISTERIA_BOOKSHELF.getRegistryName()),
-                new FuelItem(WISTERIA_CHEST, (new Item.Properties()).group(ItemGroup.DECORATIONS).setTEISR(() -> TileEntityItemRenderer::new), 300).setRegistryName(WISTERIA_CHEST.getRegistryName()),
-                new FuelItem(TRAPPED_WISTERIA_CHEST, (new Item.Properties()).group(ItemGroup.DECORATIONS).setTEISR(() -> TileEntityItemRenderer::new), 300).setRegistryName(TRAPPED_WISTERIA_CHEST.getRegistryName()),
                 new FuelItem(WISTERIA_LADDER, decorations, 300).setRegistryName(WISTERIA_LADDER.getRegistryName()),
                 new BlockItem(VERTICAL_WISTERIA_PLANKS, buildingBlocks).setRegistryName(VERTICAL_WISTERIA_PLANKS.getRegistryName()),
                 new BlockItem(PINK_WISTERIA_LEAF_CARPET, decorations).setRegistryName(PINK_WISTERIA_LEAF_CARPET.getRegistryName()),
@@ -155,11 +146,11 @@ public class BlockRegistry {
                 new FuelItem(VERTICAL_WISTERIA_SLAB, buildingBlocks, 150).setRegistryName(VERTICAL_WISTERIA_SLAB.getRegistryName())
             );
         }
-        if (ModList.get().isLoaded("charm")) {
+        /*if (ModList.get().isLoaded("charm")) {
             event.getRegistry().registerAll(
                 new FuelItem(WISTERIA_BARREL, decorations, 300).setRegistryName(WISTERIA_BARREL.getRegistryName())
             );
-        }
+        }*/
     }
 
     public static void registerBlockData() {
@@ -217,6 +208,7 @@ public class BlockRegistry {
         registerFlammable(PINK_WISTERIA_LEAF_CARPET, 30, 60);
         registerFlammable(PURPLE_WISTERIA_LEAF_CARPET, 30, 60);
         registerFlammable(VERTICAL_WISTERIA_SLAB, 5, 20);
+        registerFlammable(WISTERIA_BOOKSHELF, 5, 20);
     }
 
     public static void registerFlammable(Block block, int encouragement, int flammability) {
@@ -233,6 +225,7 @@ public class BlockRegistry {
         AxeItem.BLOCK_STRIPPING_MAP.put(log, stripped);
     }
 
+    /*
     @SubscribeEvent
     public static void registerPointOfInterests(RegistryEvent.Register<PointOfInterestType> event) {
         PointOfInterestType type = new PointOfInterestType("fisherman", ImmutableSet.copyOf(WISTERIA_BARREL.getStateContainer().getValidStates()), 1, SoundEvents.ENTITY_VILLAGER_WORK_FISHERMAN, 1).setRegistryName("fisherman");
@@ -240,5 +233,5 @@ public class BlockRegistry {
             event.getRegistry().register(type);
             PointOfInterestType.func_221052_a(type);
         }
-    }
+    }*/
 }

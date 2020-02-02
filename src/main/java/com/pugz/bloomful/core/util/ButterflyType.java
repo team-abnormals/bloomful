@@ -1,7 +1,6 @@
 package com.pugz.bloomful.core.util;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.pugz.bloomful.common.entity.ButterflyEntity.Variant;

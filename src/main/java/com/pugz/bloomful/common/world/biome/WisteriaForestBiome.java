@@ -1,6 +1,5 @@
 package com.pugz.bloomful.common.world.biome;
 
-import com.pugz.bloomful.core.registry.EntityRegistry;
 import com.pugz.bloomful.core.util.BiomeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -54,7 +53,6 @@ public class WisteriaForestBiome extends Biome {
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.SLIME, 100, 4, 4));
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
-        addSpawn(EntityClassification.AMBIENT, new SpawnListEntry(EntityRegistry.BUTTERFLY, 12, 5, 11));
         BiomeFeatures.addDelphiniums(this, 10);
         BiomeFeatures.addWisteriaTrees(this, 18, 0.05F);
         BiomeFeatures.addWisteriaFlowers(this, 65);

@@ -4,7 +4,6 @@ import com.pugz.bloomful.core.proxy.ClientProxy;
 import com.pugz.bloomful.core.proxy.ServerProxy;
 import com.pugz.bloomful.core.registry.BiomeRegistry;
 import com.pugz.bloomful.core.registry.BlockRegistry;
-import com.pugz.bloomful.core.registry.EntityRegistry;
 import com.pugz.bloomful.core.registry.FeatureRegistry;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -24,7 +23,7 @@ public class Bloomful {
         BlockRegistry.registerBlockData();
         BiomeRegistry.registerBiomesToDictionary();
         FeatureRegistry.generateFeatures();
-        EntityRegistry.registerSpawns();
+        //EntityRegistry.registerSpawns();
         BiomeRegistry.registerBiomeSpawns();
     }
 }

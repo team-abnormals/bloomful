@@ -25,12 +25,13 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
+@SuppressWarnings("rawtypes")
 public class ButterflyBottleItem extends GlassBottleItem {
     public ButterflyBottleItem(Item.Properties properties) {
         super(properties);
     }
 
-    private void releaseButterfly(World worldIn, ItemStack stack, BlockPos pos) {
+	private void releaseButterfly(World worldIn, ItemStack stack, BlockPos pos) {
         EntityType butterfly = EntityRegistry.BUTTERFLY;
         butterfly.spawn(worldIn, stack, (PlayerEntity)null, pos.up(), SpawnReason.SPAWN_EGG, true, false);
     }
@@ -43,7 +44,8 @@ public class ButterflyBottleItem extends GlassBottleItem {
         return new ActionResult<>(ActionResultType.SUCCESS, stack);
     }
 
-    @OnlyIn(Dist.CLIENT)
+    @SuppressWarnings("unused")
+	@OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         CompoundNBT compoundnbt = stack.getTag();
         if (compoundnbt != null && compoundnbt.contains("BottleVariantTag", 3)) {

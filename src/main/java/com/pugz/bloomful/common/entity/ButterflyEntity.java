@@ -5,10 +5,6 @@ import com.pugz.bloomful.core.util.ButterflyType;
 import net.minecraft.block.*;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.datasync.DataParameter;
-import net.minecraft.network.datasync.DataSerializers;
-import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -23,6 +19,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import java.awt.*;
 import java.util.Random;
 
+@SuppressWarnings("static-access")
 public class ButterflyEntity extends CreatureEntity {
     private BlockPos spawnPosition;
     private boolean field_204228_bA = true;
@@ -75,7 +72,7 @@ public class ButterflyEntity extends CreatureEntity {
         return getButterflyVariant().patternA;
     }
 
-    @OnlyIn(Dist.CLIENT)
+	@OnlyIn(Dist.CLIENT)
     public ResourceLocation getPatternTextureB() {
         return getButterflyVariant().patternB;
     }
