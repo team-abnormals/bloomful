@@ -41,4 +41,10 @@ public class WisteriaTreeUtils {
             });
         else return worldIn.hasBlockState(pos, state -> state.canBeReplacedByLeaves((net.minecraft.world.IWorldReader)worldIn, pos));
     }
+    
+    public static boolean isLog(IWorldGenerationBaseReader worldIn, BlockPos pos) {
+        return worldIn.hasBlockState(pos, (p_214579_0_) -> {
+           return p_214579_0_.isIn(BlockTags.LOGS);
+        });
+     }
 }
