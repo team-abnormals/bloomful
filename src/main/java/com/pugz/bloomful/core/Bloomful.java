@@ -24,6 +24,5 @@ public class Bloomful {
         BiomeRegistry.registerBiomesToDictionary();
         FeatureRegistry.generateFeatures();
         //EntityRegistry.registerSpawns();
-        BiomeRegistry.registerBiomeSpawns();
     }
 }
