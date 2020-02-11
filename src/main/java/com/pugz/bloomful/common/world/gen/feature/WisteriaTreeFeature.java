@@ -218,11 +218,11 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
             BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.025F);
         }
         else if (biome.getCategory() == Biome.Category.PLAINS) {
-            BiomeFeatures.addWisteriaTrees(biome,0, 0.01F);
+            BiomeFeatures.addNoBirchTrees(biome,0, 0.01F);
         }
         else if (biome.getCategory() == Biome.Category.FOREST) {
             if (biome == Biomes.FLOWER_FOREST || biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
-            else BiomeFeatures.addWisteriaTrees(biome,0, 0.025F);
+            else BiomeFeatures.addNoBirchTrees(biome,0, 0.025F);
         }
     }
 }
