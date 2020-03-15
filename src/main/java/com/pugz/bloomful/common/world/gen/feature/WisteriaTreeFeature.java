@@ -40,23 +40,23 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
         switch (color) {
             case PURPLE:
                 LEAF = () -> BloomfulBlocks.PURPLE_WISTERIA_LEAVES.get().getDefaultState();
-                VINE_UPPER = () -> BloomfulBlocks.PURPLE_WISTERIA_VINE.get().getDefaultState();
-                VINE_LOWER = () -> BloomfulBlocks.PURPLE_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                VINE_UPPER = () -> BloomfulBlocks.PURPLE_HANGING_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_LOWER = () -> BloomfulBlocks.PURPLE_HANGING_WISTERIA_LEAVES.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
             case WHITE:
                 LEAF = () -> BloomfulBlocks.WHITE_WISTERIA_LEAVES.get().getDefaultState();
-                VINE_UPPER = () -> BloomfulBlocks.WHITE_WISTERIA_VINE.get().getDefaultState();
-                VINE_LOWER = () -> BloomfulBlocks.WHITE_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                VINE_UPPER = () -> BloomfulBlocks.WHITE_HANGING_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_LOWER = () -> BloomfulBlocks.WHITE_HANGING_WISTERIA_LEAVES.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
             case PINK:
                 LEAF = () -> BloomfulBlocks.PINK_WISTERIA_LEAVES.get().getDefaultState();
-                VINE_UPPER = () -> BloomfulBlocks.PINK_WISTERIA_VINE.get().getDefaultState();
-                VINE_LOWER = () -> BloomfulBlocks.PINK_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                VINE_UPPER = () -> BloomfulBlocks.PINK_HANGING_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_LOWER = () -> BloomfulBlocks.PINK_HANGING_WISTERIA_LEAVES.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
             case BLUE:
                 LEAF = () -> BloomfulBlocks.BLUE_WISTERIA_LEAVES.get().getDefaultState();
-                VINE_UPPER = () -> BloomfulBlocks.BLUE_WISTERIA_VINE.get().getDefaultState();
-                VINE_LOWER = () -> BloomfulBlocks.BLUE_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                VINE_UPPER = () -> BloomfulBlocks.BLUE_HANGING_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_LOWER = () -> BloomfulBlocks.BLUE_HANGING_WISTERIA_LEAVES.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
         }
     }

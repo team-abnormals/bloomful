@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bloomful:vertical_wisteria_slab"
+      "item": "bloomful:wisteria_vertical_slab"
     }
   ],
   "result": {
@@ -11,8 +11,13 @@
   },
   "conditions": [
     {
-      "type": "quark:flag",
-      "flag": "vertical_slabs"
+      "type": "forge:and",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "quark"
+        }
+      ]
     }
   ]
 }

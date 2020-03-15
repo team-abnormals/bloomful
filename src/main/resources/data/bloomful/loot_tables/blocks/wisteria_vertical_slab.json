@@ -12,7 +12,7 @@
               "conditions": [
                 {
                   "condition": "minecraft:block_state_property",
-                  "block": "bloomful:vertical_wisteria_slab",
+                  "block": "bloomful:wisteria_vertical_slab",
                   "properties": {
                     "type": "double"
                   }
@@ -24,7 +24,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "bloomful:vertical_wisteria_slab"
+          "name": "bloomful:wisteria_vertical_slab"
         }
       ]
     }
