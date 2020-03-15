@@ -1,6 +1,7 @@
 package com.pugz.bloomful.common.entity;
 
 import com.pugz.bloomful.core.registry.BlockRegistry;
+
 import com.pugz.bloomful.core.registry.EntityRegistry;
 import com.pugz.bloomful.core.registry.ItemRegistry;
 import net.minecraft.block.Block;
@@ -42,7 +43,7 @@ import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
 import java.util.List;
-
+@SuppressWarnings("deprecation")
 public class WisteriaBoatEntity extends BoatEntity {
     private static final DataParameter<Integer> TIME_SINCE_HIT = EntityDataManager.createKey(WisteriaBoatEntity.class, DataSerializers.VARINT);
     private static final DataParameter<Integer> FORWARD_DIRECTION = EntityDataManager.createKey(WisteriaBoatEntity.class, DataSerializers.VARINT);
@@ -562,7 +563,7 @@ public class WisteriaBoatEntity extends BoatEntity {
         }
     }
 
-    @Override
+	@Override
     protected void updateFallState(double y, boolean onGroundIn, BlockState state, BlockPos pos) {
         lastYd = getMotion().y;
         if (!isPassenger()) {

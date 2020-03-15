@@ -1,7 +1,3 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "bloomful:block/purple_wisteria_leaves"
-  },
-  "uvlock": true
+    "parent": "bloomful:block/purple_wisteria_leaves"
 }

@@ -102,7 +102,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
                                     });
                                     if (place && random.nextInt(Math.abs(y) + 1) != 0) {
                                         place = false;
-                                        if (random.nextInt(4) == 0) {
+                                        if (random.nextInt(4) == 0 && !isLog(world, leafPos)) {
                                             placeVines(changedBlocks, world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
                                         }
                                     }
@@ -157,7 +157,7 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
 
     private void placeVines(Set<BlockPos> changedBlocks, IWorldGenerationReader world, Random random, BlockPos pos, BlockState leaf, BlockState vineLower, BlockState vineUpper, MutableBoundingBox boundingBox) {
         int length = getLengthByNeighbors(world, random, pos);
-        if (random.nextInt(6) != 5 && isAir(world, pos)) {
+        if (random.nextInt(6) != 5 && isAir(world, pos) && !isLog(world, pos)) {
             switch (length) {
                 case 0:
                     break;
@@ -218,11 +218,11 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
             BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.025F);
         }
         else if (biome.getCategory() == Biome.Category.PLAINS) {
-            BiomeFeatures.addWisteriaTrees(biome,0, 0.01F);
+            BiomeFeatures.addNoBirchTrees(biome,0, 0.01F);
         }
         else if (biome.getCategory() == Biome.Category.FOREST) {
             if (biome == Biomes.FLOWER_FOREST || biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
-            else BiomeFeatures.addWisteriaTrees(biome,0, 0.025F);
+            else BiomeFeatures.addNoBirchTrees(biome,0, 0.025F);
         }
     }
 }

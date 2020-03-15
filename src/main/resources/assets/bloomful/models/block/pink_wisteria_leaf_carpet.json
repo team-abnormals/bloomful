@@ -1,0 +1,6 @@
+{   
+    "parent": "bloomful:block/leaf_carpet",
+    "textures": {
+        "all": "bloomful:block/pink_wisteria_leaves"
+    }
+}

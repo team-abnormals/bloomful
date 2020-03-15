@@ -17,8 +17,7 @@ public class ItemRegistry {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                WISTERIA_BOAT,
-                BOTTLED_BUTTERFLY
+                WISTERIA_BOAT
         );
     }
 }

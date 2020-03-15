@@ -13,38 +13,43 @@
     "block.bloomful.wisteria_button": "Wisteria Button",
     "block.bloomful.wisteria_pressure_plate": "Wisteria Pressure Plate",
     "block.bloomful.wisteria_sign": "Wisteria Sign",
+    
+    "block.bloomful.wisteria_bookshelf": "Wisteria Bookshelf",
+    "block.bloomful.wisteria_ladder": "Wisteria Ladder",
+    "block.bloomful.vertical_wisteria_planks": "Vertical Wisteria Planks",
+    "block.bloomful.wisteria_vertical_slab": "Wisteria Vertical Slab",
+    
     "block.bloomful.blue_wisteria_leaves": "Blue Wisteria Leaves",
     "block.bloomful.pink_wisteria_leaves": "Pink Wisteria Leaves",
     "block.bloomful.purple_wisteria_leaves": "Purple Wisteria Leaves",
     "block.bloomful.white_wisteria_leaves": "White Wisteria Leaves",
-    "block.bloomful.blue_wisteria_vine": "Hanging Blue Wisteria Leaves",
-    "block.bloomful.pink_wisteria_vine": "Hanging Pink Wisteria Leaves",
-    "block.bloomful.purple_wisteria_vine": "Hanging Purple Wisteria Leaves",
-    "block.bloomful.white_wisteria_vine": "Hanging White Wisteria Leaves",
+    
+    "block.bloomful.hanging_blue_wisteria_leaves": "Hanging Blue Wisteria Leaves",
+    "block.bloomful.hanging_pink_wisteria_leaves": "Hanging Pink Wisteria Leaves",
+    "block.bloomful.hanging_purple_wisteria_leaves": "Hanging Purple Wisteria Leaves",
+    "block.bloomful.hanging_white_wisteria_leaves": "Hanging White Wisteria Leaves",
+    
     "block.bloomful.blue_wisteria_sapling": "Blue Wisteria Sapling",
     "block.bloomful.pink_wisteria_sapling": "Pink Wisteria Sapling",
     "block.bloomful.purple_wisteria_sapling": "Purple Wisteria Sapling",
     "block.bloomful.white_wisteria_sapling": "White Wisteria Sapling",
-    "block.bloomful.blue_delphinium": "Blue Delphinium",
-    "block.bloomful.pink_delphinium": "Pink Delphinium",
-    "block.bloomful.purple_delphinium": "Purple Delphinium",
-    "block.bloomful.white_delphinium": "White Delphinium",
-    "block.bloomful.wisteria_bookshelf": "Wisteria Bookshelf",
-    "block.bloomful.wisteria_chest": "Wisteria Chest",
-    "block.bloomful.trapped_wisteria_chest": "Trapped Wisteria Chest",
-    "block.bloomful.wisteria_ladder": "Wisteria Ladder",
-    "block.bloomful.vertical_wisteria_planks": "Vertical Wisteria Planks",
+    
     "block.bloomful.blue_wisteria_leaf_carpet": "Blue Wisteria Leaf Carpet",
     "block.bloomful.pink_wisteria_leaf_carpet": "Pink Wisteria Leaf Carpet",
     "block.bloomful.purple_wisteria_leaf_carpet": "Purple Wisteria Leaf Carpet",
     "block.bloomful.white_wisteria_leaf_carpet": "White Wisteria Leaf Carpet",
+    
+    "block.bloomful.blue_delphinium": "Blue Delphinium",
+    "block.bloomful.pink_delphinium": "Pink Delphinium",
+    "block.bloomful.purple_delphinium": "Purple Delphinium",
+    "block.bloomful.white_delphinium": "White Delphinium",
 
-    "item.bloomful.wisteria_boat": "Wisteria Boat",
     "item.bloomful.butterfly_spawn_egg": "Butterfly Spawn Egg",
     "item.bloomful.bottled_butterfly": "Bottled Butterfly",
 
     "biome.bloomful.wisteria_forest": "Wisteria Forest",
     "biome.bloomful.wisteria_forest_hills": "Wisteria Forest Hills",
 
-    "entity.bloomful.butterfly": "Butterfly"
+    "entity.bloomful.butterfly": "Butterfly",
+    "entity.bloomful.boat": "Boat"
 }

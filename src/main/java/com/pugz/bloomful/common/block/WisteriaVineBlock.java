@@ -1,11 +1,9 @@
 package com.pugz.bloomful.common.block;
 
 import net.minecraft.block.*;
-import net.minecraft.entity.Entity;
+
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.IFluidState;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.state.EnumProperty;
@@ -16,7 +14,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
@@ -28,7 +25,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
 import java.util.Random;
-
+@SuppressWarnings("deprecation")
 public class WisteriaVineBlock extends Block implements net.minecraftforge.common.IShearable {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     protected static final VoxelShape WISTERIA_VINE_TOP = Block.makeCuboidShape(1, 0, 1, 15, 16, 15);
@@ -114,6 +111,7 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
         return block == getDefaultState().with(HALF, DoubleBlockHalf.UPPER).getBlock() || block.isIn(BlockTags.LEAVES) || block.isIn(BlockTags.LOGS);
     }
 
+    /*
     @Override
     public boolean removedByPlayer(BlockState state, World world, BlockPos pos, PlayerEntity player, boolean willHarvest, IFluidState fluid) {
         if (world.getBlockState(pos.down()) == getDefaultState().with(HALF, DoubleBlockHalf.LOWER)) {
@@ -122,6 +120,7 @@ public class WisteriaVineBlock extends Block implements net.minecraftforge.commo
         world.removeBlock(pos, false);
         return false;
     }
+    */
 
     @Override
     @Nullable

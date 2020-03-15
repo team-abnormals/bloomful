@@ -1,6 +1,3 @@
 {
-  "parent": "block/template_fence_gate",
-  "textures": {
-    "texture": "bloomful:block/wisteria_planks"
-  }
+    "parent": "bloomful:block/wisteria_fence_gate"
 }

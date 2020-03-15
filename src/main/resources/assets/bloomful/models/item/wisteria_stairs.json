@@ -1,8 +1,3 @@
 {
-  "parent": "block/stairs",
-  "textures": {
-    "bottom": "bloomful:block/wisteria_planks",
-    "top": "bloomful:block/wisteria_planks",
-    "side": "bloomful:block/wisteria_planks"
-  }
+    "parent": "bloomful:block/wisteria_stairs"
 }
