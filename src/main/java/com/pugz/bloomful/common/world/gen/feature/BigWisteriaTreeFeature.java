@@ -1,6 +1,6 @@
 package com.pugz.bloomful.common.world.gen.feature;
 
-import static com.pugz.bloomful.common.block.WisteriaVineBlock.HALF;
+import static com.pugz.bloomful.common.block.HangingWisteriaLeavesBlock.HALF;
 import static com.pugz.bloomful.core.util.WisteriaTreeUtils.getLengthByNeighbors;
 import static com.pugz.bloomful.core.util.WisteriaTreeUtils.isAirOrLeavesOrVines;
 import static com.pugz.bloomful.core.util.WisteriaTreeUtils.isLog;

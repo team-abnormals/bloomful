@@ -26,12 +26,12 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.Random;
 @SuppressWarnings("deprecation")
-public class WisteriaVineBlock extends Block implements net.minecraftforge.common.IShearable {
+public class HangingWisteriaLeavesBlock extends Block implements net.minecraftforge.common.IShearable {
     public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     protected static final VoxelShape WISTERIA_VINE_TOP = Block.makeCuboidShape(1, 0, 1, 15, 16, 15);
     protected static final VoxelShape WISTERIA_VINE_BOTTOM = Block.makeCuboidShape(4, 0, 4, 12, 16, 12);
 
-    public WisteriaVineBlock(Block.Properties properties) {
+    public HangingWisteriaLeavesBlock(Block.Properties properties) {
         super(properties);
         setDefaultState(stateContainer.getBaseState().with(HALF, DoubleBlockHalf.UPPER));
     }

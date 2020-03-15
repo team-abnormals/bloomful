@@ -22,7 +22,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static com.pugz.bloomful.common.block.WisteriaVineBlock.HALF;
+import static com.pugz.bloomful.common.block.HangingWisteriaLeavesBlock.HALF;
 import static com.pugz.bloomful.core.util.WisteriaTreeUtils.*;
 
 public class WisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
