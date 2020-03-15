@@ -4,11 +4,14 @@ import com.pugz.bloomful.client.render.ButterflyRenderer;
 import com.pugz.bloomful.client.render.WisteriaBoatRenderer;
 import com.pugz.bloomful.common.entity.ButterflyEntity;
 import com.pugz.bloomful.common.entity.WisteriaBoatEntity;
-import com.pugz.bloomful.core.registry.BiomeRegistry;
-import com.pugz.bloomful.core.registry.BlockRegistry;
-import com.pugz.bloomful.core.registry.FeatureRegistry;
+import com.pugz.bloomful.core.registry.BloomfulBiomes;
+import com.pugz.bloomful.core.registry.BloomfulBlocks;
+import com.pugz.bloomful.core.registry.BloomfulFeatures;
+import com.pugz.bloomful.core.registry.BloomfulItems;
 
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -20,13 +23,20 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class Bloomful {
 
     public Bloomful() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupCommon);
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> this::initSetupClient);   
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        
+        BloomfulBlocks.BLOCKS.register(modEventBus);
+        BloomfulItems.ITEMS.register(modEventBus);
+        BloomfulBiomes.BIOMES.register(modEventBus);
+        
+        MinecraftForge.EVENT_BUS.register(this);
+        
+        modEventBus.addListener(this::setupCommon);
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
+        	modEventBus.addListener(this::setupClient);
+        });
     }
     
-    public void initSetupClient() {
-    	FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setupClient);	
-    }
     
     public void setupClient(final FMLClientSetupEvent event) {
     	RenderingRegistry.registerEntityRenderingHandler(WisteriaBoatEntity.class, WisteriaBoatRenderer::new);
@@ -34,9 +44,9 @@ public class Bloomful {
     }
 
     public void setupCommon(final FMLCommonSetupEvent event) {
-        BlockRegistry.registerBlockData();
-        BiomeRegistry.registerBiomesToDictionary();
-        FeatureRegistry.generateFeatures();
+        BloomfulBlocks.registerBlockData();
+        BloomfulBiomes.registerBiomesToDictionary();
+        BloomfulFeatures.generateFeatures();
         //EntityRegistry.registerSpawns();
     }
 }

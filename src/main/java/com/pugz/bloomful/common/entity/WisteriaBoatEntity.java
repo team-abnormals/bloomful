@@ -1,9 +1,9 @@
 package com.pugz.bloomful.common.entity;
 
-import com.pugz.bloomful.core.registry.BlockRegistry;
+import com.pugz.bloomful.core.registry.BloomfulBlocks;
 
-import com.pugz.bloomful.core.registry.EntityRegistry;
-import com.pugz.bloomful.core.registry.ItemRegistry;
+import com.pugz.bloomful.core.registry.BloomfulEntities;
+import com.pugz.bloomful.core.registry.BloomfulItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.LilyPadBlock;
@@ -77,7 +77,7 @@ public class WisteriaBoatEntity extends BoatEntity {
     }
 
     public WisteriaBoatEntity(World worldIn, double x, double y, double z) {
-        this(EntityRegistry.WISTERIA_BOAT, worldIn);
+        this(BloomfulEntities.WISTERIA_BOAT, worldIn);
         setPosition(x, y, z);
         setMotion(Vec3d.ZERO);
         prevPosX = x;
@@ -86,7 +86,7 @@ public class WisteriaBoatEntity extends BoatEntity {
     }
 
     public WisteriaBoatEntity(FMLPlayMessages.SpawnEntity spawnEntity, World world) {
-        this(EntityRegistry.WISTERIA_BOAT, world);
+        this(BloomfulEntities.WISTERIA_BOAT, world);
     }
 
     @Override
@@ -146,7 +146,7 @@ public class WisteriaBoatEntity extends BoatEntity {
         switch (getBoatModel()) {
             default:
             case WISTERIA:
-                return ItemRegistry.WISTERIA_BOAT;
+                return BloomfulItems.WISTERIA_BOAT.get();
         }
     }
 
@@ -665,7 +665,7 @@ public class WisteriaBoatEntity extends BoatEntity {
     }
 
     public enum Type {
-        WISTERIA(BlockRegistry.WISTERIA_PLANKS, "wisteria");
+        WISTERIA(BloomfulBlocks.WISTERIA_PLANKS.get(), "wisteria");
 
         private final String name;
         private final Block block;

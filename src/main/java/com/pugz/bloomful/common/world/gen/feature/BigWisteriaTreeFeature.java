@@ -1,8 +1,19 @@
 package com.pugz.bloomful.common.world.gen.feature;
 
+import static com.pugz.bloomful.common.block.WisteriaVineBlock.HALF;
+import static com.pugz.bloomful.core.util.WisteriaTreeUtils.getLengthByNeighbors;
+import static com.pugz.bloomful.core.util.WisteriaTreeUtils.isAirOrLeavesOrVines;
+import static com.pugz.bloomful.core.util.WisteriaTreeUtils.isLog;
+
+import java.util.Random;
+import java.util.Set;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 import com.mojang.datafixers.Dynamic;
-import com.pugz.bloomful.core.registry.BlockRegistry;
+import com.pugz.bloomful.core.registry.BloomfulBlocks;
 import com.pugz.bloomful.core.util.WisteriaColor;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.BlockTags;
@@ -13,18 +24,11 @@ import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.NoFeatureConfig;
 
-import java.util.Random;
-import java.util.Set;
-import java.util.function.Function;
-
-import static com.pugz.bloomful.common.block.WisteriaVineBlock.HALF;
-import static com.pugz.bloomful.core.util.WisteriaTreeUtils.*;
-
 public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig> {
-    private final BlockState LOG = BlockRegistry.WISTERIA_LOG.getDefaultState();
-    private BlockState LEAF;
-    private BlockState VINE_UPPER;
-    private BlockState VINE_LOWER;
+	private final Supplier<BlockState> LOG = () -> BloomfulBlocks.WISTERIA_LOG.get().getDefaultState();
+	private Supplier<BlockState> LEAF;
+	private Supplier<BlockState>  VINE_UPPER;
+	private Supplier<BlockState>  VINE_LOWER;
 
     public BigWisteriaTreeFeature(Function<Dynamic<?>, ? extends NoFeatureConfig> function, boolean doBlockNofityOnPlace, WisteriaColor color) {
         super(function, doBlockNofityOnPlace);
@@ -34,24 +38,24 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
     private void setBlocksByColor(WisteriaColor color) {
         switch (color) {
             case PURPLE:
-                LEAF = BlockRegistry.PURPLE_WISTERIA_LEAVES.getDefaultState();
-                VINE_UPPER = BlockRegistry.PURPLE_WISTERIA_VINE.getDefaultState();
-                VINE_LOWER = BlockRegistry.PURPLE_WISTERIA_VINE.getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                LEAF = () -> BloomfulBlocks.PURPLE_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_UPPER = () ->  BloomfulBlocks.PURPLE_WISTERIA_VINE.get().getDefaultState();
+                VINE_LOWER = () ->  BloomfulBlocks.PURPLE_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
             case WHITE:
-                LEAF = BlockRegistry.WHITE_WISTERIA_LEAVES.getDefaultState();
-                VINE_UPPER = BlockRegistry.WHITE_WISTERIA_VINE.getDefaultState();
-                VINE_LOWER = BlockRegistry.WHITE_WISTERIA_VINE.getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                LEAF = () ->  BloomfulBlocks.WHITE_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_UPPER = () ->  BloomfulBlocks.WHITE_WISTERIA_VINE.get().getDefaultState();
+                VINE_LOWER = () ->  BloomfulBlocks.WHITE_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
             case PINK:
-                LEAF = BlockRegistry.PINK_WISTERIA_LEAVES.getDefaultState();
-                VINE_UPPER = BlockRegistry.PINK_WISTERIA_VINE.getDefaultState();
-                VINE_LOWER = BlockRegistry.PINK_WISTERIA_VINE.getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                LEAF = () -> BloomfulBlocks.PINK_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_UPPER = () -> BloomfulBlocks.PINK_WISTERIA_VINE.get().getDefaultState();
+                VINE_LOWER = () -> BloomfulBlocks.PINK_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
             case BLUE:
-                LEAF = BlockRegistry.BLUE_WISTERIA_LEAVES.getDefaultState();
-                VINE_UPPER = BlockRegistry.BLUE_WISTERIA_VINE.getDefaultState();
-                VINE_LOWER = BlockRegistry.BLUE_WISTERIA_VINE.getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
+                LEAF = () -> BloomfulBlocks.BLUE_WISTERIA_LEAVES.get().getDefaultState();
+                VINE_UPPER = () -> BloomfulBlocks.BLUE_WISTERIA_VINE.get().getDefaultState();
+                VINE_LOWER = () -> BloomfulBlocks.BLUE_WISTERIA_VINE.get().getDefaultState().with(HALF, DoubleBlockHalf.LOWER);
                 break;
         }
     }
@@ -93,7 +97,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                     int size = random.nextInt(3) + 5;
                     for (int j = 1; j <= size; j++) {
                         position = position.add(random.nextInt(2) - (xNeg ? 1 : 0), random.nextInt(2), random.nextInt(2) - (zNeg ? 1 : 0));
-                        setLogState(changedBlocks, world, position, LOG, boundingBox);
+                        setLogState(changedBlocks, world, position, LOG.get(), boundingBox);
                         if (j == size) {
                             for (int y = 4; y > -4; --y) {
                                 for (int x = 4; x > -4; --x) {
@@ -108,7 +112,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                                                 if (place && random.nextInt(Math.abs(y) + 1) != 0) {
                                                     place = false;
                                                     if (random.nextInt(5) == 0 && !isLog(world, leafPos)) {
-                                                        placeVines(changedBlocks, world, random, leafPos, LEAF, VINE_LOWER, VINE_UPPER, boundingBox);
+                                                        placeVines(changedBlocks, world, random, leafPos, LEAF.get(), VINE_LOWER.get(), VINE_UPPER.get(), boundingBox);
                                                     }
                                                 }
                                             }
@@ -124,7 +128,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
                 }
                 for(int i2 = 0; i2 < height; ++i2) {
                     if (isAirOrLeavesOrVines(world, pos.up(i2))) {
-                        setLogState(changedBlocks, world, pos.up(i2), LOG, boundingBox);
+                        setLogState(changedBlocks, world, pos.up(i2), LOG.get(), boundingBox);
                     }
                 }
                 return true;
@@ -173,7 +177,7 @@ public class BigWisteriaTreeFeature extends AbstractTreeFeature<NoFeatureConfig>
 
     private void placeLeafAt(Set<BlockPos> changedBlocks, IWorldGenerationReader worldIn, BlockPos pos, MutableBoundingBox boundingBox) {
         if (isAirOrLeaves(worldIn, pos)) {
-            setLogState(changedBlocks, worldIn, pos, LEAF, boundingBox);
+            setLogState(changedBlocks, worldIn, pos, LEAF.get(), boundingBox);
         }
     }
 

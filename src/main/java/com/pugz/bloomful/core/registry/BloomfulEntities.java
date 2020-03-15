@@ -18,7 +18,7 @@ import net.minecraftforge.fml.network.FMLPlayMessages;
 import java.util.function.BiFunction;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
-public class EntityRegistry {
+public class BloomfulEntities {
     public static Item BUTTERFLY_SPAWN_EGG;
 
     public static EntityType<WisteriaBoatEntity> WISTERIA_BOAT = createBasicEntity(WisteriaBoatEntity::new, WisteriaBoatEntity::new, EntityClassification.MISC, "wisteria_boat", 1.375F, 0.5625F);

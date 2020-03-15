@@ -1,6 +1,6 @@
 package com.pugz.bloomful.core.util;
 
-import com.pugz.bloomful.core.registry.BlockRegistry;
+import com.pugz.bloomful.core.registry.BloomfulBlocks;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -10,14 +10,14 @@ public class EventHandler {
 	
     @SubscribeEvent
     public static void onWandererTrades(WandererTradesEvent event) {
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.BLUE_WISTERIA_SAPLING, 5, 1, 8, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.PINK_WISTERIA_SAPLING, 5, 1, 8, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.PURPLE_WISTERIA_SAPLING, 5, 1, 8, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.WHITE_WISTERIA_SAPLING, 5, 1, 8, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.BLUE_DELPHINIUM, 2, 1, 6, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.PINK_DELPHINIUM, 2, 1, 6, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.PURPLE_DELPHINIUM, 2, 1, 6, 1));
-        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BlockRegistry.WHITE_DELPHINIUM, 2, 1, 6, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.BLUE_WISTERIA_SAPLING.get(), 5, 1, 8, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.PINK_WISTERIA_SAPLING.get(), 5, 1, 8, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.PURPLE_WISTERIA_SAPLING.get(), 5, 1, 8, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.WHITE_WISTERIA_SAPLING.get(), 5, 1, 8, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.BLUE_DELPHINIUM.get(), 2, 1, 6, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.PINK_DELPHINIUM.get(), 2, 1, 6, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.PURPLE_DELPHINIUM.get(), 2, 1, 6, 1));
+        event.getGenericTrades().add(new EntityUtils.ItemsForEmeraldsTrade(BloomfulBlocks.WHITE_DELPHINIUM.get(), 2, 1, 6, 1));
     }
 
     /*
