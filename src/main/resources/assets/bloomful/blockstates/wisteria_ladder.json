@@ -1,16 +1,8 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "textures": {
-            "particle": "bloomful:block/wisteria_ladder",
-            "texture": "bloomful:block/wisteria_ladder"
-        },
-        "model": "quark:block/ladder_but_not_the_vanilla_one_so_resourcepacks_dont_override_it"
-    },
     "variants": {
-        "facing=north": [{}],
-        "facing=east":  { "y": 90 },
-        "facing=south": { "y": 180 },
-        "facing=west":  { "y": 270 }
+        "facing=north": { "model": "bloomful:block/wisteria_ladder" },
+        "facing=east":  { "model": "bloomful:block/wisteria_ladder", "y": 90 },
+        "facing=south": { "model": "bloomful:block/wisteria_ladder", "y": 180 },
+        "facing=west":  { "model": "bloomful:block/wisteria_ladder", "y": 270 }
     }
 }

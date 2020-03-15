@@ -1,10 +1,6 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "model": "block/cross"
-    },
     "variants": {
-        "half=lower": [{ "textures": { "cross": "bloomful:block/pink_delphinium_bottom" }}],
-        "half=upper": [{ "textures": { "cross": "bloomful:block/pink_delphinium_top" }}]
+        "half=lower": { "model": "bloomful:block/pink_delphinium_bottom" },
+        "half=upper":    { "model": "bloomful:block/pink_delphinium_top" }
     }
 }

@@ -40,10 +40,10 @@ public class BlockRegistry {
     public static Block BLUE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_leaves");
     public static Block PURPLE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_leaves");
     public static Block WHITE_WISTERIA_LEAVES = new WisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_leaves");
-    public static Block PINK_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("pink_wisteria_vine");
-    public static Block BLUE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("blue_wisteria_vine");
-    public static Block PURPLE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("purple_wisteria_vine");
-    public static Block WHITE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("white_wisteria_vine");
+    public static Block PINK_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PINK)).setRegistryName("hanging_pink_wisteria_leaves");
+    public static Block BLUE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)).setRegistryName("hanging_blue_wisteria_leaves");
+    public static Block PURPLE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)).setRegistryName("hanging_purple_wisteria_leaves");
+    public static Block WHITE_WISTERIA_VINE = new WisteriaVineBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)).setRegistryName("hanging_white_wisteria_leaves");
     public static Block WISTERIA_STAIRS = new StairsBlock(WISTERIA_PLANKS.getDefaultState(), BlockProperties.WISTERIA_PLANKS).setRegistryName("wisteria_stairs");
     public static Block WISTERIA_SLAB = new SlabBlock(BlockProperties.WISTERIA_PLANKS).setRegistryName("wisteria_slab");
     //public static Block WISTERIA_SIGN = new AbstractColormaticSignBlock.StandingSign(Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(1.0F).sound(SoundType.WOOD)).setRegistryName("wisteria_sign");

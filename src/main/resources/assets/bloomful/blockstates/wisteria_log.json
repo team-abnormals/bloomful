@@ -1,15 +1,7 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "textures": {
-      "end": "bloomful:block/wisteria_log_top",
-      "side": "bloomful:block/wisteria_log"
-    },
-    "model": "block/cube_column"
-  },
-  "variants": {
-    "axis=y": [{}],
-    "axis=z": { "x": 90 },
-    "axis=x": { "x": 90, "y": 90 }
-  }
+    "variants": {
+        "axis=y":    { "model": "bloomful:block/wisteria_log" },
+        "axis=z":     { "model": "bloomful:block/wisteria_log", "x": 90 },
+        "axis=x":     { "model": "bloomful:block/wisteria_log", "x": 90, "y": 90 }
+    }
 }

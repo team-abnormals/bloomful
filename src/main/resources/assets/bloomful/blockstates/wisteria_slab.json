@@ -1,20 +1,7 @@
 {
-  "forge_marker": 1,
-  "defaults": {
-    "textures": {
-      "bottom": "bloomful:block/wisteria_planks",
-      "top": "bloomful:block/wisteria_planks",
-      "side": "bloomful:block/wisteria_planks"
+    "variants": {
+        "type=bottom": { "model": "bloomful:block/wisteria_slab" },
+        "type=top": { "model": "bloomful:block/wisteria_slab_top" },
+        "type=double": { "model": "bloomful:block/wisteria_planks" }
     }
-  },
-  "variants": {
-    "type=bottom": { "model": "block/slab" },
-    "type=top": { "model": "block/slab_top" },
-    "type=double": {
-      "model": "block/cube_all",
-      "textures": {
-        "all": "bloomful:block/wisteria_planks"
-      }
-    }
-  }
 }

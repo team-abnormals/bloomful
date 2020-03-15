@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=lower": { "model": "bloomful:block/hanging_pink_wisteria_leaves_bottom" },
+        "half=upper":    { "model": "bloomful:block/hanging_pink_wisteria_leaves_top" }
+    }
+}

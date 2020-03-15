@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "bloomful:block/blue_delphinium_bottom"
+    }
+}

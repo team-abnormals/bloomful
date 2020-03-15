@@ -1,9 +1,0 @@
-{
-  "parent": "block/cube_bottom_top",
-  "textures": {
-    "top": "bloomful:block/wisteria_barrel_top",
-    "side": "bloomful:block/wisteria_barrel_side",
-    "bottom": "bloomful:block/wisteria_barrel_bottom"
-  },
-  "uvlock": true
-}
