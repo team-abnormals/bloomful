@@ -1,0 +1,6 @@
+{
+    "parent": "bloomful:block/hanging_wisteria_leaves_bottom",
+    "textures": {
+        "all": "bloomful:block/blue_hanging_wisteria_leaves_bottom"
+    }
+}

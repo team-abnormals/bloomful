@@ -1,7 +1,3 @@
 {
-  "parent": "quark:block/leaf_carpet",
-  "textures": {
-    "all": "bloomful:block/white_wisteria_leaves"
-  },
-  "uvlock": true
+    "parent": "bloomful:block/white_wisteria_leaf_carpet"
 }

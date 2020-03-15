@@ -13,31 +13,43 @@
     "block.bloomful.wisteria_button": "Глициниевая кнопка",
     "block.bloomful.wisteria_pressure_plate": "Глициниевая нажимная плита",
     "block.bloomful.wisteria_sign": "Табличка из глицинии",
+  
+    "block.bloomful.wisteria_bookshelf": "Глициниевая книжная полка",
+    "block.bloomful.wisteria_ladder": "Глициниевая лестница",
+    "block.bloomful.vertical_wisteria_planks": "Вертикальные доски из глицинии",
+    "block.bloomful.wisteria_vertical_slab": "Вертикальная плита из глицинии",
+  
     "block.bloomful.blue_wisteria_leaves": "Синие листья глицинии",
     "block.bloomful.pink_wisteria_leaves": "Розовые листья глицинии",
     "block.bloomful.purple_wisteria_leaves": "Фиолетовые листья глицинии",
     "block.bloomful.white_wisteria_leaves": "Белые листья глицинии",
-    "block.bloomful.blue_wisteria_vine": "Синие лианы глицинии",
-    "block.bloomful.pink_wisteria_vine": "Розовые лианы глицинии",
-    "block.bloomful.purple_wisteria_vine": "Фиолетовые лианы глицинии",
-    "block.bloomful.white_wisteria_vine": "Белые лианы глицинии",
+
+    "block.bloomful.blue_hanging_wisteria_leaves": "Синие свисающие листья глицинии",
+    "block.bloomful.pink_hanging_wisteria_leaves": "Розовые свисающие листья глицинии",
+    "block.bloomful.purple_hanging_wisteria_leaves": "Фиолетовые свисающие листья глицинии",
+    "block.bloomful.white_hanging_wisteria_leaves": "Белые свисающие листья глицинии",
+
     "block.bloomful.blue_wisteria_sapling": "Саженец синей глицинии",
     "block.bloomful.pink_wisteria_sapling": "Саженец розовой глицинии",
     "block.bloomful.purple_wisteria_sapling": "Саженец фиолетовой глицинии",
     "block.bloomful.white_wisteria_sapling": "Саженец белой глицинии",
+  
+    "block.bloomful.blue_wisteria_leaf_carpet": "Глициниевый ковер из голубых листьев",
+    "block.bloomful.pink_wisteria_leaf_carpet": "Глициниевый ковер из  розовых листьев",
+    "block.bloomful.purple_wisteria_leaf_carpet": "Глициниевый ковер из фиолетовых листьев",
+    "block.bloomful.white_wisteria_leaf_carpet": "Глициниевый ковер из белых листьев",
+    
     "block.bloomful.blue_delphinium": "Синий дельфиниум",
     "block.bloomful.pink_delphinium": "Розовый дельфиниум",
     "block.bloomful.purple_delphinium": "Фиолетовый дельфиниум",
     "block.bloomful.white_delphinium": "Белый дельфиниум",
-    "block.bloomful.wisteria_bookshelf": "Глициниевая книжная полка",
-    "block.bloomful.wisteria_chest": "Глициниевый сундук",
-    "block.bloomful.trapped_wisteria_chest": "Глициниевый сундук-ловушка",
-    "block.bloomful.wisteria_ladder": "Глициниевая лестница",
-    "block.bloomful.vertical_wisteria_planks": "Вертикальные глициниевые доски",
-    "block.bloomful.wisteria_boards": "Глициниевые рейки",
-
-    "item.bloomful.wisteria_boat": "Лодка из глицинии",
+        
     "item.bloomful.butterfly_spawn_egg": "Яйцо призыва бабочки",
+    "item.bloomful.bottled_butterfly": "Бабочка в бутылке",
 
-    "biome.bloomful.flower_forest": "Глициниевый лес"
+    "biome.bloomful.flower_forest": "Глициниевый лес",
+    "biome.bloomful.wisteria_forest_hills": "Холмы глициниевого леса",
+    
+    "entity.bloomful.butterfly": "Бабочка",
+    "entity.bloomful.boat": "Лодка"
 }

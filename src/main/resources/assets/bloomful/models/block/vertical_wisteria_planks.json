@@ -1,0 +1,6 @@
+{
+    "parent": "bloomful:block/vertical_planks",
+    "textures": {
+        "all": "bloomful:block/wisteria_planks"
+    }
+}

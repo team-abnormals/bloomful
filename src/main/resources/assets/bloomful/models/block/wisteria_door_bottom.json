@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom",
+    "textures": {
+        "bottom": "bloomful:block/wisteria_door_bottom",
+        "top": "bloomful:block/wisteria_door_top"
+    }
+}

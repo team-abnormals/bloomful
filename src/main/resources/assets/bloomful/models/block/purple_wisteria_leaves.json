@@ -1,0 +1,6 @@
+{
+    "parent": "block/leaves",
+    "textures": {
+        "all": "bloomful:block/purple_wisteria_leaves"
+    }
+}

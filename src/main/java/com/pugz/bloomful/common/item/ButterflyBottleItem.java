@@ -1,7 +1,7 @@
 package com.pugz.bloomful.common.item;
 
 import com.pugz.bloomful.common.entity.ButterflyEntity;
-import com.pugz.bloomful.core.registry.EntityRegistry;
+import com.pugz.bloomful.core.registry.BloomfulEntities;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -32,7 +32,7 @@ public class ButterflyBottleItem extends GlassBottleItem {
     }
 
 	private void releaseButterfly(World worldIn, ItemStack stack, BlockPos pos) {
-        EntityType butterfly = EntityRegistry.BUTTERFLY;
+        EntityType butterfly = BloomfulEntities.BUTTERFLY;
         butterfly.spawn(worldIn, stack, (PlayerEntity)null, pos.up(), SpawnReason.SPAWN_EGG, true, false);
     }
 

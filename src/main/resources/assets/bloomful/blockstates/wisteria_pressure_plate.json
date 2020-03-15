@@ -1,12 +1,6 @@
 {
-    "forge_marker": 1,
-    "defaults": {
-        "textures": {
-            "texture": "bloomful:block/wisteria_planks"
-        }
-    },
     "variants": {
-        "powered=false": { "model": "block/pressure_plate_up" },
-        "powered=true": { "model": "block/pressure_plate_down" }
+        "powered=false": { "model": "bloomful:block/wisteria_pressure_plate" },
+        "powered=true": { "model": "bloomful:block/wisteria_pressure_plate_down" }
     }
 }

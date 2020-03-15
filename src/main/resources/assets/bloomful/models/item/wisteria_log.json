@@ -1,7 +1,3 @@
 {
-  "parent": "block/cube_column",
-  "textures": {
-      "end": "bloomful:block/wisteria_log_top",
-      "side": "bloomful:block/wisteria_log"
-  }
+    "parent": "bloomful:block/wisteria_log"
 }

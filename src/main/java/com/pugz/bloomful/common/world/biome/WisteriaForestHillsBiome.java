@@ -1,6 +1,6 @@
 package com.pugz.bloomful.common.world.biome;
 
-import com.pugz.bloomful.core.registry.BiomeRegistry;
+import com.pugz.bloomful.core.registry.BloomfulBiomes;
 import com.pugz.bloomful.core.util.BiomeFeatures;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityClassification;
@@ -59,6 +59,6 @@ public class WisteriaForestHillsBiome extends Biome {
 
     @Override
     public Biome getRiver() {
-        return BiomeRegistry.WISTERIA_FOREST;
+        return BloomfulBiomes.WISTERIA_FOREST.get();
     }
 }

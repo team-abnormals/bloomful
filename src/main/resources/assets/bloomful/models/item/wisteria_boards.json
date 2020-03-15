@@ -1,7 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "bloomful:block/wisteria_boards"
-  },
-  "uvlock": true
-}
