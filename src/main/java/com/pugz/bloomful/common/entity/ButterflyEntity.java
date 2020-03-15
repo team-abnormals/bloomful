@@ -103,11 +103,11 @@ public class ButterflyEntity extends CreatureEntity {
             spawnPosition = null;
         }
         if (spawnPosition == null || rand.nextInt(30) == 0 || spawnPosition.withinDistance(getPositionVec(), 2.0D)) {
-            spawnPosition = new BlockPos(posX + (double)rand.nextInt(7) - (double)rand.nextInt(7), posY + (double)rand.nextInt(6) - 2.0D, posZ + (double)rand.nextInt(7) - (double)rand.nextInt(7));
+            spawnPosition = new BlockPos(getPosX() + (double)rand.nextInt(7) - (double)rand.nextInt(7), getPosY() + (double)rand.nextInt(6) - 2.0D, getPosZ() + (double)rand.nextInt(7) - (double)rand.nextInt(7));
         }
-        double x = (double)spawnPosition.getX() + 0.5D - posX;
-        double y = (double)spawnPosition.getY() + 0.1D - posY;
-        double z = (double)spawnPosition.getZ() + 0.5D - posZ;
+        double x = (double)spawnPosition.getX() + 0.5D - getPosX();
+        double y = (double)spawnPosition.getY() + 0.1D - getPosY();
+        double z = (double)spawnPosition.getZ() + 0.5D - getPosZ();
         Vec3d lvt_9_1_ = getMotion();
         Vec3d lvt_10_1_ = lvt_9_1_.add((Math.signum(x) * 0.5D - lvt_9_1_.x) * 0.10000000149011612D, (Math.signum(y) * 0.699999988079071D - lvt_9_1_.y) * 0.10000000149011612D, (Math.signum(z) * 0.5D - lvt_9_1_.z) * 0.10000000149011612D);
         setMotion(lvt_10_1_);

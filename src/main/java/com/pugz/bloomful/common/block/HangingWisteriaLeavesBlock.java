@@ -11,7 +11,6 @@ import net.minecraft.state.StateContainer;
 import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -75,7 +74,7 @@ public class HangingWisteriaLeavesBlock extends Block implements net.minecraftfo
             if (rand.nextInt(15) == 1) {
                 BlockPos blockpos = pos.down();
                 BlockState blockstate = worldIn.getBlockState(blockpos);
-                if (!blockstate.isSolid() || !blockstate.func_224755_d(worldIn, blockpos, Direction.UP)) {
+                if (!blockstate.isSolid() || !blockstate.isSolidSide(worldIn, blockpos, Direction.UP)) {
                     double d0 = (double)((float)pos.getX() + rand.nextFloat());
                     double d1 = (double)pos.getY() - 0.05D;
                     double d2 = (double)((float)pos.getZ() + rand.nextFloat());
@@ -90,13 +89,6 @@ public class HangingWisteriaLeavesBlock extends Block implements net.minecraftfo
         return true;
     }
 
-    public boolean isSolid(BlockState state) {
-        return false;
-    }
-
-    public BlockRenderLayer getRenderLayer() {
-        return BlockRenderLayer.CUTOUT_MIPPED;
-    }
 
     public boolean causesSuffocation(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return false;

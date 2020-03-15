@@ -1,12 +1,12 @@
 modLoader="javafml"
-loaderVersion="[28,]"
+loaderVersion="[31,]"
 logoFile="logo.png"
-authors="Pugz & bageldotjpg"
+authors="bageldotjpg & Pugz"
 credits="*Endergized*, Josh, Bratistolf, Rohan, Arobazz, jöllipölli, qsefthuopq, and Dolores_McDoodle"
 
 [[mods]]
 modId="bloomful"
-version="1.2.3"
+version="${file.jarVersion}"
 displayName="Bloomful"
 description='''
 See Flower Forests in full bloom!
@@ -15,6 +15,6 @@ See Flower Forests in full bloom!
 [[dependencies.bloomful]]
     modId="forge"
     mandatory=true
-    versionRange="[24,)"
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"

@@ -32,6 +32,8 @@ import net.minecraft.block.TrapDoorBlock;
 import net.minecraft.block.WoodButtonBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
@@ -66,7 +68,7 @@ public class BloomfulBlocks {
     public static final RegistryObject<Block> BLUE_HANGING_WISTERIA_LEAVES 	= RegistryUtils.createBlock("blue_hanging_wisteria_leaves", () -> new HangingWisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.BLUE)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> PURPLE_HANGING_WISTERIA_LEAVES= RegistryUtils.createBlock("purple_hanging_wisteria_leaves", () -> new HangingWisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WHITE_HANGING_WISTERIA_LEAVES = RegistryUtils.createBlock("white_hanging_wisteria_leaves", () -> new HangingWisteriaLeavesBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)), ItemGroup.DECORATIONS);
-    public static final RegistryObject<Block> WISTERIA_STAIRS				= RegistryUtils.createBlock("wisteria_stairs", () -> new StairsBlock(WISTERIA_PLANKS.get().getDefaultState(), BlockProperties.WISTERIA_PLANKS), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> WISTERIA_STAIRS				= RegistryUtils.createBlock("wisteria_stairs", () -> new StairsBlock(WISTERIA_PLANKS.get().getDefaultState(), BlockProperties.WISTERIA_PLANKS), ItemGroup.BUILDING_BLOCKS);
     public static final RegistryObject<Block> WISTERIA_SLAB 				= RegistryUtils.createBlock("wisteria_slab", () -> new SlabBlock(BlockProperties.WISTERIA_PLANKS), ItemGroup.BUILDING_BLOCKS);
     public static final RegistryObject<Block> WISTERIA_FENCE 				= RegistryUtils.createBlock("wisteria_fence", () -> new FenceBlock(BlockProperties.WISTERIA_PLANKS), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WISTERIA_FENCE_GATE 			= RegistryUtils.createBlock("wisteria_fence_gate", () -> new FenceGateBlock(BlockProperties.WISTERIA_PLANKS), ItemGroup.REDSTONE);
@@ -146,6 +148,46 @@ public class BloomfulBlocks {
         registerFlammable(WISTERIA_VERTICAL_SLAB.get(), 5, 20);
         registerFlammable(WISTERIA_BOOKSHELF.get(), 5, 20);
     }
+    
+    public static void setupRenderLayer()
+	{
+		//Doors and Trapdoors
+    	RenderTypeLookup.setRenderLayer(WISTERIA_DOOR.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WISTERIA_TRAPDOOR.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WISTERIA_LADDER.get(),RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(WHITE_DELPHINIUM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_DELPHINIUM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_DELPHINIUM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_DELPHINIUM.get(),RenderType.getCutoutMipped());
+		
+		RenderTypeLookup.setRenderLayer(WHITE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
+		
+		//Flowers
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		
+		//Potted Flowers
+		RenderTypeLookup.setRenderLayer(POTTED_WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+	}
 
     public static void registerFlammable(Block block, int encouragement, int flammability) {
         FireBlock fire = (FireBlock) Blocks.FIRE;

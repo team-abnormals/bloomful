@@ -6,7 +6,6 @@ package com.pugz.bloomful.common.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
@@ -30,10 +29,5 @@ public class LeafCarpetBlock extends Block {
 	@Override
     public VoxelShape getCollisionShape(@Nonnull BlockState state, @Nonnull IBlockReader world, @Nonnull BlockPos pos, ISelectionContext context) {
 	    return VoxelShapes.empty();
-	}
-
-	@Override
-    public BlockRenderLayer getRenderLayer() {
-	    return BlockRenderLayer.CUTOUT_MIPPED;
 	}
 }
