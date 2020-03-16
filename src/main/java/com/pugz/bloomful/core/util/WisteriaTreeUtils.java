@@ -9,6 +9,8 @@ import net.minecraft.world.gen.IWorldGenerationReader;
 
 import java.util.Random;
 
+import com.pugz.bloomful.core.registry.BloomfulTags;
+
 @SuppressWarnings("deprecation")
 public class WisteriaTreeUtils {
     public static int getLengthByNeighbors(IWorldGenerationReader world, Random random, BlockPos pos) {
@@ -37,7 +39,7 @@ public class WisteriaTreeUtils {
     public static boolean isAirOrLeavesOrVines(IWorldGenerationBaseReader worldIn, BlockPos pos) {
         if (!(worldIn instanceof net.minecraft.world.IWorldReader)) // FORGE: Redirect to state method when possible
             return worldIn.hasBlockState(pos, (state) -> {
-                return state.isAir() || state.isIn(BlockTags.LEAVES);
+                return state.isAir() || state.isIn(BlockTags.LEAVES) || state.isIn(BloomfulTags.HANGING_WISTERIA_LEAVES);
             });
         else return worldIn.hasBlockState(pos, state -> state.canBeReplacedByLeaves((net.minecraft.world.IWorldReader)worldIn, pos));
     }
