@@ -11,6 +11,7 @@ import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorldWriter;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
+import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
@@ -109,6 +110,16 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<TreeFeatureConfig> 
                 }
                 placeBranch(changedBlocks, world, random, pos.down(), pos.up(height).getY(), boundingBox, config);
                 if (random.nextInt(4) == 0) placeBranch(changedBlocks, world, random, pos.down(), pos.up(height).getY(), boundingBox, config);
+                
+                BlockPos startPos = pos.up(height);
+
+                for(BlockPos blockpos : BlockPos.getAllInBoxMutable(startPos.getX() - 10, startPos.getY() - 10, startPos.getZ() - 10, startPos.getX() + 10, startPos.getY() + 10, startPos.getZ() + 10)) {
+                    if(isAir(world, blockpos) && isLeaves(world, blockpos.up(), config, random) && random.nextInt(4) == 0) {
+                    	if (isAir(world, blockpos)) setForcedState(changedBlocks, world, blockpos, VINE_UPPER.get(), boundingBox);
+                        if (isAir(world, blockpos.down()) && random.nextInt(2) == 0) setForcedState(changedBlocks, world, blockpos.down(), VINE_LOWER.get(), boundingBox);
+                    }
+                }
+                
                 return true;
             } else {
                 return false;
@@ -150,29 +161,20 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<TreeFeatureConfig> 
                 case 0:
                     break;
                 case 1:
-                    if (isAir(world, pos)) setForcedState(changedBlocks, world, pos, vineLower, boundingBox);
                     break;
                 case 2:
-                    if (isAir(world, pos)) setForcedState(changedBlocks, world, pos, vineUpper, boundingBox);
-                    if (isAir(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineLower, boundingBox);
                     break;
                 case 3:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox, config, random);
-                    if (isAir(world, pos.down())) setForcedState(changedBlocks, world, pos.down(), vineUpper, boundingBox);
-                    if (isAir(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineLower, boundingBox);
                     break;
                 case 4:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox, config, random);
                     if (isAir(world, pos.down())) placeLeafAt(changedBlocks, world, pos.down(), boundingBox, config, random);
-                    if (isAir(world, pos.down(2))) setForcedState(changedBlocks, world, pos.down(2), vineUpper, boundingBox);
-                    if (isAir(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineLower, boundingBox);
                     break;
                 case 5:
                     if (isAir(world, pos)) placeLeafAt(changedBlocks, world, pos, boundingBox, config, random);
                     if (isAir(world, pos.down())) placeLeafAt(changedBlocks, world, pos.down(), boundingBox, config, random);
                     if (isAir(world, pos.down(2))) placeLeafAt(changedBlocks, world, pos.down(2), boundingBox, config, random);
-                    if (isAir(world, pos.down(3))) setForcedState(changedBlocks, world, pos.down(3), vineUpper, boundingBox);
-                    if (isAir(world, pos.down(4))) setForcedState(changedBlocks, world, pos.down(4), vineLower, boundingBox);
                     break;
             }
         }
@@ -202,6 +204,13 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<TreeFeatureConfig> 
         changedBlocks.add(pos.toImmutable());
     }
 
+    public static boolean isLeaves(IWorldGenerationBaseReader worldIn, BlockPos pos, TreeFeatureConfig config, Random random) {
+        if (worldIn instanceof net.minecraft.world.IWorldReader) // FORGE: Redirect to state method when possible
+           return worldIn.hasBlockState(pos, state -> state == config.leavesProvider.getBlockState(random, pos));
+        return worldIn.hasBlockState(pos, (p_227223_0_) -> { return config.leavesProvider.getBlockState(random, pos) == p_227223_0_;
+        });
+     }
+    
     public static void addFeature() {
         ForgeRegistries.BIOMES.getValues().forEach(WisteriaTreeFeature::generate);
     }

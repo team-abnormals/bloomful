@@ -64,7 +64,7 @@ public class BiomeFeatures {
     					Feature.RANDOM_PATCH.withConfiguration(WHITE_DELPHINIUM), 
     					Feature.RANDOM_PATCH.withConfiguration(PINK_DELPHINIUM), 
     					Feature.RANDOM_PATCH.withConfiguration(PURPLE_DELPHINIUM), 
-    					Feature.FLOWER.withConfiguration(BLUE_DELPHINIUM)), 0))
+    					Feature.RANDOM_PATCH.withConfiguration(BLUE_DELPHINIUM)), 0))
     			.withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(count))));
     }
 
