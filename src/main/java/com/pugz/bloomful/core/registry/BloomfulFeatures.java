@@ -2,7 +2,9 @@ package com.pugz.bloomful.core.registry;
 
 import com.pugz.bloomful.common.world.gen.feature.BigWisteriaTreeFeature;
 import com.pugz.bloomful.common.world.gen.feature.WisteriaTreeFeature;
+import com.pugz.bloomful.core.BloomfulConfig;
 import com.pugz.bloomful.core.util.BiomeFeatures;
+import com.pugz.bloomful.core.util.WisteriaColor;
 
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.Biomes;
@@ -26,19 +28,34 @@ public class BloomfulFeatures {
                 BIG_WISTERIA_TREE.setRegistryName("big_wisteria_tree")
         );
     }
-
-    public static void generateFeatures() {
-        WisteriaTreeFeature.addFeature();
-        BloomfulFeatures.addFeature();
-    }
     
-    public static void addFeature() {
-        ForgeRegistries.BIOMES.getValues().forEach(BloomfulFeatures::generate);
+    public static void generateFeatures() {
+        ForgeRegistries.BIOMES.getValues().forEach(BloomfulFeatures::generateWisteriaTrees);
     }
 
-    public static void generate(Biome biome) {
-        if (biome == Biomes.FLOWER_FOREST) {
-            BiomeFeatures.addDelphiniums(biome, 4);
-        }
+    public static void generateWisteriaTrees(Biome biome) {
+    	if (BloomfulConfig.generateWisterias) {
+	        if (biome.getCategory() == Biome.Category.JUNGLE && BloomfulConfig.wisteriasInJungle) {
+	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.25F);
+	        }
+	        else if (biome.getCategory() == Biome.Category.SWAMP && BloomfulConfig.wisteriasInSwamp) {
+	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.025F);
+	        }
+	        else if (biome.getCategory() == Biome.Category.PLAINS && BloomfulConfig.wisteriasInPlains) {
+	            BiomeFeatures.addWisteriaTreesBeehive(biome,0, 0.01F);
+	        }
+	        else if (biome.getCategory() == Biome.Category.FOREST) {
+	            if (biome == Biomes.FLOWER_FOREST)  {
+	            	if (BloomfulConfig.wisteriasInFlowerForest) BiomeFeatures.addWisteriaTreesBeehive(biome,0, 0.1F);
+	            	if (BloomfulConfig.delphiniumsInFlowerForest) BiomeFeatures.addDelphiniums(biome, 4);
+	            }
+	            else if ((biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) && BloomfulConfig.wisteriasInDarkOak) {
+	            	BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
+	            }
+	            else if (BloomfulConfig.wisteriasElsewhere) {
+	            	BiomeFeatures.addWisteriaTrees(biome,0, 0.025F);
+	            }
+	        }
+    	}
     }
 }

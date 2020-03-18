@@ -2,21 +2,15 @@ package com.pugz.bloomful.common.world.gen.feature;
 
 import com.mojang.datafixers.Dynamic;
 import com.pugz.bloomful.core.util.BiomeFeatures;
-import com.pugz.bloomful.core.util.WisteriaColor;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MutableBoundingBox;
 import net.minecraft.world.IWorldWriter;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
 import net.minecraft.world.gen.IWorldGenerationBaseReader;
 import net.minecraft.world.gen.IWorldGenerationReader;
 import net.minecraft.world.gen.feature.AbstractTreeFeature;
 import net.minecraft.world.gen.feature.TreeFeatureConfig;
-import net.minecraftforge.registries.ForgeRegistries;
-
 import java.util.Random;
 import java.util.Set;
 import java.util.function.Function;
@@ -210,24 +204,4 @@ public class WisteriaTreeFeature extends AbstractTreeFeature<TreeFeatureConfig> 
         return worldIn.hasBlockState(pos, (p_227223_0_) -> { return config.leavesProvider.getBlockState(random, pos) == p_227223_0_;
         });
      }
-    
-    public static void addFeature() {
-        ForgeRegistries.BIOMES.getValues().forEach(WisteriaTreeFeature::generate);
-    }
-
-    public static void generate(Biome biome) {
-        if (biome.getCategory() == Biome.Category.JUNGLE) {
-            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.25F);
-        }
-        else if (biome.getCategory() == Biome.Category.SWAMP) {
-            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.025F);
-        }
-        else if (biome.getCategory() == Biome.Category.PLAINS) {
-            BiomeFeatures.addWisteriaTrees(biome,0, 0.01F);
-        }
-        else if (biome.getCategory() == Biome.Category.FOREST) {
-            if (biome == Biomes.FLOWER_FOREST || biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) BiomeFeatures.addWisteriaTrees(biome,0, 0.1F);
-            else BiomeFeatures.addWisteriaTrees(biome,0, 0.025F);
-        }
-    }
 }
