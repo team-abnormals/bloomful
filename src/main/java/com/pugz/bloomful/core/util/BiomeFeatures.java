@@ -6,11 +6,13 @@ import com.pugz.bloomful.core.registry.BloomfulBlocks;
 import com.pugz.bloomful.core.registry.BloomfulFeatures;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.LeavesBlock;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
+import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
@@ -26,6 +28,12 @@ public class BiomeFeatures {
 	public static final BlockState PINK_WISTERIA_LEAVES = BloomfulBlocks.PINK_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
 	public static final BlockState WHITE_WISTERIA_LEAVES = BloomfulBlocks.WHITE_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
 	public static final BlockState PURPLE_WISTERIA_LEAVES = BloomfulBlocks.PURPLE_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
+	
+	public static final BlockClusterFeatureConfig OXEYE_DAISY_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OXEYE_DAISY.getDefaultState()), new SimpleBlockPlacer())).tries(64).build();
+	public static final BlockClusterFeatureConfig ALLIUM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.ALLIUM.getDefaultState()), new SimpleBlockPlacer())).tries(64).build();
+	public static final BlockClusterFeatureConfig PINK_TULIP_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.PINK_TULIP.getDefaultState()), new SimpleBlockPlacer())).tries(64).build();
+	public static final BlockClusterFeatureConfig BLUE_ORCHID_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.BLUE_ORCHID.getDefaultState()), new SimpleBlockPlacer())).tries(64).build();
+
 
 	public static final BlockState BLUE_HANGING_WISTERIA_LEAVES_TOP = BloomfulBlocks.BLUE_HANGING_WISTERIA_LEAVES.get().getDefaultState().with(HangingWisteriaLeavesBlock.HALF, DoubleBlockHalf.UPPER);
 	public static final BlockState PINK_HANGING_WISTERIA_LEAVES_TOP  = BloomfulBlocks.PINK_HANGING_WISTERIA_LEAVES.get().getDefaultState().with(HangingWisteriaLeavesBlock.HALF, DoubleBlockHalf.UPPER);
@@ -69,7 +77,7 @@ public class BiomeFeatures {
     			.withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(count))));
     }
 
-    public static void addWisteriaTrees(Biome biome, int count, float extraChance) {
+    public static void addWisteriaTrees(Biome biome, int count, float extraChance, boolean extraFlowers) {
     	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
         		new MultipleRandomFeatureConfig(
         				ImmutableList.of(
@@ -89,7 +97,7 @@ public class BiomeFeatures {
         .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count / 2, extraChance, 1))));
     }
     
-    public static void addWisteriaTreesBeehive(Biome biome, int count, float extraChance) {
+    public static void addWisteriaTreesBeehive(Biome biome, int count, float extraChance, boolean extraFlowers) {
     	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
         		new MultipleRandomFeatureConfig(
         				ImmutableList.of(
@@ -109,7 +117,7 @@ public class BiomeFeatures {
         .withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count / 2, extraChance, 1))));
     }
 
-    public static void addWisteriaTreeBeehive(Biome biome, WisteriaColor color, int count, float extraChance) {
+    public static void addWisteriaTreeBeehive(Biome biome, WisteriaColor color, int count, float extraChance, boolean extraFlowers) {
         switch (color) {
             case BLUE:
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
@@ -118,22 +126,37 @@ public class BiomeFeatures {
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(BLUE_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(BLUE_WISTERIA_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+                
+//                if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BLUE_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BLUE_ORCHID_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
-            case PINK:
+            case WHITE:
             	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
                 		new MultipleRandomFeatureConfig(
                 				ImmutableList.of(
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(WHITE_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(WHITE_WISTERIA_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+            	
+//            	if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(WHITE_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(OXEYE_DAISY_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
-            case WHITE:
+            case PINK:
             	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
                 		new MultipleRandomFeatureConfig(
                 				ImmutableList.of(
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(PINK_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(PINK_WISTERIA_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+            	
+//            	if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(PINK_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(PINK_TULIP_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
             case PURPLE:
             	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
@@ -142,11 +165,16 @@ public class BiomeFeatures {
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(PURPLE_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(PURPLE_WISTERIA_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+            	
+//            	if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(PURPLE_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(ALLIUM_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
         }
     }
     
-    public static void addWisteriaTree(Biome biome, WisteriaColor color, int count, float extraChance) {
+    public static void addWisteriaTree(Biome biome, WisteriaColor color, int count, float extraChance, boolean extraFlowers) {
         switch (color) {
             case BLUE:
                 biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
@@ -155,22 +183,34 @@ public class BiomeFeatures {
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(BLUE_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(BLUE_WISTERIA_NO_BEEHIVES_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+//                if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BLUE_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(BLUE_ORCHID_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
-            case PINK:
+            case WHITE:
             	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
                 		new MultipleRandomFeatureConfig(
                 				ImmutableList.of(
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(WHITE_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(WHITE_WISTERIA_NO_BEEHIVES_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+//            	if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(WHITE_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(OXEYE_DAISY_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
-            case WHITE:
+            case PINK:
             	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
                 		new MultipleRandomFeatureConfig(
                 				ImmutableList.of(
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(PINK_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(PINK_WISTERIA_NO_BEEHIVES_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+//            	if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(PINK_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(PINK_TULIP_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
             case PURPLE:
             	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_SELECTOR.withConfiguration(
@@ -179,6 +219,10 @@ public class BiomeFeatures {
                 						BloomfulFeatures.BIG_WISTERIA_TREE.withConfiguration(PURPLE_WISTERIA_CONFIG).func_227227_a_(0.2F)), 
                 				BloomfulFeatures.WISTERIA_TREE.withConfiguration(PURPLE_WISTERIA_NO_BEEHIVES_CONFIG)))
                 		.withPlacement(Placement.COUNT_EXTRA_HEIGHTMAP.configure(new AtSurfaceWithExtraConfig(count, extraChance, 1))));
+//            	if (extraFlowers) {
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(PURPLE_DELPHINIUM).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//                	biome.addFeature(GenerationStage.Decoration.VEGETAL_DECORATION, Feature.RANDOM_PATCH.withConfiguration(ALLIUM_CONFIG).withPlacement(Placement.COUNT_HEIGHTMAP_32.configure(new FrequencyConfig(4))));
+//            	}
                 break;
         }
     }

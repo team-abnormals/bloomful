@@ -55,7 +55,7 @@ public class WisteriaForestHillsBiome extends Biome {
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.ENDERMAN, 10, 1, 4));
         addSpawn(EntityClassification.MONSTER, new SpawnListEntry(EntityType.WITCH, 5, 1, 1));
         BiomeFeatures.addDelphiniums(this, 12);
-        BiomeFeatures.addWisteriaTreesBeehive(this, 16, 0.05F);
+        BiomeFeatures.addWisteriaTreesBeehive(this, 16, 0.05F, false);
     }
 
     @Override
