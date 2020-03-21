@@ -50,6 +50,7 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
         worldIn.setBlockState(pos, updateDistance(state, worldIn, pos), 3);
     }
 
+    @Override
     public int getOpacity(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return 1;
     }
@@ -86,7 +87,7 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
             else return 8;
         }
     }
-
+    @Override
     @OnlyIn(Dist.CLIENT)
     public void animateTick(BlockState stateIn, World worldIn, BlockPos pos, Random rand) {
         if (worldIn.isRainingAt(pos.up())) {
@@ -102,11 +103,11 @@ public class WisteriaLeavesBlock extends Block implements net.minecraftforge.com
             }
         }
     }
-
+    @Override
     public boolean causesSuffocation(BlockState state, IBlockReader worldIn, BlockPos pos) {
         return false;
     }
-
+    @Override
     public boolean canEntitySpawn(BlockState state, IBlockReader worldIn, BlockPos pos, EntityType<?> type) {
         return type == EntityType.OCELOT || type == EntityType.PARROT;
     }

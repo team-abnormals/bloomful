@@ -2,19 +2,23 @@ package com.pugz.bloomful.core.util;
 
 import com.google.common.collect.ImmutableList;
 import com.pugz.bloomful.common.block.HangingWisteriaLeavesBlock;
+import com.pugz.bloomful.common.block.WisteriaLeavesBlock;
 import com.pugz.bloomful.core.registry.BloomfulBlocks;
 import com.pugz.bloomful.core.registry.BloomfulFeatures;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.LeavesBlock;
 import net.minecraft.state.properties.DoubleBlockHalf;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStage;
 import net.minecraft.world.gen.blockplacer.DoublePlantBlockPlacer;
 import net.minecraft.world.gen.blockplacer.SimpleBlockPlacer;
 import net.minecraft.world.gen.blockstateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.BlockClusterFeatureConfig;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.MultipleRandomFeatureConfig;
+import net.minecraft.world.gen.feature.MultipleWithChanceRandomFeatureConfig;
+import net.minecraft.world.gen.feature.TreeFeatureConfig;
 import net.minecraft.world.gen.foliageplacer.BlobFoliagePlacer;
 import net.minecraft.world.gen.placement.AtSurfaceWithExtraConfig;
 import net.minecraft.world.gen.placement.FrequencyConfig;
@@ -24,10 +28,10 @@ import net.minecraft.world.gen.treedecorator.BeehiveTreeDecorator;
 public class BiomeFeatures {
 	public static final BlockState WISTERIA_LOG = BloomfulBlocks.WISTERIA_LOG.get().getDefaultState();
 	
-	public static final BlockState BLUE_WISTERIA_LEAVES = BloomfulBlocks.BLUE_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
-	public static final BlockState PINK_WISTERIA_LEAVES = BloomfulBlocks.PINK_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
-	public static final BlockState WHITE_WISTERIA_LEAVES = BloomfulBlocks.WHITE_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
-	public static final BlockState PURPLE_WISTERIA_LEAVES = BloomfulBlocks.PURPLE_WISTERIA_LEAVES.get().getDefaultState().with(LeavesBlock.DISTANCE, 1);
+	public static final BlockState BLUE_WISTERIA_LEAVES = BloomfulBlocks.BLUE_WISTERIA_LEAVES.get().getDefaultState().with(WisteriaLeavesBlock.DISTANCE, 1);
+	public static final BlockState PINK_WISTERIA_LEAVES = BloomfulBlocks.PINK_WISTERIA_LEAVES.get().getDefaultState().with(WisteriaLeavesBlock.DISTANCE, 1);
+	public static final BlockState WHITE_WISTERIA_LEAVES = BloomfulBlocks.WHITE_WISTERIA_LEAVES.get().getDefaultState().with(WisteriaLeavesBlock.DISTANCE, 1);
+	public static final BlockState PURPLE_WISTERIA_LEAVES = BloomfulBlocks.PURPLE_WISTERIA_LEAVES.get().getDefaultState().with(WisteriaLeavesBlock.DISTANCE, 1);
 	
 	public static final BlockClusterFeatureConfig OXEYE_DAISY_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.OXEYE_DAISY.getDefaultState()), new SimpleBlockPlacer())).tries(64).build();
 	public static final BlockClusterFeatureConfig ALLIUM_CONFIG = (new BlockClusterFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.ALLIUM.getDefaultState()), new SimpleBlockPlacer())).tries(64).build();

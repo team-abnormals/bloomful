@@ -36,13 +36,13 @@ public class BloomfulFeatures {
     public static void generateWisteriaTrees(Biome biome) {
     	if (BloomfulConfig.generateWisterias) {
 	        if (biome.getCategory() == Biome.Category.JUNGLE && BloomfulConfig.wisteriasInJungle) {
-	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.25F, true);
+	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.125F, true);
 	        }
 	        else if (biome.getCategory() == Biome.Category.SWAMP && BloomfulConfig.wisteriasInSwamp) {
-	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.025F, true);
+	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.0125F, true);
 	        }
 	        else if (biome.getCategory() == Biome.Category.PLAINS && BloomfulConfig.wisteriasInPlains) {
-	            BiomeFeatures.addWisteriaTreesBeehive(biome,0, 0.01F, true);
+	            BiomeFeatures.addWisteriaTreesBeehive(biome,0, 0.005F, true);
 	        }
 	        else if (biome.getCategory() == Biome.Category.FOREST) {
 	            if (biome == Biomes.FLOWER_FOREST)  {
@@ -50,10 +50,10 @@ public class BloomfulFeatures {
 	            	if (BloomfulConfig.delphiniumsInFlowerForest) BiomeFeatures.addDelphiniums(biome, 4);
 	            }
 	            else if ((biome == Biomes.DARK_FOREST || biome == Biomes.DARK_FOREST_HILLS) && BloomfulConfig.wisteriasInDarkOak) {
-	            	BiomeFeatures.addWisteriaTrees(biome,0, 0.1F, true);
+	            	BiomeFeatures.addWisteriaTrees(biome,0, 0.05F, true);
 	            }
 	            else if (BloomfulConfig.wisteriasElsewhere) {
-	            	BiomeFeatures.addWisteriaTrees(biome,0, 0.025F, true);
+	            	BiomeFeatures.addWisteriaTrees(biome,0, 0.0125F, true);
 	            }
 	        }
     	}
