@@ -39,12 +39,4 @@ public class RegistryUtils {
         RegistryObject<B> block = BloomfulBlocks.BLOCKS.register(name, supplier);
         return block;
     }
-    
-    public static <B extends Block> RegistryObject<B> createCompatBlockNoItem(String mod, String name, Supplier<? extends B> supplier) {
-    	if (ModList.get().isLoaded(mod)) {
-            RegistryObject<B> block = BloomfulBlocks.BLOCKS.register(name, supplier);
-            return block;
-    	}
-    	return null;
-    }
 }
