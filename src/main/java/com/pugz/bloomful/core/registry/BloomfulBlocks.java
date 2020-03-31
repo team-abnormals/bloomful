@@ -37,6 +37,7 @@ import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.util.IItemProvider;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
@@ -80,7 +81,12 @@ public class BloomfulBlocks {
     public static final RegistryObject<Block> BLUE_DELPHINIUM 				= RegistryUtils.createBlock("blue_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> PURPLE_DELPHINIUM 			= RegistryUtils.createBlock("purple_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WHITE_DELPHINIUM 				= RegistryUtils.createBlock("white_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
-
+    
+	public static final RegistryObject<Block> POTTED_WHITE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_white_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? WHITE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_BLUE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_blue_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? BLUE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_PINK_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_pink_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? PINK_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_PURPLE_DELPHINIUM		= RegistryUtils.createBlockNoItem("potted_purple_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? PURPLE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	
     //quark
     public static final RegistryObject<Block> WISTERIA_BOOKSHELF 			= RegistryUtils.createCompatBlock("quark", "wisteria_bookshelf", () -> new BookshelfBlock(BlockProperties.BOOKSHELF), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WISTERIA_LADDER 				= RegistryUtils.createCompatBlock("quark", "wisteria_ladder", () -> new LadderBlock(BlockProperties.LADDER), ItemGroup.DECORATIONS);
@@ -152,19 +158,24 @@ public class BloomfulBlocks {
     public static void setupRenderLayer()
 	{
 		//Doors and Trapdoors
-    	RenderTypeLookup.setRenderLayer(WISTERIA_DOOR.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(WISTERIA_TRAPDOOR.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(WISTERIA_LADDER.get(),RenderType.getCutoutMipped());
+    	RenderTypeLookup.setRenderLayer(WISTERIA_DOOR.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(WISTERIA_TRAPDOOR.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(WISTERIA_LADDER.get(),RenderType.getCutout());
 		
 		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
 		
-		RenderTypeLookup.setRenderLayer(WHITE_DELPHINIUM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_DELPHINIUM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_DELPHINIUM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_DELPHINIUM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BLUE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(PINK_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(PURPLE_DELPHINIUM.get(),RenderType.getCutout());
+		
+		RenderTypeLookup.setRenderLayer(POTTED_WHITE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(POTTED_BLUE_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(POTTED_PINK_DELPHINIUM.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_DELPHINIUM.get(),RenderType.getCutout());
 		
 		RenderTypeLookup.setRenderLayer(WHITE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(BLUE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
@@ -177,16 +188,16 @@ public class BloomfulBlocks {
 		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
 		
 		//Flowers
-		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_SAPLING.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_SAPLING.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_SAPLING.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutout());
 		
 		//Potted Flowers
-		RenderTypeLookup.setRenderLayer(POTTED_WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(POTTED_BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(POTTED_PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_WHITE_WISTERIA_SAPLING.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(POTTED_BLUE_WISTERIA_SAPLING.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(POTTED_PINK_WISTERIA_SAPLING.get(),RenderType.getCutout());
+		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutout());
 	}
 
     public static void registerFlammable(Block block, int encouragement, int flammability) {

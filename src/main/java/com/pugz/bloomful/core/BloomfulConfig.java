@@ -22,7 +22,7 @@ public final class BloomfulConfig {
         SERVER = specPair.getLeft();
     }
 	
-    public static boolean generateWisterias = true;
+    public static boolean generateWisterias = false;
     public static boolean wisteriasInJungle = true;
     public static boolean wisteriasInSwamp = true;
     public static boolean wisteriasInPlains = true;
@@ -44,7 +44,7 @@ public final class BloomfulConfig {
 	    ServerConfig(ForgeConfigSpec.Builder builder) {
 	    	generateWisterias 				= builder.comment("These all require game reload!").define("Generate Wisteria Trees outside of the Wisteria Forest", true);
 	    	
-	    	wisteriasInJungle 			= builder.define("- Wisteria Trees in Jungles", true);
+	    	wisteriasInJungle 			= builder.define("- Wisteria Trees in Jungles", false);
 	    	wisteriasInSwamp 			= builder.define("- Wisteria Trees in Swamps", true);
 	    	wisteriasInPlains 			= builder.define("- Wisteria Trees in Plains", true);
 	    	wisteriasInFlowerForest 	= builder.define("- Wisteria Trees in Flower Forest'", true);
