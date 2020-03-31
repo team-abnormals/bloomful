@@ -82,10 +82,10 @@ public class BloomfulBlocks {
     public static final RegistryObject<Block> PURPLE_DELPHINIUM 			= RegistryUtils.createBlock("purple_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WHITE_DELPHINIUM 				= RegistryUtils.createBlock("white_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
     
-	public static final RegistryObject<Block> POTTED_WHITE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_white_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? WHITE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
-	public static final RegistryObject<Block> POTTED_BLUE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_blue_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? BLUE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
-	public static final RegistryObject<Block> POTTED_PINK_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_pink_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? PINK_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
-	public static final RegistryObject<Block> POTTED_PURPLE_DELPHINIUM		= RegistryUtils.createBlockNoItem("potted_purple_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("bloomful") ? PURPLE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_WHITE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_white_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("buzzierbees") ? WHITE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_BLUE_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_blue_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("buzzierbees") ? BLUE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_PINK_DELPHINIUM     	= RegistryUtils.createBlockNoItem("potted_pink_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("buzzierbees") ? PINK_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
+	public static final RegistryObject<Block> POTTED_PURPLE_DELPHINIUM		= RegistryUtils.createBlockNoItem("potted_purple_delphinium", () -> new FlowerPotBlock(ModList.get().isLoaded("buzzierbees") ? PURPLE_DELPHINIUM.get() : Blocks.AIR, BlockProperties.FLOWER_POT));
 	
     //quark
     public static final RegistryObject<Block> WISTERIA_BOOKSHELF 			= RegistryUtils.createCompatBlock("quark", "wisteria_bookshelf", () -> new BookshelfBlock(BlockProperties.BOOKSHELF), ItemGroup.DECORATIONS);
