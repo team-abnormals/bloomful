@@ -23,46 +23,17 @@ public final class BloomfulConfig {
     }
 	
     public static boolean generateWisterias = true;
-    public static boolean wisteriasInJungle = true;
-    public static boolean wisteriasInSwamp = true;
-    public static boolean wisteriasInPlains = true;
-    public static boolean wisteriasInFlowerForest = true;
-    public static boolean delphiniumsInFlowerForest = true;
-    public static boolean wisteriasInDarkOak = true;
-    public static boolean wisteriasElsewhere = true;
     
     public static class ServerConfig {
     	public final BooleanValue generateWisterias;
-    	public final BooleanValue wisteriasInJungle;
-    	public final BooleanValue wisteriasInSwamp;
-    	public final BooleanValue wisteriasInPlains;
-    	public final BooleanValue wisteriasInFlowerForest;
-    	public final BooleanValue delphiniumsInFlowerForest;
-    	public final BooleanValue wisteriasInDarkOak;
-    	public final BooleanValue wisteriasElsewhere;
 	
 	    ServerConfig(ForgeConfigSpec.Builder builder) {
 	    	generateWisterias 				= builder.comment("These all require game reload!").define("Generate Wisteria Trees outside of the Wisteria Forest", true);
-	    	
-	    	wisteriasInJungle 			= builder.define("- Wisteria Trees in Jungles", true);
-	    	wisteriasInSwamp 			= builder.define("- Wisteria Trees in Swamps", true);
-	    	wisteriasInPlains 			= builder.define("- Wisteria Trees in Plains", true);
-	    	wisteriasInFlowerForest 	= builder.define("- Wisteria Trees in Flower Forest'", true);
-	    	delphiniumsInFlowerForest 	= builder.define("- Delphiniums in Flower Forests", true);
-	    	wisteriasInDarkOak 		= builder.define("- Wisteria Trees in Dark Forests", true);
-	    	wisteriasElsewhere 			= builder.define("- Wisteria Trees in misc biomes", true);
 	    }
     }
     
     public static void refresh() {
     	generateWisterias = SERVER.generateWisterias.get();
-    	wisteriasInJungle = SERVER.wisteriasInJungle.get();
-    	wisteriasInSwamp = SERVER.wisteriasInSwamp.get();
-    	wisteriasInPlains = SERVER.wisteriasInPlains.get();
-    	wisteriasInFlowerForest = SERVER.delphiniumsInFlowerForest.get();
-    	delphiniumsInFlowerForest = SERVER.delphiniumsInFlowerForest.get();
-    	wisteriasInDarkOak = SERVER.wisteriasInDarkOak.get();
-    	wisteriasElsewhere = SERVER.wisteriasElsewhere.get();
     }
 
     @SubscribeEvent

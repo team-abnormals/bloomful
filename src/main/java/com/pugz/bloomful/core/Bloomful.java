@@ -1,6 +1,5 @@
 package com.pugz.bloomful.core;
 
-import com.pugz.bloomful.core.registry.BloomfulBiomes;
 import com.pugz.bloomful.core.registry.BloomfulBlocks;
 import com.pugz.bloomful.core.registry.BloomfulEntities;
 import com.pugz.bloomful.core.registry.BloomfulFeatures;
@@ -25,7 +24,7 @@ public class Bloomful {
         
         BloomfulBlocks.BLOCKS.register(modEventBus);
         BloomfulItems.ITEMS.register(modEventBus);
-        BloomfulBiomes.BIOMES.register(modEventBus);
+        //BloomfulBiomes.BIOMES.register(modEventBus);
         
         MinecraftForge.EVENT_BUS.register(this);
         
@@ -55,7 +54,7 @@ public class Bloomful {
     public void setupCommon(final FMLCommonSetupEvent event) {
     	BloomfulConfig.refresh();
         BloomfulBlocks.registerBlockData();
-        BloomfulBiomes.registerBiomesToDictionary();
+        //BloomfulBiomes.registerBiomesToDictionary();
         BloomfulFeatures.generateFeatures();
         //EntityRegistry.registerSpawns();
     }
