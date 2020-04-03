@@ -45,13 +45,13 @@ public class BloomfulFeatures {
 	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.1F, true);
 	        }
 	        else if (biome.getCategory() == Biome.Category.SWAMP) {
-	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.005F, true);
+	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.001F, true);
 	        }
 	        else if (biome.getCategory() == Biome.Category.PLAINS) {
-	            BiomeFeatures.addWisteriaTreeBeehive(biome, WisteriaColor.PURPLE, 0, 0.005F, true);
+	            BiomeFeatures.addWisteriaTreeBeehive(biome, WisteriaColor.PURPLE, 0, 0.001F, true);
 	        }
 	        else if (biome.getCategory() == Biome.Category.ICY) {
-	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.005F, true);
+	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.BLUE, 0, 0.001F, true);
 	        }
     	}
     }
