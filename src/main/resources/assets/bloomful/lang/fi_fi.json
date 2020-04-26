@@ -1,0 +1,56 @@
+{
+    "block.bloomful.wisteria_log": "Sinisadehalko",
+    "block.bloomful.stripped_wisteria_log": "Kuorittu sinisadehalko",
+    "block.bloomful.wisteria_wood": "Sinisadepuu",
+    "block.bloomful.stripped_wisteria_wood": "Kuorittu sinisadepuu",
+    "block.bloomful.wisteria_planks": "Sinisadelankut",
+    "block.bloomful.wisteria_stairs": "Sinisadeportaat",
+    "block.bloomful.wisteria_slab": "Sinisadelaatta",
+    "block.bloomful.wisteria_fence": "Sinisadeaita",
+    "block.bloomful.wisteria_fence_gate": "Sinisadeportti",
+    "block.bloomful.wisteria_door": "Sinisadeovi",
+    "block.bloomful.wisteria_trapdoor": "Sinisadeluukku",
+    "block.bloomful.wisteria_button": "Sinisadenappi",
+    "block.bloomful.wisteria_pressure_plate": "Sinisadepainelaatta",
+    "block.bloomful.wisteria_sign": "Sinisadekyltti",
+    
+    "block.bloomful.wisteria_bookshelf": "Sinisadekirjahylly",
+    "block.bloomful.wisteria_ladder": "Sinisadetikas",
+    "block.bloomful.vertical_wisteria_planks": "Pystysuorat sinisadelankut",
+    "block.bloomful.wisteria_vertical_slab": "Pystysuora sinisadelaatta",
+    
+    "block.bloomful.blue_wisteria_leaves": "Siniset sinisateenlehdet",
+    "block.bloomful.pink_wisteria_leaves": "Vaaleanpunaiset sinisateenlehdet",
+    "block.bloomful.purple_wisteria_leaves": "Violetit sinisateenlehdet",
+    "block.bloomful.white_wisteria_leaves": "Valkoiset sinisateenlehdet",
+    
+    "block.bloomful.blue_hanging_wisteria_leaves": "Siniset roikkuvat sinisateenlehdet",
+    "block.bloomful.pink_hanging_wisteria_leaves": "Vaaleanpunaiset roikkuvat sinisateenlehdet",
+    "block.bloomful.purple_hanging_wisteria_leaves": "Violetit roikkuvat sinisateenlehdet",
+    "block.bloomful.white_hanging_wisteria_leaves": "Valkoiset roikkuvat sinisateenlehdet",
+    
+    "block.bloomful.blue_wisteria_sapling": "Sininen sinisateen taimi",
+    "block.bloomful.pink_wisteria_sapling": "Vaaleanpunainen sinisateen taimi",
+    "block.bloomful.purple_wisteria_sapling": "Violetti sinisateen taimi",
+    "block.bloomful.white_wisteria_sapling": "Valkoinen sinisateen taimi",
+    
+    "block.bloomful.blue_wisteria_leaf_carpet": "Sininen sinisateenlehtimatto",
+    "block.bloomful.pink_wisteria_leaf_carpet": "Vaaleanpunainen sinisateenlehtimatto",
+    "block.bloomful.purple_wisteria_leaf_carpet": "Violetti sinisateenlehtimatto",
+    "block.bloomful.white_wisteria_leaf_carpet": "Valkoinen sinisateenlehtimatto",
+    
+    "block.bloomful.blue_delphinium": "Sininen ritarinkannus",
+    "block.bloomful.pink_delphinium": "Vaaleanpunainen ritarinkannus",
+    "block.bloomful.purple_delphinium": "Violetti ritarinkannus",
+    "block.bloomful.white_delphinium": "Valkoinen ritarinkannus",
+
+    "item.bloomful.butterfly_spawn_egg": "Luo perhonen",
+    "item.bloomful.bottled_butterfly": "Perhonen pullossa",
+    "item.bloomful.wisteria_boat": "Sinisadevene",
+
+    "biome.bloomful.wisteria_forest": "Sinisademetsä",
+    "biome.bloomful.wisteria_forest_hills": "Sinisademetsäkukkulat",
+
+    "entity.bloomful.butterfly": "Perhonen",
+    "entity.bloomful.boat": "Vene"
+}
