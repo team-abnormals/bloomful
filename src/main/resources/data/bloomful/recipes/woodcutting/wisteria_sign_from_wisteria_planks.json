@@ -1,0 +1,1 @@
+{"type":"minecraft:impossible","ingredient":{"item":"bloomful:wisteria_planks"},"result":"bloomful:wisteria_sign","count":1,"conditions":[{"type":"forge:mod_loaded","modid":"corail_woodcutter"}]}

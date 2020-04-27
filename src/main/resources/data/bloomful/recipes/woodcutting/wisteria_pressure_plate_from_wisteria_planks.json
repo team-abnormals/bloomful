@@ -1,0 +1,1 @@
+{"type":"corail_woodcutter:woodcutting","ingredient":{"item":"bloomful:wisteria_planks"},"result":"bloomful:wisteria_pressure_plate","count":1,"conditions":[{"type":"forge:mod_loaded","modid":"corail_woodcutter"}]}
