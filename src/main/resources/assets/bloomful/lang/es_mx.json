@@ -10,30 +10,47 @@
     "block.bloomful.wisteria_fence_gate": "Puerta de valla de glicina",
     "block.bloomful.wisteria_door": "Puerta de glicina",
     "block.bloomful.wisteria_trapdoor": "Trampilla de glicina",
-    "block.bloomful.wisteria_button": "Bot\u00f3n de glicina",
-    "block.bloomful.wisteria_pressure_plate": "Placa de presi\u00f3n de glicina",
+    "block.bloomful.wisteria_button": "Botón de glicina",
+    "block.bloomful.wisteria_pressure_plate": "Placa de presión de glicina",
     "block.bloomful.wisteria_sign": "Letrero de glicina",
+    
+    "block.bloomful.wisteria_bookshelf": "Estante de libros de glicina",
+    "block.bloomful.wisteria_ladder": "Escalera de mano de glicina",
+    "block.bloomful.vertical_wisteria_planks": "Madera vertical de glicina",
+    "block.bloomful.wisteria_vertical_slab": "Losa vertical de glicina",
+    
     "block.bloomful.blue_wisteria_leaves": "Hojas de glicina azules",
     "block.bloomful.pink_wisteria_leaves": "Hojas de glicina rosas",
     "block.bloomful.purple_wisteria_leaves": "Hojas de glicina moradas",
     "block.bloomful.white_wisteria_leaves": "Hojas de glicina blancas",
-    "block.bloomful.blue_wisteria_vine": "Lianas de glicina azules",
-    "block.bloomful.pink_wisteria_vine": "Lianas de glicina rosas",
-    "block.bloomful.purple_wisteria_vine": "Lianas de glicina moradas",
-    "block.bloomful.white_wisteria_vine": "Lianas de glicina blancas",
-    "block.bloomful.blue_wisteria_sapling": "Reto\u00f1o de glicina azul",
-    "block.bloomful.pink_wisteria_sapling": "Reto\u00f1o de glicina rosa",
-    "block.bloomful.purple_wisteria_sapling": "Reto\u00f1o de glicina morada",
-    "block.bloomful.white_wisteria_sapling": "Reto\u00f1o de glicina blanca",
+    
+    "block.bloomful.blue_hanging_wisteria_leaves": "Hojas de glicina colgantes azules",
+    "block.bloomful.pink_hanging_wisteria_leaves": "Hojas de glicina colgantes rosas",
+    "block.bloomful.purple_hanging_wisteria_leaves": "Hojas de glicina colgantes moradas",
+    "block.bloomful.white_hanging_wisteria_leaves": "Hojas de glicina colgantes blancas",
+    
+    "block.bloomful.blue_wisteria_sapling": "Retoño de glicina azul",
+    "block.bloomful.pink_wisteria_sapling": "Retoño de glicina rosa",
+    "block.bloomful.purple_wisteria_sapling": "Retoño de glicina morado",
+    "block.bloomful.white_wisteria_sapling": "Retoño de glicina blanco",
+    
+    "block.bloomful.blue_wisteria_leaf_carpet": "Alfombra de hojas de glicina azules",
+    "block.bloomful.pink_wisteria_leaf_carpet": "Alfombra de hojas de glicina rosas",
+    "block.bloomful.purple_wisteria_leaf_carpet": "Alfombra de hojas de glicina moradas",
+    "block.bloomful.white_wisteria_leaf_carpet": "Alfombra de hojas de glicina blancas",
+    
     "block.bloomful.blue_delphinium": "Delfinio azul",
     "block.bloomful.pink_delphinium": "Delfinio rosa",
     "block.bloomful.purple_delphinium": "Delfinio morado",
     "block.bloomful.white_delphinium": "Delfinio blanco",
-    "block.bloomful.wisteria_bookshelf": "Estante de libros de glicina",
-    "block.bloomful.wisteria_chest": "Cofre de glicina",
-    "block.bloomful.trapped_wisteria_chest": "Cofre trampa de glicina",
-    "block.bloomful.wisteria_ladder": "Escalera de mano de glicina",
-    "block.bloomful.vertical_wisteria_planks": "Madera vertical de glicina",
+
+    "item.bloomful.butterfly_spawn_egg": "Generar mariposa",
+    "item.bloomful.bottled_butterfly": "Frasco con mariposa",
     "item.bloomful.wisteria_boat": "Bote de glicina",
-    "biome.bloomful.wisteria_forest": "Bosque de glicinas"
+
+    "biome.bloomful.wisteria_forest": "Bosque de glicinas",
+    "biome.bloomful.wisteria_forest_hills": "Colinas de bosque de glicinas",
+
+    "entity.bloomful.butterfly": "Mariposa",
+    "entity.bloomful.boat": "Bote"
 }
