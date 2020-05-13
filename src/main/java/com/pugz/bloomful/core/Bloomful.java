@@ -1,9 +1,8 @@
 package com.pugz.bloomful.core;
 
 import com.pugz.bloomful.core.registry.BloomfulBlocks;
-import com.pugz.bloomful.core.registry.BloomfulEntities;
 import com.pugz.bloomful.core.registry.BloomfulFeatures;
-import com.pugz.bloomful.core.registry.BloomfulItems;
+import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,13 +17,16 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 @Mod("bloomful")
 public class Bloomful {
+	
+	public static final String MODID = "bloomful";
+	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MODID);
 
     public Bloomful() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         
-        BloomfulBlocks.BLOCKS.register(modEventBus);
-        BloomfulItems.ITEMS.register(modEventBus);
-        //BloomfulBiomes.BIOMES.register(modEventBus);
+
+        REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
+        REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);
         
         MinecraftForge.EVENT_BUS.register(this);
         
@@ -47,7 +49,6 @@ public class Bloomful {
     
     public void setupClient(final FMLClientSetupEvent event) {
     	BloomfulConfig.refresh();
-    	BloomfulEntities.registerRendering();
     	BloomfulBlocks.setupRenderLayer();
     }
 
