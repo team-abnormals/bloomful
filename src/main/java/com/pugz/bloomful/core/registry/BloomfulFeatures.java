@@ -17,8 +17,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 @Mod.EventBusSubscriber(modid = "bloomful", bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BloomfulFeatures {
-    public static Feature<TreeFeatureConfig> WISTERIA_TREE = new WisteriaTreeFeature(TreeFeatureConfig::func_227338_a_);
-    public static Feature<TreeFeatureConfig> BIG_WISTERIA_TREE = new BigWisteriaTreeFeature(TreeFeatureConfig::func_227338_a_);
+    public static final Feature<TreeFeatureConfig> WISTERIA_TREE = new WisteriaTreeFeature(TreeFeatureConfig::func_227338_a_);
+    public static final Feature<TreeFeatureConfig> BIG_WISTERIA_TREE = new BigWisteriaTreeFeature(TreeFeatureConfig::func_227338_a_);
 
     @SubscribeEvent
     public static void registerFeatures(RegistryEvent.Register<Feature<?>> event) {
@@ -40,7 +40,7 @@ public class BloomfulFeatures {
                 BiomeFeatures.addWisteriaTreesBeehive(biome, 2, 0.01F, false);
             }
         }
-    	if (BloomfulConfig.generateWisterias) {
+    	if (BloomfulConfig.ValuesHolder.generateWisterias()) {
 	        if (biome.getCategory() == Biome.Category.JUNGLE) {
 	            BiomeFeatures.addWisteriaTree(biome, WisteriaColor.PINK, 0, 0.1F, true);
 	        }

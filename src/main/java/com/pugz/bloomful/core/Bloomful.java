@@ -30,33 +30,27 @@ public class Bloomful {
         
         MinecraftForge.EVENT_BUS.register(this);
         
-        modEventBus.addListener(this::modConfig);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BloomfulConfig.SERVER_SPEC);
+        modEventBus.addListener((ModConfig.ModConfigEvent event) -> {
+			final ModConfig config = event.getConfig();
+			if(config.getSpec() == BloomfulConfig.COMMON_SPEC) {
+				BloomfulConfig.ValuesHolder.updateCommonValuesFromConfig(config);
+			}
+		});
         
         modEventBus.addListener(this::setupCommon);
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> {
         	modEventBus.addListener(this::setupClient);
         });
+        
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BloomfulConfig.COMMON_SPEC);
     }
     
-    public void modConfig(final ModConfig.ModConfigEvent event)
-	{
-		ModConfig config = event.getConfig();
-		if (config.getSpec() == BloomfulConfig.SERVER_SPEC)
-			BloomfulConfig.refresh();
-	}
-    
-    
     public void setupClient(final FMLClientSetupEvent event) {
-    	BloomfulConfig.refresh();
     	BloomfulBlocks.setupRenderLayer();
     }
 
     public void setupCommon(final FMLCommonSetupEvent event) {
-    	BloomfulConfig.refresh();
         BloomfulBlocks.registerBlockData();
-        //BloomfulBiomes.registerBiomesToDictionary();
         BloomfulFeatures.generateFeatures();
-        //EntityRegistry.registerSpawns();
     }
 }
