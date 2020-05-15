@@ -16,9 +16,9 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = '1.3.2'
+version = 'v1.4.0'
 group = 'com.pugz.bloomful' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'bloomful-1.15.2'
+archivesBaseName = 'Bloomful-1.15.2'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
