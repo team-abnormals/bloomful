@@ -9,6 +9,7 @@ import com.pugz.bloomful.core.Bloomful;
 import com.pugz.bloomful.core.util.BlockProperties;
 import com.pugz.bloomful.core.util.WisteriaColor;
 import com.teamabnormals.abnormals_core.common.blocks.AbnormalsLadderBlock;
+import com.teamabnormals.abnormals_core.common.blocks.AbnormalsTallFlowerBlock;
 import com.teamabnormals.abnormals_core.common.blocks.BookshelfBlock;
 import com.teamabnormals.abnormals_core.common.blocks.LeafCarpetBlock;
 import com.teamabnormals.abnormals_core.common.blocks.VerticalSlabBlock;
@@ -37,7 +38,6 @@ import net.minecraft.block.FireBlock;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.TallFlowerBlock;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.renderer.RenderType;
@@ -82,10 +82,10 @@ public class BloomfulBlocks {
     public static final RegistryObject<Block> WISTERIA_DOOR 				= HELPER.createBlock("wisteria_door", () -> new WoodDoorBlock(BlockProperties.WISTERIA_DOORS), ItemGroup.REDSTONE);
     public static final RegistryObject<Block> WISTERIA_PRESSURE_PLATE 		= HELPER.createBlock("wisteria_pressure_plate", () -> new WoodPressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, Block.Properties.create(Material.WOOD, MaterialColor.WHITE_TERRACOTTA).doesNotBlockMovement().hardnessAndResistance(0.5F).sound(SoundType.WOOD)), ItemGroup.REDSTONE);
     public static final RegistryObject<Block> WISTERIA_BUTTON 				= HELPER.createBlock("wisteria_button", () -> new AbnormalsWoodButtonBlock(BlockProperties.WOOD_BUTTON), ItemGroup.REDSTONE);
-    public static final RegistryObject<Block> PINK_DELPHINIUM 				= HELPER.createBlock("pink_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
-    public static final RegistryObject<Block> BLUE_DELPHINIUM 				= HELPER.createBlock("blue_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
-    public static final RegistryObject<Block> PURPLE_DELPHINIUM 			= HELPER.createBlock("purple_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
-    public static final RegistryObject<Block> WHITE_DELPHINIUM 				= HELPER.createBlock("white_delphinium", () -> new TallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PINK_DELPHINIUM 				= HELPER.createBlock("pink_delphinium", () -> new AbnormalsTallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> BLUE_DELPHINIUM 				= HELPER.createBlock("blue_delphinium", () -> new AbnormalsTallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> PURPLE_DELPHINIUM 			= HELPER.createBlock("purple_delphinium", () -> new AbnormalsTallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
+    public static final RegistryObject<Block> WHITE_DELPHINIUM 				= HELPER.createBlock("white_delphinium", () -> new AbnormalsTallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
     public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> WISTERIA_SIGN = HELPER.createSignBlock("wisteria", MaterialColor.WHITE_TERRACOTTA);
 
     //quark
