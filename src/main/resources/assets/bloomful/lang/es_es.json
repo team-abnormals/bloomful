@@ -1,8 +1,8 @@
 {
     "block.bloomful.wisteria_log": "Tronco de glicina",
     "block.bloomful.stripped_wisteria_log": "Tronco de glicina sin corteza",
-    "block.bloomful.wisteria_wood": "Tronco de glicina",
-    "block.bloomful.stripped_wisteria_wood": "Madera de glicina sin corteza",
+    "block.bloomful.wisteria_wood": "Leño de glicina",
+    "block.bloomful.stripped_wisteria_wood": "Leño de glicina sin corteza",
     "block.bloomful.wisteria_planks": "Madera de glicina",
     "block.bloomful.wisteria_stairs": "Escaleras de glicina",
     "block.bloomful.wisteria_slab": "Losa de glicina",
@@ -45,12 +45,11 @@
     "block.bloomful.white_delphinium": "Delfinio blanco",
 
     "item.bloomful.butterfly_spawn_egg": "Generar mariposa",
-    "item.bloomful.bottled_butterfly": "Frasco con mariposa",
+    "item.bloomful.bottled_butterfly": "Mariposa en un frasco",
     "item.bloomful.wisteria_boat": "Barca de glicina",
 
     "biome.bloomful.wisteria_forest": "Bosque de glicinas",
     "biome.bloomful.wisteria_forest_hills": "Colinas de bosque de glicinas",
 
-    "entity.bloomful.butterfly": "Mariposa",
-    "entity.bloomful.boat": "Barca"
+    "entity.bloomful.butterfly": "Mariposa"
 }
