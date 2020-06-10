@@ -7,6 +7,7 @@ import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -15,7 +16,8 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod("bloomful")
+@SuppressWarnings("deprecation")
+@Mod(Bloomful.MODID)
 public class Bloomful {
 	
 	public static final String MODID = "bloomful";
@@ -50,7 +52,10 @@ public class Bloomful {
     }
 
     public void setupCommon(final FMLCommonSetupEvent event) {
-        BloomfulBlocks.registerBlockData();
-        BloomfulFeatures.generateFeatures();
+    	DeferredWorkQueue.runLater(() -> {
+    		BloomfulBlocks.registerCompostables();
+    		BloomfulBlocks.registerFlammables();
+    		BloomfulFeatures.generateFeatures();
+    	});
     }
 }

@@ -1,6 +1,5 @@
 package com.pugz.bloomful.core.registry;
 
-import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
 import com.pugz.bloomful.common.block.HangingWisteriaLeavesBlock;
 import com.pugz.bloomful.common.block.WisteriaLeavesBlock;
@@ -29,12 +28,10 @@ import com.teamabnormals.abnormals_core.common.blocks.wood.WoodPressurePlateBloc
 import com.teamabnormals.abnormals_core.common.blocks.wood.WoodSlabBlock;
 import com.teamabnormals.abnormals_core.common.blocks.wood.WoodStairsBlock;
 import com.teamabnormals.abnormals_core.common.blocks.wood.WoodTrapDoorBlock;
+import com.teamabnormals.abnormals_core.core.utils.DataUtils;
 import com.teamabnormals.abnormals_core.core.utils.RegistryHelper;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.ComposterBlock;
-import net.minecraft.block.FireBlock;
 import net.minecraft.block.FlowerPotBlock;
 import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SoundType;
@@ -42,9 +39,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemGroup;
-import net.minecraft.util.IItemProvider;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 
@@ -88,7 +83,6 @@ public class BloomfulBlocks {
     public static final RegistryObject<Block> WHITE_DELPHINIUM 				= HELPER.createBlock("white_delphinium", () -> new AbnormalsTallFlowerBlock(BlockProperties.DELPHINIUMS), ItemGroup.DECORATIONS);
     public static final Pair<RegistryObject<AbnormalsStandingSignBlock>, RegistryObject<AbnormalsWallSignBlock>> WISTERIA_SIGN = HELPER.createSignBlock("wisteria", MaterialColor.WHITE_TERRACOTTA);
 
-    //quark
     public static final RegistryObject<Block> WISTERIA_BOOKSHELF 			= HELPER.createCompatBlock("quark", "wisteria_bookshelf", () -> new BookshelfBlock(BlockProperties.BOOKSHELF), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WISTERIA_LADDER 				= HELPER.createCompatBlock("quark", "wisteria_ladder", () -> new AbnormalsLadderBlock(BlockProperties.LADDER), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> VERTICAL_WISTERIA_PLANKS 		= HELPER.createCompatBlock("quark", "vertical_wisteria_planks", () -> new Block(BlockProperties.WISTERIA_PLANKS), ItemGroup.BUILDING_BLOCKS);
@@ -98,67 +92,62 @@ public class BloomfulBlocks {
     public static final RegistryObject<Block> PURPLE_WISTERIA_LEAF_CARPET 	= HELPER.createCompatBlock("quark", "purple_wisteria_leaf_carpet", () -> new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.PURPLE)), ItemGroup.DECORATIONS);
     public static final RegistryObject<Block> WHITE_WISTERIA_LEAF_CARPET 	= HELPER.createCompatBlock("quark", "white_wisteria_leaf_carpet", () -> new LeafCarpetBlock(BlockProperties.WISTERIA_LEAVES(MaterialColor.SNOW)), ItemGroup.DECORATIONS);
 
-    public static void registerBlockData() {
-        //compostable blocks
-        registerCompostable(BLUE_DELPHINIUM.get(),0.75F);
-        registerCompostable(WHITE_DELPHINIUM.get(),0.75F);
-        registerCompostable(PINK_DELPHINIUM.get(),0.75F);
-        registerCompostable(PURPLE_DELPHINIUM.get(),0.75F);
-        registerCompostable(BLUE_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(WHITE_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(PINK_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(PURPLE_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(BLUE_HANGING_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(WHITE_HANGING_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(PINK_HANGING_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(PURPLE_HANGING_WISTERIA_LEAVES.get(),0.35F);
-        registerCompostable(BLUE_WISTERIA_SAPLING.get(),0.35F);
-        registerCompostable(WHITE_WISTERIA_SAPLING.get(),0.35F);
-        registerCompostable(PINK_WISTERIA_SAPLING.get(),0.35F);
-        registerCompostable(PURPLE_WISTERIA_SAPLING.get(),0.35F);
-        registerCompostable(BLUE_WISTERIA_LEAF_CARPET.get(),0.35F);
-        registerCompostable(WHITE_WISTERIA_LEAF_CARPET.get(),0.35F);
-        registerCompostable(PINK_WISTERIA_LEAF_CARPET.get(),0.35F);
-        registerCompostable(PURPLE_WISTERIA_LEAF_CARPET.get(),0.35F);
-
-        //strippable blocks
-        registerStrippable(WISTERIA_LOG.get(), STRIPPED_WISTERIA_LOG.get());
-        registerStrippable(WISTERIA_WOOD.get(), STRIPPED_WISTERIA_WOOD.get());
-
-        //flammable blocks
-        registerFlammable(BLUE_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(WHITE_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(PINK_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(PURPLE_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(BLUE_HANGING_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(WHITE_HANGING_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(PINK_HANGING_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(PURPLE_HANGING_WISTERIA_LEAVES.get(), 30, 60);
-        registerFlammable(WISTERIA_LOG.get(), 5, 5);
-        registerFlammable(WISTERIA_WOOD.get(), 5, 5);
-        registerFlammable(STRIPPED_WISTERIA_LOG.get(), 5, 5);
-        registerFlammable(STRIPPED_WISTERIA_WOOD.get(), 5, 5);
-        registerFlammable(WISTERIA_PLANKS.get(), 5, 20);
-        registerFlammable(WISTERIA_SLAB.get(), 5, 20);
-        registerFlammable(WISTERIA_STAIRS.get(), 5, 20);
-        registerFlammable(WISTERIA_FENCE.get(), 5, 20);
-        registerFlammable(WISTERIA_FENCE_GATE.get(), 5, 20);
-        registerFlammable(BLUE_DELPHINIUM.get(), 60, 100);
-        registerFlammable(WHITE_DELPHINIUM.get(), 60, 100);
-        registerFlammable(PINK_DELPHINIUM.get(), 60, 100);
-        registerFlammable(PURPLE_DELPHINIUM.get(), 60, 100);
-        registerFlammable(VERTICAL_WISTERIA_PLANKS.get(), 5, 20);
-        registerFlammable(BLUE_WISTERIA_LEAF_CARPET.get(), 30, 60);
-        registerFlammable(WHITE_WISTERIA_LEAF_CARPET.get(), 30, 60);
-        registerFlammable(PINK_WISTERIA_LEAF_CARPET.get(), 30, 60);
-        registerFlammable(PURPLE_WISTERIA_LEAF_CARPET.get(), 30, 60);
-        registerFlammable(WISTERIA_VERTICAL_SLAB.get(), 5, 20);
-        registerFlammable(WISTERIA_BOOKSHELF.get(), 5, 20);
+    public static void registerCompostables() {
+        DataUtils.registerCompostable(0.75F,BLUE_DELPHINIUM.get());
+        DataUtils.registerCompostable(0.75F,WHITE_DELPHINIUM.get());
+        DataUtils.registerCompostable(0.75F,PINK_DELPHINIUM.get());
+        DataUtils.registerCompostable(0.75F,PURPLE_DELPHINIUM.get());
+        DataUtils.registerCompostable(0.35F,BLUE_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,WHITE_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,PINK_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,PURPLE_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,BLUE_HANGING_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,WHITE_HANGING_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,PINK_HANGING_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,PURPLE_HANGING_WISTERIA_LEAVES.get());
+        DataUtils.registerCompostable(0.35F,BLUE_WISTERIA_SAPLING.get());
+        DataUtils.registerCompostable(0.35F,WHITE_WISTERIA_SAPLING.get());
+        DataUtils.registerCompostable(0.35F,PINK_WISTERIA_SAPLING.get());
+        DataUtils.registerCompostable(0.35F,PURPLE_WISTERIA_SAPLING.get());
+        DataUtils.registerCompostable(0.35F,BLUE_WISTERIA_LEAF_CARPET.get());
+        DataUtils.registerCompostable(0.35F,WHITE_WISTERIA_LEAF_CARPET.get());
+        DataUtils.registerCompostable(0.35F,PINK_WISTERIA_LEAF_CARPET.get());
+        DataUtils.registerCompostable(0.35F,PURPLE_WISTERIA_LEAF_CARPET.get());
+    }
+    
+    public static void registerFlammables() {
+        DataUtils.registerFlammable(BLUE_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(WHITE_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(PINK_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(PURPLE_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(BLUE_HANGING_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(WHITE_HANGING_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(PINK_HANGING_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(PURPLE_HANGING_WISTERIA_LEAVES.get(), 30, 60);
+        DataUtils.registerFlammable(WISTERIA_LOG.get(), 5, 5);
+        DataUtils.registerFlammable(WISTERIA_WOOD.get(), 5, 5);
+        DataUtils.registerFlammable(STRIPPED_WISTERIA_LOG.get(), 5, 5);
+        DataUtils.registerFlammable(STRIPPED_WISTERIA_WOOD.get(), 5, 5);
+        DataUtils.registerFlammable(WISTERIA_PLANKS.get(), 5, 20);
+        DataUtils.registerFlammable(WISTERIA_SLAB.get(), 5, 20);
+        DataUtils.registerFlammable(WISTERIA_STAIRS.get(), 5, 20);
+        DataUtils.registerFlammable(WISTERIA_FENCE.get(), 5, 20);
+        DataUtils.registerFlammable(WISTERIA_FENCE_GATE.get(), 5, 20);
+        DataUtils.registerFlammable(BLUE_DELPHINIUM.get(), 60, 100);
+        DataUtils.registerFlammable(WHITE_DELPHINIUM.get(), 60, 100);
+        DataUtils.registerFlammable(PINK_DELPHINIUM.get(), 60, 100);
+        DataUtils.registerFlammable(PURPLE_DELPHINIUM.get(), 60, 100);
+        DataUtils.registerFlammable(VERTICAL_WISTERIA_PLANKS.get(), 5, 20);
+        DataUtils.registerFlammable(BLUE_WISTERIA_LEAF_CARPET.get(), 30, 60);
+        DataUtils.registerFlammable(WHITE_WISTERIA_LEAF_CARPET.get(), 30, 60);
+        DataUtils.registerFlammable(PINK_WISTERIA_LEAF_CARPET.get(), 30, 60);
+        DataUtils.registerFlammable(PURPLE_WISTERIA_LEAF_CARPET.get(), 30, 60);
+        DataUtils.registerFlammable(WISTERIA_VERTICAL_SLAB.get(), 5, 20);
+        DataUtils.registerFlammable(WISTERIA_BOOKSHELF.get(), 5, 20);
     }
     
     public static void setupRenderLayer()
 	{
-		//Doors and Trapdoors
     	RenderTypeLookup.setRenderLayer(WISTERIA_DOOR.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(WISTERIA_TRAPDOOR.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(WISTERIA_LADDER.get(),RenderType.getCutoutMipped());
@@ -183,30 +172,14 @@ public class BloomfulBlocks {
 		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
 		
-		//Flowers
 		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		
-		//Potted Flowers
 		RenderTypeLookup.setRenderLayer(POTTED_WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(POTTED_BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(POTTED_PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
 	}
-
-    public static void registerFlammable(Block block, int encouragement, int flammability) {
-        FireBlock fire = (FireBlock) Blocks.FIRE;
-        fire.setFireInfo(block, encouragement, flammability);
-    }
-
-    public static void registerCompostable(IItemProvider item, float chance) {
-        ComposterBlock.CHANCES.put(item.asItem(), chance);
-    }
-
-    public static void registerStrippable(Block log, Block stripped) {
-        AxeItem.BLOCK_STRIPPING_MAP = Maps.newHashMap(AxeItem.BLOCK_STRIPPING_MAP);
-        AxeItem.BLOCK_STRIPPING_MAP.put(log, stripped);
-    }
 }
