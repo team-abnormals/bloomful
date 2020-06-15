@@ -46,16 +46,18 @@ public class Bloomful {
         
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, BloomfulConfig.COMMON_SPEC);
     }
-    
-    public void setupClient(final FMLClientSetupEvent event) {
-    	BloomfulBlocks.setupRenderLayer();
-    }
 
     public void setupCommon(final FMLCommonSetupEvent event) {
     	DeferredWorkQueue.runLater(() -> {
     		BloomfulBlocks.registerCompostables();
     		BloomfulBlocks.registerFlammables();
     		BloomfulFeatures.generateFeatures();
+    	});
+    }
+    
+    public void setupClient(final FMLClientSetupEvent event) {
+    	DeferredWorkQueue.runLater(() -> {
+    		BloomfulBlocks.setupRenderLayer();
     	});
     }
 }
