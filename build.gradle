@@ -16,7 +16,7 @@ apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = 'v1.4.0'
+version = '1.4.1'
 group = 'com.pugz.bloomful' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'Bloomful-1.15.2'
 

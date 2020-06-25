@@ -25,7 +25,6 @@ public class Bloomful {
 
     public Bloomful() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        
 
         REGISTRY_HELPER.getDeferredBlockRegister().register(modEventBus);
         REGISTRY_HELPER.getDeferredItemRegister().register(modEventBus);

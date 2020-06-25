@@ -1,7 +1,7 @@
 modLoader="javafml"
 loaderVersion="[31,]"
 logoFile="logo.png"
-authors="bageldotjpg, Pugz, and Endergized"
+authors="bageldotjpg, Pugz, Farcr, and Endergized"
 credits="Josh, Bratistolf, Rohan, Arobazz, jöllipölli, qsefthuopq, and Dolores_McDoodle"
 
 [[mods]]
@@ -15,7 +15,7 @@ See Flower Forests in full bloom!
 [[dependencies.bloomful]]
     modId="forge"
     mandatory=true
-    versionRange="[31.1.49,)"
+    versionRange="[31.1.46,)"
     ordering="NONE"
     side="BOTH"
 
@@ -29,6 +29,6 @@ See Flower Forests in full bloom!
 [[dependencies.bloomful]]
     modId="abnormals_core"
     mandatory=true
-    versionRange="[1.0.4,)"
+    versionRange="[1.0.6,)"
     ordering="AFTER"
     side="BOTH"
