@@ -1,13 +1,17 @@
 package com.pugz.bloomful.core.util;
 
+import com.pugz.bloomful.common.block.HangingWisteriaLeavesBlock;
+import com.pugz.bloomful.core.Bloomful;
 import com.pugz.bloomful.core.registry.BloomfulBlocks;
 import com.teamabnormals.abnormals_core.core.utils.TradeUtils;
 
+import net.minecraft.item.Items;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-@Mod.EventBusSubscriber(modid = "bloomful")
+@Mod.EventBusSubscriber(modid = Bloomful.MODID)
 public class EventHandler {
 	
     @SubscribeEvent
@@ -22,6 +26,11 @@ public class EventHandler {
         event.getGenericTrades().add(new TradeUtils.ItemsForEmeraldsTrade(BloomfulBlocks.WHITE_DELPHINIUM.get(), 2, 1, 6, 1));
     }
 
+    @SubscribeEvent
+    public static void onEntityInteract(PlayerEvent.BreakSpeed event) {
+        if (event.getState().getBlock() instanceof HangingWisteriaLeavesBlock && event.getPlayer().getHeldItemMainhand().getItem() == Items.SHEARS) event.setNewSpeed(15.0F);
+    }
+    
     /*
     @SubscribeEvent
     public static void onEntityInteract(PlayerInteractEvent.EntityInteract event) {
