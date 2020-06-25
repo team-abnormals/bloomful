@@ -19,9 +19,9 @@ public class BloomfulConfig {
 			.push("common");
 			
 			generateExternalWisterias = builder
-				.comment("If Wisteria Trees generate outside of the Wisteria Forest; Default: True")
+				.comment("If Wisteria Trees generate outside of the Wisteria Forest; Default: False")
 				.translation(makeTranslation("generate_external_wisterias"))
-				.define("generateExternalWisterias", true);
+				.define("generateExternalWisterias", false);
 			
 			builder.pop();
 		}
