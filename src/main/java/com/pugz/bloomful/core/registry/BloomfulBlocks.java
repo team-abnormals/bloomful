@@ -37,6 +37,7 @@ import net.minecraft.block.PressurePlateBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.item.ItemGroup;
@@ -146,40 +147,41 @@ public class BloomfulBlocks {
         DataUtils.registerFlammable(WISTERIA_BOOKSHELF.get(), 5, 20);
     }
     
-    public static void setupRenderLayer()
-	{
-    	RenderTypeLookup.setRenderLayer(WISTERIA_DOOR.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(WISTERIA_TRAPDOOR.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(WISTERIA_LADDER.get(),RenderType.getCutoutMipped());
+    public static void setupRenderLayer() {
+		boolean fancy = Minecraft.isFancyGraphicsEnabled();
+    	
+    	RenderTypeLookup.setRenderLayer(WISTERIA_DOOR.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WISTERIA_TRAPDOOR.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WISTERIA_LADDER.get(), RenderType.getCutoutMipped());
 		
-		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
 		
-		RenderTypeLookup.setRenderLayer(WHITE_DELPHINIUM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_DELPHINIUM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_DELPHINIUM.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_DELPHINIUM.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_DELPHINIUM.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_DELPHINIUM.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_DELPHINIUM.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_DELPHINIUM.get(), RenderType.getCutoutMipped());
 		
-		RenderTypeLookup.setRenderLayer(WHITE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_HANGING_WISTERIA_LEAVES.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_HANGING_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
+		RenderTypeLookup.setRenderLayer(BLUE_HANGING_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
+		RenderTypeLookup.setRenderLayer(PINK_HANGING_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
+		RenderTypeLookup.setRenderLayer(PURPLE_HANGING_WISTERIA_LEAVES.get(), fancy ? RenderType.getCutoutMipped() : RenderType.getSolid());
 
-		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAF_CARPET.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_LEAF_CARPET.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_LEAF_CARPET.get(), RenderType.getCutoutMipped());
 		
-		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(WHITE_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(BLUE_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PINK_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(PURPLE_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
 		
-		RenderTypeLookup.setRenderLayer(POTTED_WHITE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(POTTED_BLUE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(POTTED_PINK_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
-		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_WISTERIA_SAPLING.get(),RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_WHITE_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_BLUE_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_PINK_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
+		RenderTypeLookup.setRenderLayer(POTTED_PURPLE_WISTERIA_SAPLING.get(), RenderType.getCutoutMipped());
 	}
 }
