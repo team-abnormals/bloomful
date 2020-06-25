@@ -2,17 +2,17 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "bloomful:wisteria_vertical_slab"
+      "item": "bloomful:vertical_wisteria_planks"
     }
   ],
   "result": {
-    "item": "bloomful:wisteria_slab",
+    "item": "bloomful:wisteria_planks",
     "count": 1
   },
   "conditions": [
     {
       "type": "abnormals_core:quark_flag",
-      "flag": "vertical_slabs"
+      "flag": "vertical_planks"
     }
   ]
 }
