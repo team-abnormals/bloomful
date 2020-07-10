@@ -1,23 +1,23 @@
 {
     "block.bloomful.wisteria_log": "Log o' Pretty Wood",
-    "block.bloomful.stripped_wisteria_log": "Bare Prrretty Wood Timber",
-    "block.bloomful.wisteria_wood": "Prretty Wood",
+    "block.bloomful.stripped_wisteria_log": "Bare Pretty Wood Timber",
+    "block.bloomful.wisteria_wood": "Pretty Timber",
     "block.bloomful.stripped_wisteria_wood": "Bare Prretty Wood",
     "block.bloomful.wisteria_planks": "Planks o' Pretty Wood",
     "block.bloomful.wisteria_stairs": "Stairs o' Pretty Wood",
-    "block.bloomful.wisteria_slab": "Slab o' Prrretty Wood",
-    "block.bloomful.wisteria_fence": "Picket o' Prrretty Wood Timber",
-    "block.bloomful.wisteria_fence_gate": "Picket Gate o' Prretty Wood Timber",
+    "block.bloomful.wisteria_slab": "Slab o' Pretty Wood",
+    "block.bloomful.wisteria_fence": "Picket o' Pretty Wood Timber",
+    "block.bloomful.wisteria_fence_gate": "Picket Gate o' Pretty Wood Timber",
     "block.bloomful.wisteria_door": "Door o' Pretty Wood",
     "block.bloomful.wisteria_trapdoor": "Hatch o' Pretty Wood",
-    "block.bloomful.wisteria_button": "Knob o' Prretty Wood",
+    "block.bloomful.wisteria_button": "Knob o' Pretty Wood",
     "block.bloomful.wisteria_pressure_plate": "Pretty Wood Booby Trap",
-    "block.bloomful.wisteria_sign": "Seal ov Pretty Wood",
+    "block.bloomful.wisteria_sign": "Seal o' Pretty Wood",
     
     "block.bloomful.wisteria_bookshelf": "Pretty Wood Shelv o' Knowledge",
-    "block.bloomful.wisteria_ladder": "Prretty Wood Climbin' Planks",
-    "block.bloomful.vertical_wisteria_planks": "Planks o' Pretty Wood be standin'",
-    "block.bloomful.wisteria_vertical_slab": "Standin' Slab o' Prrrety Wood",
+    "block.bloomful.wisteria_ladder": "Climbin'' Planks o'' Pretty Wood",
+    "block.bloomful.vertical_wisteria_planks": "Standin'' Planks o'' Pretty Wood",
+    "block.bloomful.wisteria_vertical_slab": "Standin'' Slab o'' Prrrety Wood",
     
     "block.bloomful.blue_wisteria_leaves": "Blue Flowarrr Leaves",
     "block.bloomful.pink_wisteria_leaves": "Pink Flowarrrr Leaves",
@@ -39,17 +39,17 @@
     "block.bloomful.purple_wisteria_leaf_carpet": "Fallen Purple Flowarrr Leaves",
     "block.bloomful.white_wisteria_leaf_carpet": "Fallen White Flowar Leaves",
     
-    "block.bloomful.blue_delphinium": "Blue Pretty Flower",
-    "block.bloomful.pink_delphinium": "Prettiest Flower o' the Valley",
-    "block.bloomful.purple_delphinium": "Purple Pretty Flower",
-    "block.bloomful.white_delphinium": "White Pretty Flowarr",
+    "block.bloomful.blue_delphinium": "Cat Tails o' Blue",
+    "block.bloomful.pink_delphinium": "Flower o' the Valley",
+    "block.bloomful.purple_delphinium": "Flower o' Legends",
+    "block.bloomful.white_delphinium": "Flower o' Cotton",
 
     "item.bloomful.butterfly_spawn_egg": "Flutter Bug Cackle Fruit",
     "item.bloomful.bottled_butterfly": "Bottle o' Flutter Bug",
     "item.bloomful.wisteria_boat": "Finest Vessel o' the Sea",
 
     "biome.bloomful.wisteria_forest": "Grove o' Pretty Wood",
-    "biome.bloomful.wisteria_forest_hills": "Hilled Grove o' Pretty Wood",
+    "biome.bloomful.wisteria_forest_hills": "Grove o' Pretty Wood 'ills",
 
     "entity.bloomful.butterfly": "Flutter Bug"
 }
