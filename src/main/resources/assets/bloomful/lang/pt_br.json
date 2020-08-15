@@ -1,0 +1,55 @@
+{
+    "block.bloomful.wisteria_log": "Tronco de glicínia",
+    "block.bloomful.stripped_wisteria_log": "Tronco de glicínia descascado",
+    "block.bloomful.wisteria_wood": "Madeira de glicínia",
+    "block.bloomful.stripped_wisteria_wood": "Madeira de glicínia descascada",
+    "block.bloomful.wisteria_planks": "Tábuas de glicínia",
+    "block.bloomful.wisteria_stairs": "Escadas de glicínia",
+    "block.bloomful.wisteria_slab": "Laje de glicínia",
+    "block.bloomful.wisteria_fence": "Cerca de glicínia",
+    "block.bloomful.wisteria_fence_gate": "Portão de glicínia",
+    "block.bloomful.wisteria_door": "Porta de glicínia",
+    "block.bloomful.wisteria_trapdoor": "Alçapão de glicínia",
+    "block.bloomful.wisteria_button": "Botão de glicínia",
+    "block.bloomful.wisteria_pressure_plate": "Placa de pressão de glicínia",
+    "block.bloomful.wisteria_sign": "Placa de glicínia",
+    
+    "block.bloomful.wisteria_bookshelf": "Estante de livros de glicínia",
+    "block.bloomful.wisteria_ladder": "Escada de mão de glicínia",
+    "block.bloomful.vertical_wisteria_planks": "Tábuas de glicínia verticais",
+    "block.bloomful.wisteria_vertical_slab": "Laje vertical de glicínia",
+    
+    "block.bloomful.blue_wisteria_leaves": "Folhas de glicínia azuis",
+    "block.bloomful.pink_wisteria_leaves": "Folhas de glicínia rosa",
+    "block.bloomful.purple_wisteria_leaves": "Folhas de glicínia roxas",
+    "block.bloomful.white_wisteria_leaves": "Folhas de glicínia brancas",
+    
+    "block.bloomful.blue_hanging_wisteria_leaves": "Folhas de glicínia azuis suspensas",
+    "block.bloomful.pink_hanging_wisteria_leaves": "Folhas de glicínia rosa suspensas",
+    "block.bloomful.purple_hanging_wisteria_leaves": "Folhas de glicínia roxas suspensas",
+    "block.bloomful.white_hanging_wisteria_leaves": "Folhas de glicínia brancas suspensas",
+    
+    "block.bloomful.blue_wisteria_sapling": "Muda de glicínia azul",
+    "block.bloomful.pink_wisteria_sapling": "Muda de glicínia rosa",
+    "block.bloomful.purple_wisteria_sapling": "Muda de glicínia roxa",
+    "block.bloomful.white_wisteria_sapling": "Muda de glicínia branca",
+
+    "block.bloomful.blue_wisteria_leaf_carpet": "Tapete de folhas de glicínia azul",
+    "block.bloomful.pink_wisteria_leaf_carpet": "Tapete de folhas de glicínia rosa",
+    "block.bloomful.purple_wisteria_leaf_carpet": "Tapete de folhas de glicínia roxa",
+    "block.bloomful.white_wisteria_leaf_carpet": "Tapete de folhas de glicínia branca",
+    
+    "block.bloomful.blue_delphinium": "Delfínio azul",
+    "block.bloomful.pink_delphinium": "Delfínio rosa",
+    "block.bloomful.purple_delphinium": "Delfínio roxo",
+    "block.bloomful.white_delphinium": "Delfínio branco",
+
+    "item.bloomful.butterfly_spawn_egg": "Ovo gerador de borboleta",
+    "item.bloomful.bottled_butterfly": "Borboleta engarrafada",
+    "item.bloomful.wisteria_boat": "Bote de glicínia",
+
+    "biome.bloomful.wisteria_forest": "Floresta de glicínia",
+    "biome.bloomful.wisteria_forest_hills": "Colinas da floresta de glicínia",
+
+    "entity.bloomful.butterfly": "Borboleta",
+}
